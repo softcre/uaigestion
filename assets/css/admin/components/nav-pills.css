@@ -1,0 +1,21 @@
+.nav-pills .nav-link {
+  border-radius: 0.25rem;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #ffffff;
+  background-color: #28a745;
+}
+
+.nav-pills .nav-link {
+  color: #6c757d;
+}
+
+.nav-pills .nav-link:not(.active):hover {
+  color: #28a745;
+}
+
+.nav-pills .nav-item.dropdown.show .nav-link:hover {
+  color: #ffffff;
+}
