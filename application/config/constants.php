@@ -92,9 +92,18 @@ define('APP_NAME', 'UAI GESTIÓN');
 // RUTAS
 define('ADMIN_PATH', 'sc-admin');
 define('DASHBOARD_PATH', ADMIN_PATH . '/dashboard');
+define('AREAS_AUDITADAS_PATH', ADMIN_PATH . '/areas-auditadas');
+define('OBSERVACIONES_PATH', ADMIN_PATH . '/observaciones');
+define('OBSERVACION_NUEVA_PATH',  OBSERVACIONES_PATH . '/nueva');
 define('PERFIL_PATH', ADMIN_PATH . '/perfil');
 
 // MODEL
+define('AREAS_AUDITADAS_MODEL', 'admin/AreasAuditadas_model');
+define('ESTADOS_MODEL', 'admin/Estados_model');
+define('IMPACTOS_MODEL', 'admin/Impactos_model');
+define('OBSERVACIONES_MODEL', 'admin/Observaciones_model');
+define('PLANES_MODEL', 'admin/Planes_model');
+define('UNIDADES_ACADEMICAS_MODEL', 'admin/UnidadesAcademicas_model');
 define('USUARIOS_MODEL', 'admin/Usuarios_model');
 
 // IMAGEN DEFAULTS

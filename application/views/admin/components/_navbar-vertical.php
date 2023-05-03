@@ -18,23 +18,23 @@
 					</a>
 				</li>
 				<li class="nav-header">GESTIÓN</li>
-				<li class="nav-item <?= ($desplegado == 'ope') ? 'menu-is-opening menu-open' : ''; ?>">
-					<a href="#" class="nav-link <?= ($desplegado == 'ope') ? 'active' : ''; ?>">
+				<li class="nav-item <?= ($desplegado == 'obs') ? 'menu-is-opening menu-open' : ''; ?>">
+					<a href="#" class="nav-link <?= ($desplegado == 'obs') ? 'active' : ''; ?>">
 						<i class="nav-icon fas fa-binoculars"></i>
 						<p>
-							Operaciones
+							Observaciones
 							<i class="right fas fa-angle-left"></i>
 						</p>
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a href="<?= base_url(); ?>" class="nav-link <?= ($act == 'nue_ope') ? 'active' : '' ?>">
+							<a href="<?= base_url(OBSERVACION_NUEVA_PATH); ?>" class="nav-link <?= ($act == 'nue_obs') ? 'active' : '' ?>">
 								<i class="nav-icon fas fa-plus"></i>
 								<p>Nueva</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?= base_url('/pagina'); ?>" class="nav-link <?= ($act == 'list_ope') ? 'active' : '' ?>">
+							<a href="<?= base_url(OBSERVACIONES_PATH); ?>" class="nav-link <?= ($act == 'list_obs') ? 'active' : '' ?>">
 								<i class="nav-icon fas fa-list-ul"></i>
 								<p>Listado</p>
 							</a>

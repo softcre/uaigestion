@@ -1,3 +1,5 @@
+const BASE_URL = 'http://localhost/uaigestion/';
+const CARGANDO_HTML = `<div class="text-center text-primary my-4"><i class="fas fa-spinner fa-pulse fa-3x mb-3"></i><h6>Cargando ...</h6></div>`;
 
 // DEFINICION DE TOAST (alert)
 const Toast = Swal.mixin({
@@ -25,6 +27,8 @@ function cargarFormSmall(metodo) {
 
 //-------------CARGA VISTA MODAL DE FORMULARIO (large)------------
 function cargarFormLarge(metodo) {
+	$("#modal-large").html(CARGANDO_HTML);
+
 	$.post(metodo, function (data) {
 		$("#modal-large").html(data);
 	}).fail(ajaxErrors);

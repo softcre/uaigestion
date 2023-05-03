@@ -14,6 +14,19 @@ function fechaHoraHoy($format = 'Y-m-d H:i:s')
 }
 
 /**
+ * Devuelve fecha formateada
+ * 
+ * @param string $fecha Fecha a formatear
+ * @param string $format Formato de salida a eleccion
+ * 
+ * @return string Fecha en formato indicado
+ */
+function formatearFecha($fecha, $format = 'd/m/Y')
+{
+  return date($format, strtotime($fecha));
+}
+
+/**
  * Recibe un numero y devuelve en formato ###,##
  * 
  * @param float $numero Numero recibido

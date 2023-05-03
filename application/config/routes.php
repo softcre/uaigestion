@@ -67,3 +67,21 @@ $route[PERFIL_PATH . '/editarPerfil'] = 'admin/Perfil_controller/frmEditarPerfil
 $route[PERFIL_PATH . '/frmEditarContrasena'] = 'admin/Perfil_controller/frmEditarContrasena';
 $route[PERFIL_PATH . '/actualizarPerfil'] = 'admin/Perfil_controller/actualizarPerfil';
 $route[PERFIL_PATH . '/actualizarContrasena'] = 'admin/Perfil_controller/actualizarContrasena';
+
+// OBSERVACION NUEVA
+$route[OBSERVACION_NUEVA_PATH]  = 'admin/ObservacionNueva_controller';
+
+// OBSERVACIONES
+$route[OBSERVACIONES_PATH]  = 'admin/Observaciones_controller';
+$route[OBSERVACIONES_PATH . '/frmEditar/(:num)']  = 'admin/Observaciones_controller/frmEditar/$1';
+$route[OBSERVACIONES_PATH . '/frmVer/(:num)']  = 'admin/Observaciones_controller/frmVer/$1';
+
+
+
+/**
+ * API
+ */
+$route['api/areas-auditadas/getByUnidadAcademica'] = 'api/AreasAuditadas/getByUnidadAcademica';
+
+$route['api/observaciones/getByAreaAuditada']  = 'api/Observaciones/getByAreaAuditada';
+$route['api/observaciones/crear']  = 'api/Observaciones/crear';
