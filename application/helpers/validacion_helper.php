@@ -10,7 +10,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  */
 function verificarSesionAdmin()
 {
-  if (isset($_SESSION['usuario_tipo_id']) && $_SESSION['usuario_tipo_id'] == 1)
+  if (isset($_SESSION['rol']))
     return;
 
   show_404();
@@ -26,4 +26,24 @@ function verificarConsulAjax()
   if (!$CI->input->is_ajax_request()) {
     show_404();
   }
+}
+
+function permisoSuperadmin()
+{
+  return ($_SESSION['rol'] == 'SUPERADMIN');
+}
+
+function permisoSupervisor()
+{
+  return ($_SESSION['rol'] == 'SUPERVISOR');
+}
+
+function permisoOperador()
+{
+  return ($_SESSION['rol'] == 'OPERADOR');
+}
+
+function permisoSuperadminSupervisor()
+{
+  return ($_SESSION['rol'] == 'SUPERADMIN' || $_SESSION['rol'] == 'SUPERVISOR');
 }

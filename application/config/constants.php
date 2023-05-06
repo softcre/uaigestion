@@ -103,6 +103,7 @@ define('ESTADOS_MODEL', 'admin/Estados_model');
 define('IMPACTOS_MODEL', 'admin/Impactos_model');
 define('OBSERVACIONES_MODEL', 'admin/Observaciones_model');
 define('PLANES_MODEL', 'admin/Planes_model');
+define('PERMISOS_MODEL', 'admin/Permisos_model');
 define('UNIDADES_ACADEMICAS_MODEL', 'admin/UnidadesAcademicas_model');
 define('USUARIOS_MODEL', 'admin/Usuarios_model');
 

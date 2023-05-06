@@ -33,7 +33,7 @@ class Usuarios_model extends CI_Model
 	public function get_user_correo($correo)
 	{
 		$this->db->where('email', $correo);
-		$this->db->where('deleted_at', false);
+		$this->db->where('deleted_at IS NULL');
 		return $this->db->get($this->table)->row();
 	}
 
