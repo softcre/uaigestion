@@ -27,12 +27,15 @@
 						</p>
 					</a>
 					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="<?= base_url(OBSERVACION_NUEVA_PATH); ?>" class="nav-link <?= ($act == 'nue_obs') ? 'active' : '' ?>">
-								<i class="nav-icon fas fa-plus"></i>
-								<p>Nueva</p>
-							</a>
-						</li>
+						<?php if (permisoOperador()) : ?>
+							<li class="nav-item">
+								<a href="<?= base_url(OBSERVACION_NUEVA_PATH); ?>" class="nav-link <?= ($act == 'nue_obs') ? 'active' : '' ?>">
+									<i class="nav-icon fas fa-plus"></i>
+									<p>Nueva</p>
+								</a>
+							</li>
+						<?php endif; ?>
+
 						<li class="nav-item">
 							<a href="<?= base_url(OBSERVACIONES_PATH); ?>" class="nav-link <?= ($act == 'list_obs') ? 'active' : '' ?>">
 								<i class="nav-icon fas fa-list-ul"></i>

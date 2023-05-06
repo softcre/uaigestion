@@ -23,19 +23,51 @@ class Observaciones extends CI_Controller
     ));
   }
 
+  // //--------------------------------------------------------------
+  // public function getByAreaAuditada()
+  // {
+  //   verificarConsulAjax();
+
+  //   $ua_id = $this->input->post('ua_busq_id');
+  //   $aa_id = $this->input->post('aa_busq_id');
+
+  //   $observaciones = $this->observaciones->getByAreaAuditada($ua_id, $aa_id);
+
+  //   $data['view'] = $this->load->view('admin/observaciones/_tblObservaciones', ['observaciones' => $observaciones], TRUE);
+  //   return $this->response->ok('Observaciones obtenidos!', $data);
+  // }
+
   //--------------------------------------------------------------
-  public function getByAreaAuditada()
-  {
-    verificarConsulAjax();
+  public function loadObservaciones()
+	{
+    $data['page'] 		= ($this->input->post('page')) ? $this->input->post('page') : 1;
+    $data['per_page'] = ($this->input->post('limit')) ? $this->input->post('limit') : 10;
+		$data['ua_id']		= ($this->input->post('ua_id')) ? $this->input->post('ua_id') : "";
+		$data['aa_id']		= ($this->input->post('aa_id')) ? $this->input->post('aa_id') : "";
+		$data['order']		= ($this->input->post('order')) ? $this->input->post('order') : "asc";
+		$data['order_by']	= ($this->input->post('order_by')) ? $this->input->post('order_by') : "id_observacion";
+		$data['search'] 	= ($this->input->post('search')) ? $this->input->post('search') : "";
+		
+		$bus_sep 			= explode(' ', $data['search']);
+		$words 				= splitArraySearch($bus_sep);
+		$data['offset'] = ($data['page'] - 1) * $data['per_page'];
+		$data['adyacentes'] = 1;
 
-    $ua_id = $this->input->post('ua_busq_id');
-    $aa_id = $this->input->post('aa_busq_id');
+		$total			= $this->observaciones->count($data, $words);
+		$total_pages = ceil($total / $data['per_page']);
+		//$reload 		= base_url()."admin/loadPosts";
 
-    $observaciones = $this->observaciones->getByAreaAuditada($ua_id, $aa_id);
+		$dataView['observaciones'] = $this->observaciones->search($data, $words);
+		$dataView['page'] = $data['page'];
+		$dataView['per_page'] = $data['per_page'];
+		$dataView['total_pages'] = $total_pages;
+		$dataView['pages_adyacentes'] = $data['adyacentes'];
+		$dataView['total'] = $total;
 
-    $data['view'] = $this->load->view('admin/observaciones/_tblObservaciones', ['observaciones' => $observaciones], TRUE);
-    return $this->response->ok('Observaciones obtenidos!', $data);
-  }
+		$datos['view'] = $this->load->view('admin/observaciones/_tblObservaciones', $dataView, TRUE);
+		//echo json_encode($datos);
+    return $this->response->ok('Observaciones obtenidas!', $datos);
+	}
 
   //--------------------------------------------------------------
   public function crear()
@@ -74,7 +106,7 @@ class Observaciones extends CI_Controller
       if ($resp) {
         //$data['selector'] = 'Observaciones';
         //$data['view'] = $this->getObservaciones();
-        return $this->response->ok('Nuevo observacion creada!');
+        return $this->response->ok('Nuevo observación creada!');
       } else {
 
         return $this->response->error('Ooops.. error!', 'No se pudo crear la observación. Intente más tarde!');
@@ -130,16 +162,5 @@ class Observaciones extends CI_Controller
     endif;
 
     return $this->response->error('Ooops.. controle!', $this->form_validation->error_array());
-  } // fin de metodo crear
-
-  /**
-   * 
-   * FUNCIONES PRIVADAS
-   * 
-   */
-  private function getObservaciones()
-  {
-    $data['observaciones'] = $this->observaciones->getByAreaAuditada('', '');
-    return $this->load->view('admin/observaciones/_tblObservaciones', $data, TRUE);
-  }
+  } // fin de metodo actualizar
 }

@@ -1,52 +1,73 @@
+var paramPage = {
+	page: 1,
+	limit: 5,
+	ua_id: null,
+	aa_id: null,
+	search: "",
+	order: "asc",
+	order_by: "id_observacion"
+}
 
-//----------------------OBTENER SEGMENTOS----------------------
-function getAreasAuditadas(id = '') {
-	let unidadAcademica_id = $('#unidad_academica').val();
-	let areaAuditada = $('#area_auditada');
+//----------------------OBTENER AREAS AUDITADAS - NUEVO----------------------
+function getAreasAuditadas(id = "") {
+	let unidadAcademica_id = $("#unidad_academica").val();
+	let areaAuditada = $("#area_auditada");
 	areaAuditada.empty();
-	areaAuditada.append('<option disabled selected value="0">Seleccione un area auditada</option>');
+	areaAuditada.append(
+		'<option disabled selected value="0">Seleccione un area auditada</option>'
+	);
 
 	if (unidadAcademica_id == 0) return;
 
 	obtenerAA(unidadAcademica_id, areaAuditada, id);
-};
+}
 
+//---------------------------OBTENER AREAS AUDITADAS---------------------------
 function getAreasAuditadasList() {
-	let unidadAcademica_id = $('#ua_busq').val();
-	let areaAuditada = $('#aa_busq');
+	let unidadAcademica_id = $("#ua_busq").val();
+	let areaAuditada = $("#aa_busq");
 	areaAuditada.empty();
 	areaAuditada.append('<option selected value="">TODAS</option>');
 
 	if (areaAuditada == 0) return;
 
+	paramPage.ua_id = unidadAcademica_id;
+	loadObs()
 	obtenerAA(unidadAcademica_id, areaAuditada);
-};
-
-function obtenerAA(unidadAcademica_id, areaAuditada, id = '') {
-	$.post(BASE_URL + 'api/areas-auditadas/getByUnidadAcademica', {
-		unidadAcademica_id: unidadAcademica_id
-	}, function (data) {
-		if (data.status === "ok") {
-      //segmento.prop("disabled", false);
-			data.data.forEach(ele => {
-				let selec = (id == ele.id_area_auditada) ? 'selected' : '';
-
-				areaAuditada.append('<option value=' + ele.id_area_auditada + ' ' + selec + '>' + ele.nombre_aa + '</option>');
-			});
-		}
-	}, 'json').fail(ajaxErrors);
 }
 
+//---------------------------OBTENER AREAS AUDITADAS---------------------------
+function obtenerAA(unidadAcademica_id, areaAuditada, id = "") {
+	$.post(
+		BASE_URL + "areas-auditadas/getByUnidadAcademica",
+		{
+			unidadAcademica_id: unidadAcademica_id,
+		},
+		function (data) {
+			if (data.status === "ok") {
+				//segmento.prop("disabled", false);
+				data.data.forEach((ele) => {
+					let selec = id == ele.id_area_auditada ? "selected" : "";
 
-//------------------ALTA - MODIFICACION GENERAL------------------
+					areaAuditada.append(
+						"<option value=" + ele.id_area_auditada +" " + selec + ">" + ele.nombre_aa + "</option>"
+					);
+				});
+			}
+		},
+		"json"
+	).fail(ajaxErrors);
+}
+
+//-----------------------------CREAR OBSERVACION-----------------------------
 function addObservacion(e) {
 	e.preventDefault();
 	const formData = new FormData(e.target);
 	const btnName = "btnForm" + e.target.name;
 	const btn = document.getElementById(btnName);
-	
+
 	$.ajax({
-		url: BASE_URL + 'api/observaciones/crear',
+		url: BASE_URL + "observaciones/crear",
 		method: "POST",
 		data: formData,
 		cache: false,
@@ -57,26 +78,12 @@ function addObservacion(e) {
 			btn.children[0].classList.remove("d-none");
 			btn.children[1].classList.add("d-none");
 		},
-		success: function (resp) {
-			let data = JSON.parse(resp);
+		success: function (response) {
+			let data = JSON.parse(response);
 
 			if (data.status === "ok") {
-				/*
-				if (data.data.selector != undefined) {
-					// solo cuando hay que recargar tablas
-					let selector = data.data.selector.toLowerCase();
-					$("#" + selector + "-main").html(data.data.view);
-					formatoTabla('tbl' + data.data.selector); 
-				}
-				*/
-
 				mostrarToast("success", data.title, data.msj);
-				e.target.reset();
-				// if (data.data.url != undefined) {
-				// 	setTimeout(() => (location.href = data.data.url), 1500);
-				// } else {
-				// 	$('#cerrarModal').click();
-				// }
+				e.target.reset(); // setea form
 			} else {
 				mostrarErrors(data.title, data.errors);
 			}
@@ -90,16 +97,15 @@ function addObservacion(e) {
 	});
 }
 
-
-//------------------ALTA - MODIFICACION GENERAL------------------
+//----------------------------ACTUALIZAR OBSERVACION----------------------------
 function updateObservacion(e) {
 	e.preventDefault();
 	const formData = new FormData(e.target);
 	const btnName = "btnForm" + e.target.name;
 	const btn = document.getElementById(btnName);
-	
+
 	$.ajax({
-		url: BASE_URL + 'api/observaciones/actualizar',
+		url: BASE_URL + "observaciones/actualizar",
 		method: "POST",
 		data: formData,
 		cache: false,
@@ -110,26 +116,13 @@ function updateObservacion(e) {
 			btn.children[0].classList.remove("d-none");
 			btn.children[1].classList.add("d-none");
 		},
-		success: function (resp) {
-			let data = JSON.parse(resp);
+		success: function (response) {
+			let data = JSON.parse(response);
 
 			if (data.status === "ok") {
-				/*
-				if (data.data.selector != undefined) {
-					// solo cuando hay que recargar tablas
-					let selector = data.data.selector.toLowerCase();
-					$("#" + selector + "-main").html(data.data.view);
-					formatoTabla('tbl' + data.data.selector); 
-				}
-				*/
-
+				loadObs($('#nro_page').val());
 				mostrarToast("success", data.title, data.msj);
-				$('#cerrarModal').click();
-				// if (data.data.url != undefined) {
-				// 	setTimeout(() => (location.href = data.data.url), 1500);
-				// } else {
-				// 	$('#cerrarModal').click();
-				// }
+				$("#cerrarModal").click();
 			} else {
 				mostrarErrors(data.title, data.errors);
 			}
@@ -143,37 +136,44 @@ function updateObservacion(e) {
 	});
 }
 
-function getObservaciones(e) {
-	e.preventDefault();
-	const formData = new FormData(e.target);
-	let btnBuscar = document.getElementById("btnFormPage");
+//---------------------------BUSQUEDA DE OBSERVACIONES----------------------------
+$("#form-search").submit(function (event) {
+	/*$('#btn-del-girl').attr("disabled", true);*/
+	// var parametros = $(this).serialize();
+	loadObs();
+	event.preventDefault();
+});
+
+// $(".select-show .dropdown-menu").find("a").click(function (e) {
+// 	e.preventDefault();
+// 	//var param = $(this).attr("href").replace("#", "");
+// 	paramPage.total_list = $(this).attr("href").replace("#", "");
+// 	var concept = $(this).text();
+// 	$("#spn-list-show").html(concept);
+// 	total_list = param;
+// 	loadObs(1);
+// });
+
+
+
+//---------------------------OBTENIENE LAS OBSERVACIONES---------------------------
+function loadObs(page = 1) {
+	paramPage.page = page;
+	paramPage.search = $("#txt-search").val();
+	paramPage.aa_id = $("#aa_busq").val();
 
 	$.ajax({
-		url: BASE_URL + 'api/observaciones/getByAreaAuditada',
+		type: "POST",
+		url: BASE_URL + "observaciones/load",
 		method: "POST",
-		data: formData,
-		cache: false,
-		contentType: false,
-		processData: false,
-
+		dataType: "JSON",
+		data: paramPage,
 		beforeSend: function () {
-			btnBuscar.disabled = true;
-			btnBuscar.children[0].classList.remove("d-none");
-			btnBuscar.children[1].classList.add("d-none");
+			$("#observaciones-main").html(CARGANDO_HTML);
 		},
-		success: function (resp) {
-			let data = JSON.parse(resp);
-
-			if (data.status === "ok") {
-				$("#observaciones-main").html(data.data.view);
-				formatoTabla("tblObservaciones");
-			}
+		success: function (response) {
+			$("#observaciones-main").html(response.data.view);
 		},
-		error: ajaxErrors,
-		complete: function () {
-			btnBuscar.disabled = false;
-			btnBuscar.children[0].classList.add("d-none");
-			btnBuscar.children[1].classList.remove("d-none");
-		},
+		error: ajaxErrors
 	});
 }

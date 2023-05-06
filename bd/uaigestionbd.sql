@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-05-2023 a las 04:31:00
+-- Tiempo de generación: 06-05-2023 a las 22:28:08
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -106,8 +106,9 @@ INSERT INTO `observaciones` (`id_observacion`, `area_auditada_id`, `impacto_id`,
 (3, 7, 1, 3, 15, '2023-05-12', 'vamos probando', 'r35356', '535tfregrthfefe', '2023-05-27', '43y5yhf grthb grgrt', 1, '2023-05-03 19:37:36', NULL, NULL),
 (4, 22, 2, 4, 8, '2023-04-06', 'Otra vez', '123e', 'otra vez seeraa', '2023-05-27', 'odfjidnrkeg rytty', 1, '2023-05-03 19:38:08', NULL, NULL),
 (5, 10, 3, 2, 13, '2023-05-27', 'cegae', '2345 0055', 'oksjoifnj ge kgk bnf', '2023-05-28', 'dgfdgdfg uyyiooo', 1, '2023-05-03 19:38:46', NULL, NULL),
-(6, 15, 1, 3, 14, '2023-05-28', 'Ultimaaa', '1277899', 'beso a beso aaa', '2023-05-20', 'un dos tre un dos tres', 1, '2023-05-03 19:39:33', NULL, NULL),
-(7, 9, 3, 4, 15, '2023-03-02', 'Nunca jamas lo se', '12/2022', 'Ques el detalle de observacion', '2023-03-12', 'Ay nruperta abrile a\r\nla puerta--', 1, '2023-05-04 18:09:50', NULL, NULL);
+(6, 15, 1, 3, 14, '2023-05-28', 'Ultimaaa ya', '1277899', 'beso a beso aaa', '2023-05-20', 'un dos tre un dos tres', 1, '2023-05-03 19:39:33', '2023-05-06 21:48:07', NULL),
+(7, 9, 3, 4, 15, '2023-03-02', 'Nunca jamas', '12/2022', 'Ques el detalle de observacion', '2023-03-12', 'Ay nruperta abrile a\r\nla puerta--', 1, '2023-05-04 18:09:50', '2023-05-06 21:47:49', NULL),
+(8, 10, 3, 2, 12, '2023-05-05', 'Finish the coro', '12/2019', 'Hello Fani, how are you?', '2023-05-27', 'Let\'s go. She is running at the park', 3, '2023-05-06 17:17:29', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -392,7 +393,7 @@ ALTER TABLE `areas_auditadas`
 -- AUTO_INCREMENT de la tabla `observaciones`
 --
 ALTER TABLE `observaciones`
-  MODIFY `id_observacion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_observacion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `observacion_estados`

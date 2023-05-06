@@ -77,11 +77,12 @@ $route[OBSERVACIONES_PATH . '/frmEditar/(:num)']  = 'admin/Observaciones_control
 $route[OBSERVACIONES_PATH . '/frmVer/(:num)']  = 'admin/Observaciones_controller/frmVer/$1';
 
 
-
 /**
  * API
  */
 $route['api/areas-auditadas/getByUnidadAcademica'] = 'api/AreasAuditadas/getByUnidadAcademica';
 
 $route['api/observaciones/getByAreaAuditada']  = 'api/Observaciones/getByAreaAuditada';
+$route['api/observaciones/load']  = 'api/Observaciones/loadObservaciones';
 $route['api/observaciones/crear']  = 'api/Observaciones/crear';
+$route['api/observaciones/actualizar']  = 'api/Observaciones/actualizar';

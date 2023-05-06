@@ -1,5 +1,6 @@
 @import "./components/img_perfil.css";
 @import "./components/nav-pills.css";
+@import "./components/pagination.css";
 
 .fondo {
 	background: #43c6ac; /* fallback for old browsers */

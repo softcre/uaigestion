@@ -1,5 +1,5 @@
-const BASE_URL = 'http://localhost/uaigestion/';
-const CARGANDO_HTML = `<div class="text-center text-primary my-4"><i class="fas fa-spinner fa-pulse fa-3x mb-3"></i><h6>Cargando ...</h6></div>`;
+const BASE_URL = 'http://localhost/uaigestion/api/';
+const CARGANDO_HTML = `<div class="text-center text-primary my-4"><i class="fas fa-spinner fa-pulse fa-3x mb-3"></i><h6><b>Cargando ...</b></h6></div>`;
 
 // DEFINICION DE TOAST (alert)
 const Toast = Swal.mixin({
