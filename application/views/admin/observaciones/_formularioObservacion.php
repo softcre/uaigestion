@@ -98,7 +98,7 @@
     </div>
   </div>
 
-  <div class="col-md-6">
+  <!-- <div class="col-md-6">
     <div class="form-group">
       <label for="estado" class="mb-0" title="Obligatorio">Estado <span class="text-danger" title="Obligatorio">*</span></label>
       <select class="form-control" id="estado" name="estado_id">
@@ -111,7 +111,7 @@
         <?php endforeach; ?>
       </select>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <div class="row">

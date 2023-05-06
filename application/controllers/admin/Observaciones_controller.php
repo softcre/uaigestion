@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
- * @property Estados_model $estados Optional description
+//  * @property Estados_model $estados Optional description
  * @property Impactos_model $impactos Optional description
  * @property Observaciones_model $observaciones Optional description
  * @property Planes_model $planes Optional description
@@ -21,7 +21,7 @@ class Observaciones_controller extends CI_Controller
     verificarSesionAdmin();
 
     $this->load->model(array(
-      ESTADOS_MODEL             => 'estados',
+      // ESTADOS_MODEL             => 'estados',
       IMPACTOS_MODEL            => 'impactos',
       OBSERVACIONES_MODEL       => 'observaciones',
       PLANES_MODEL              => 'planes',
@@ -36,7 +36,6 @@ class Observaciones_controller extends CI_Controller
     $data['act'] = 'list_obs';
     $data['desplegado'] = 'obs';
     $data['unidadesAcademicas'] = $this->unidadesAcademicas->get_select();
-    //$data['observaciones'] = $this->observaciones->get_all();
 
     $this->load->view('admin/observaciones/indexObservaciones', $data);
   }
@@ -58,7 +57,7 @@ class Observaciones_controller extends CI_Controller
     verificarConsulAjax();
 
     $data['unidadesAcademicas'] = $this->unidadesAcademicas->get_select();
-    $data['estados'] = $this->estados->get_select();
+    // $data['estados'] = $this->estados->get_select();
     $data['impactos'] = $this->impactos->get_select();
     $data['planes'] = $this->planes->get_select();
     $data['observacion'] = $this->observaciones->get($id_observacion);

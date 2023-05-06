@@ -83,14 +83,14 @@ class Observaciones extends CI_Controller
     $this->form_validation->set_rules('impacto_id', 'Impacto', 'required|trim');
     $this->form_validation->set_rules('detalle_observacion', 'Detalle de la Observación', 'required|min_length[10]|trim');
     $this->form_validation->set_rules('fecha_seguimiento', 'Fecha de Seguimiento', 'required|trim');
-    $this->form_validation->set_rules('estado_id', 'Estado', 'required|trim');
+    // $this->form_validation->set_rules('estado_id', 'Estado', 'required|trim');
     $this->form_validation->set_rules('detalle_recomendacion', 'Detalle de la Recomendación', 'required|min_length[10]|trim');
 
     if ($this->form_validation->run()) :
       $observacion = [
         'area_auditada_id'      => $this->input->post('area_auditada_id'),
         'impacto_id'            => $this->input->post('impacto_id'),
-        'estado_id'             => $this->input->post('estado_id'),
+        'estado_id'             => 1, // Sin accion correctiva $this->input->post('estado_id'),
         'plan_id'               => $this->input->post('plan_id'),
         'fecha_observacion'     => $this->input->post('fecha_observacion'),
         'proyecto'              => $this->input->post('proyecto'),
@@ -131,7 +131,7 @@ class Observaciones extends CI_Controller
     $this->form_validation->set_rules('impacto_id', 'Impacto', 'required|trim');
     $this->form_validation->set_rules('detalle_observacion', 'Detalle de la Observación', 'required|min_length[10]|trim');
     $this->form_validation->set_rules('fecha_seguimiento', 'Fecha de Seguimiento', 'required|trim');
-    $this->form_validation->set_rules('estado_id', 'Estado', 'required|trim');
+    // $this->form_validation->set_rules('estado_id', 'Estado', 'required|trim');
     $this->form_validation->set_rules('detalle_recomendacion', 'Detalle de la Recomendación', 'required|min_length[10]|trim');
 
     if ($this->form_validation->run()) :
@@ -139,7 +139,7 @@ class Observaciones extends CI_Controller
       $observacion = [
         'area_auditada_id'      => $this->input->post('area_auditada_id'),
         'impacto_id'            => $this->input->post('impacto_id'),
-        'estado_id'             => $this->input->post('estado_id'),
+        // 'estado_id'             => $this->input->post('estado_id'),
         'plan_id'               => $this->input->post('plan_id'),
         'fecha_observacion'     => $this->input->post('fecha_observacion'),
         'proyecto'              => $this->input->post('proyecto'),
