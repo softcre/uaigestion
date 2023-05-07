@@ -8,9 +8,9 @@
           <th data-field="proyecto" class="th-link"><i class="fas fa-sort"></i> Proyecto</th>
           <th data-field="fecha_observacion" class="th-link"><i class="fas fa-sort"></i> Fecha Observación</th>
           <th>Acciones</th>
-          <?php if (permisoSuperadminSupervisor()) : ?>
+          <!-- <?php if (permisoSuperadminSupervisor()) : ?>
             <th>Intervención</th>
-          <?php endif; ?>
+          <?php endif; ?> -->
         </tr>
       </thead>
       <tbody>
@@ -38,7 +38,7 @@
                 <?php endif; ?>
               </div>
             </td>
-            <?php if (permisoSuperadminSupervisor()) : ?>
+            <!-- <?php if (permisoSuperadminSupervisor()) : ?>
               <td class="text-center">
                 <div class="btn-group btn-group-sm">
                   <button type="button" class="btn btn-danger text-white" title="Crear intervención" data-toggle="modal" data-target="#large" onclick="cargarFormLarge('<?= base_url(OBSERVACIONES_PATH . '/frmEditar/' . $obs->id_observacion); ?>')">
@@ -46,7 +46,7 @@
                   </button>
                 </div>
               </td>
-            <?php endif; ?>
+            <?php endif; ?> -->
           </tr>
         <?php endforeach; ?>
       </tbody>
