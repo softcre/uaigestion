@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-05-2023 a las 22:28:08
+-- Tiempo de generación: 09-05-2023 a las 00:47:17
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -41,36 +41,54 @@ CREATE TABLE `areas_auditadas` (
 --
 
 INSERT INTO `areas_auditadas` (`id_area_auditada`, `ua_id`, `nombre_aa`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'Dirección de Gestión Económico Financiera', '2023-05-02 19:55:30', NULL, NULL),
-(2, 1, 'Tesorería', '2023-05-02 19:55:30', NULL, NULL),
-(3, 1, 'Dirección Gestión de Estudios', '2023-05-02 19:55:30', NULL, NULL),
-(4, 1, 'Secretaría académica', '2023-05-02 19:55:30', NULL, NULL),
-(5, 2, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(6, 3, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(7, 4, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(8, 5, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(9, 6, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(10, 7, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(11, 8, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(12, 9, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(13, 10, 'Dirección de Gestión y Desarrollo de Personas', '2023-05-02 19:55:30', NULL, NULL),
-(14, 10, 'Dirección de Gestión Económico Financiera', '2023-05-02 19:55:30', NULL, NULL),
-(15, 10, 'Dirección de Gestión Académica', '2023-05-02 19:55:30', NULL, NULL),
-(16, 10, 'Dirección de Gestión de Estudios', '2023-05-02 19:55:30', NULL, NULL),
-(17, 11, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(18, 12, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(19, 13, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(20, 14, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(21, 15, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(22, 16, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(23, 17, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(24, 18, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(25, 19, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(26, 20, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(27, 21, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(28, 22, 'Económico y Financiera', '2023-05-02 19:55:30', NULL, NULL),
-(29, 23, 'General', '2023-05-02 19:55:30', NULL, NULL),
-(30, 24, 'General', '2023-05-02 19:55:30', NULL, NULL);
+(1, 1, 'Dirección de Gestión Económico Financiera', '2023-05-08 19:27:01', NULL, NULL),
+(2, 1, 'Tesorería', '2023-05-08 19:27:01', NULL, NULL),
+(3, 1, 'Dirección Gestión de Estudios', '2023-05-08 19:27:01', NULL, NULL),
+(4, 1, 'Secretaría académica', '2023-05-08 19:27:01', NULL, NULL),
+(5, 2, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(6, 3, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(7, 4, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(8, 5, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(9, 6, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(10, 7, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(11, 8, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(12, 9, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(13, 10, 'Dirección de Gestión y Desarrollo de Personas', '2023-05-08 19:27:01', NULL, NULL),
+(14, 10, 'Dirección de Gestión Económico Financiera', '2023-05-08 19:27:01', NULL, NULL),
+(15, 10, 'Dirección de Gestión Académica', '2023-05-08 19:27:01', NULL, NULL),
+(16, 10, 'Dirección de Gestión de Estudios', '2023-05-08 19:27:01', NULL, NULL),
+(17, 11, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(18, 12, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(19, 13, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(20, 14, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(21, 15, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(22, 16, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(23, 17, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(24, 18, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(25, 19, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(26, 20, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(27, 21, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(28, 22, 'Dirección de Gestión Económico Financiera', '2023-05-08 19:27:01', NULL, NULL),
+(29, 22, 'Secretaría académica', '2023-05-08 19:27:01', NULL, NULL),
+(30, 23, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(31, 24, 'General', '2023-05-08 19:27:01', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `intervenciones`
+--
+
+CREATE TABLE `intervenciones` (
+  `id_intervencion` bigint(20) NOT NULL,
+  `observacion_id` bigint(20) NOT NULL,
+  `descripcion_intervencion` text NOT NULL,
+  `fecha_intervencion` date NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -108,7 +126,9 @@ INSERT INTO `observaciones` (`id_observacion`, `area_auditada_id`, `impacto_id`,
 (5, 10, 3, 2, 13, '2023-05-27', 'cegae', '2345 0055', 'oksjoifnj ge kgk bnf', '2023-05-28', 'dgfdgdfg uyyiooo', 1, '2023-05-03 19:38:46', NULL, NULL),
 (6, 15, 1, 3, 14, '2023-05-28', 'Ultimaaa ya', '1277899', 'beso a beso aaa', '2023-05-20', 'un dos tre un dos tres', 1, '2023-05-03 19:39:33', '2023-05-06 21:48:07', NULL),
 (7, 9, 3, 4, 15, '2023-03-02', 'Nunca jamas', '12/2022', 'Ques el detalle de observacion', '2023-03-12', 'Ay nruperta abrile a\r\nla puerta--', 1, '2023-05-04 18:09:50', '2023-05-06 21:47:49', NULL),
-(8, 10, 3, 2, 12, '2023-05-05', 'Finish the coro', '12/2019', 'Hello Fani, how are you?', '2023-05-27', 'Let\'s go. She is running at the park', 3, '2023-05-06 17:17:29', NULL, NULL);
+(8, 10, 3, 2, 12, '2023-05-05', 'Finish the back', '12/2019', 'Hello Fani, how are you?', '2023-05-27', 'Let\'s go. She is running at the park', 3, '2023-05-06 17:17:29', '2023-05-06 22:31:56', NULL),
+(9, 21, 2, 1, 14, '2023-05-16', 'Como hacer balances', '32/2021', 'No se que paso con esoo', '2023-05-01', 'vamos corre forest', 3, '2023-05-06 17:39:19', NULL, NULL),
+(10, 4, 1, 1, 14, '2023-05-11', 'A ti te va', '23&332', 'vamos a por todo', '2023-05-26', 'Let\'s go the all', 3, '2023-05-08 19:44:14', '2023-05-09 00:44:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -291,7 +311,8 @@ CREATE TABLE `usuarios_permisos` (
 INSERT INTO `usuarios_permisos` (`id_permiso`, `usuario_id`, `usuario_tipo_id`, `unidad_academica_id`, `area_auditada_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 1, 1, NULL, NULL, '2023-05-05 19:41:31', NULL, NULL),
 (2, 2, 2, NULL, NULL, '2023-05-05 21:39:09', NULL, NULL),
-(3, 3, 3, NULL, NULL, '2023-05-05 21:40:22', NULL, NULL);
+(3, 3, 3, NULL, NULL, '2023-05-05 21:40:22', NULL, NULL),
+(4, 4, 4, 1, 2, '2023-05-07 00:45:17', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -324,6 +345,12 @@ INSERT INTO `usuarios_tipo` (`id_tipo_usuario`, `tipo_usuario`) VALUES
 ALTER TABLE `areas_auditadas`
   ADD PRIMARY KEY (`id_area_auditada`),
   ADD KEY `ua_id` (`ua_id`);
+
+--
+-- Indices de la tabla `intervenciones`
+--
+ALTER TABLE `intervenciones`
+  ADD PRIMARY KEY (`id_intervencion`);
 
 --
 -- Indices de la tabla `observaciones`
@@ -387,13 +414,19 @@ ALTER TABLE `usuarios_tipo`
 -- AUTO_INCREMENT de la tabla `areas_auditadas`
 --
 ALTER TABLE `areas_auditadas`
-  MODIFY `id_area_auditada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_area_auditada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT de la tabla `intervenciones`
+--
+ALTER TABLE `intervenciones`
+  MODIFY `id_intervencion` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `observaciones`
 --
 ALTER TABLE `observaciones`
-  MODIFY `id_observacion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_observacion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `observacion_estados`
@@ -429,7 +462,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `usuarios_permisos`
 --
 ALTER TABLE `usuarios_permisos`
-  MODIFY `id_permiso` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_permiso` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios_tipo`
