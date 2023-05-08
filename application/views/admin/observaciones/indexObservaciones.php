@@ -38,9 +38,13 @@
 								<div class="form-group">
 									<label for="ua_busq" class="mb-0">Unidad Académica</label>
 									<select class="form-control" id="ua_busq" name="ua_busq_id" onchange="getAreasAuditadasList()">
-										<option value="" selected>TODAS</option>
-										<?php foreach ($unidadesAcademicas as $ua) : ?>
-											<option value="<?= $ua->id_ua; ?>">
+										<?php if (!permisoUA_general()) : ?>
+											<?php $selected = 'selected'; ?>
+											<option value="" selected>TODAS</option>
+										<?php endif; ?>
+										<?php foreach ($unidadesAcademicas as $key => $ua) : ?>
+											<?php $s = ($selected == '' && $key == 0) ? 'selected' : ''; ?>
+											<option value="<?= $ua->id_ua; ?>" <?= $s; ?>>
 												<?= $ua->nombre_ua; ?>
 											</option>
 										<?php endforeach; ?>
@@ -89,6 +93,6 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		loadObs(0);
+		getAreasAuditadasList();
 	});
 </script>

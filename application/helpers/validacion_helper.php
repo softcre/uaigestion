@@ -10,7 +10,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  */
 function verificarSesionAdmin()
 {
-  if (isset($_SESSION['rol']))
+  if (isset($_SESSION['rol']['name']))
     return;
 
   show_404();
@@ -30,20 +30,25 @@ function verificarConsulAjax()
 
 function permisoSuperadmin()
 {
-  return ($_SESSION['rol'] == 'SUPERADMIN');
+  return ($_SESSION['rol']['name'] == 'SUPERADMIN');
 }
 
 function permisoSupervisor()
 {
-  return ($_SESSION['rol'] == 'SUPERVISOR');
+  return ($_SESSION['rol']['name'] == 'SUPERVISOR');
 }
 
 function permisoOperador()
 {
-  return ($_SESSION['rol'] == 'OPERADOR');
+  return ($_SESSION['rol']['name'] == 'OPERADOR');
+}
+
+function permisoUA_general()
+{
+  return ($_SESSION['rol']['name'] == 'UA_GENERAL');
 }
 
 function permisoSuperadminSupervisor()
 {
-  return ($_SESSION['rol'] == 'SUPERADMIN' || $_SESSION['rol'] == 'SUPERVISOR');
+  return ($_SESSION['rol']['name'] == 'SUPERADMIN' || $_SESSION['rol']['name'] == 'SUPERVISOR');
 }

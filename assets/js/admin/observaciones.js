@@ -43,12 +43,19 @@ function obtenerAA(unidadAcademica_id, areaAuditada, id = "") {
 		{
 			unidadAcademica_id: unidadAcademica_id,
 		},
-		function (data) {
-			if (data.status === "ok") {
-				//segmento.prop("disabled", false);
-				data.data.forEach((ele) => {
-					let selec = id == ele.id_area_auditada ? "selected" : "";
-
+		function (response) {
+			if (response.status === "ok") {
+				let selec;
+				
+				if (id == '' && response.data.selected != null) {
+					areaAuditada.empty();
+					selec = response.data.selected;
+				}
+				
+				response.data.areasAuditadas.forEach((ele) => {
+					if (id != '') {
+						selec = (id == ele.id_area_auditada) ? "selected" : "";
+					}
 					areaAuditada.append(
 						"<option value=" + ele.id_area_auditada +" " + selec + ">" + ele.nombre_aa + "</option>"
 					);

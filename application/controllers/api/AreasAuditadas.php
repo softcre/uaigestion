@@ -32,8 +32,11 @@ class AreasAuditadas extends CI_Controller
 
     $areasAuditadas = $this->areasAuditadas->getByUnidadAcademica($ua_id);
 
-    if ($areasAuditadas)
-      return $this->response->ok('Areas auditadas!', $areasAuditadas);
+    if ($areasAuditadas) {
+      $data['areasAuditadas'] = $areasAuditadas;
+      $data['selected'] = $_SESSION['rol']['aa_id'];
+      return $this->response->ok('Areas auditadas!', $data);
+    } 
     else
       return $this->response->error('No se pudo obtener las areas auditadas!', 'Sin datos');
   }

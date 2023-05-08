@@ -5,13 +5,13 @@ class UnidadesAcademicas_model extends CI_Model
 {
 	private $table;
 
-  //--------------------------------------------------------------
-  public function __construct()
-  {
-    parent::__construct();
+	//--------------------------------------------------------------
+	public function __construct()
+	{
+		parent::__construct();
 
-    $this->table = 'unidades_academicas';
-  }
+		$this->table = 'unidades_academicas';
+	}
 
 	//--------------------------------------------------------------
 	public function get_all()
@@ -21,12 +21,14 @@ class UnidadesAcademicas_model extends CI_Model
 		return $this->db->get()->result();
 	}
 
-  //--------------------------------------------------------------
+	//--------------------------------------------------------------
 	public function get_select()
 	{
-    $this->db->select('id_ua, nombre_ua');
+		$this->db->select('id_ua, nombre_ua');
 		$this->db->from($this->table);
+		if (permisoUA_general()) $this->db->where('id_ua', $_SESSION['rol']['ua_id']);
 		$this->db->where('deleted_at IS NULL');
+
 		return $this->db->get()->result();
 	}
 
@@ -47,7 +49,7 @@ class UnidadesAcademicas_model extends CI_Model
 	//--------------------------------------------------------------
 	public function actualizar($id_ua, $unidadAcademica)
 	{
-    $unidadAcademica['updated_at'] = fechaHoraHoy();
+		$unidadAcademica['updated_at'] = fechaHoraHoy();
 		$this->db->where('id_ua', $id_ua);
 		return $this->db->update($this->table, $unidadAcademica);
 	}
@@ -55,7 +57,7 @@ class UnidadesAcademicas_model extends CI_Model
 	//--------------------------------------------------------------
 	public function eliminar($id_ua)
 	{
-    $unidadAcademica['deleted_at'] = date('Y-m-d');
+		$unidadAcademica['deleted_at'] = date('Y-m-d');
 		$this->db->where('id_ua', $id_ua);
 		return $this->db->update($this->table, $unidadAcademica);
 	}

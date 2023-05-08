@@ -51,16 +51,21 @@ class Index_controller extends CI_Controller
 				if (!$permiso) 
 					return $this->response->error('Ooops.. error!', 'Usuario sin permisos');
 
+				$rol = array(
+					'name' 	=> $permiso->tipo_usuario,
+					'ua_id'	=> $permiso->unidad_academica_id,
+					'aa_id'	=> $permiso->area_auditada_id
+				);
 				$dataUser = [
-					'id'							=> $user->id_usuario,
+					'id'				=> $user->id_usuario,
 					// 'usuario_tipo_id'	=> $user->usuario_tipo_id,
-					'nombre'					=> $user->nombre,
-					'apellido'				=> $user->apellido,
-					'telefono'				=> $user->telefono,
-					'foto'						=> $user->foto,
-					'email'						=> $user->email,
-					'rol'							=> $permiso->tipo_usuario,
-					'login'						=> TRUE
+					'nombre'		=> $user->nombre,
+					'apellido'	=> $user->apellido,
+					'telefono'	=> $user->telefono,
+					'foto'			=> $user->foto,
+					'email'			=> $user->email,
+					'rol'				=> $rol,
+					'login'			=> TRUE
 				];
 				$this->session->set_userdata($dataUser); // cargo los datos del usuario que ingresó
 
