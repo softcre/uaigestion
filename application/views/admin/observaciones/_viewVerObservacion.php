@@ -66,3 +66,19 @@
     <p class="m-0 text-justify"><?= $observacion->detalle_recomendacion; ?></p>
   </div>
 </div>
+
+<?php if (permisoSuperadminSupervisor()) : ?>
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <small class="m-0 text-muted font-italic">Creado por: <span class="font-weight-bold"><?= $observacion->ape_creador . ' ' . $observacion->nom_creador; ?></span></small>
+    </div>
+
+    <div class="col-md-6 text-right">
+      <?php if ($observacion->usuario_updater) : ?>
+        <small class="m-0 text-muted font-italic">Editado por: <span class="font-weight-bold"><?= $observacion->ape_actualizador . ' ' . $observacion->nom_actualizador; ?></span></small>
+      <?php else : ?>
+        <small class="m-0 text-muted font-italic">No editado</small>
+      <?php endif; ?>
+    </div>
+  </div>
+<?php endif; ?>

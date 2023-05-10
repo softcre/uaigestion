@@ -9,6 +9,7 @@ class Observaciones_model extends CI_Model
 	private $tableImpactos;
 	private $tableEstados;
 	private $tablePlanes;
+	private $tableUsuarios;
 
 	//--------------------------------------------------------------
 	public function __construct()
@@ -21,6 +22,7 @@ class Observaciones_model extends CI_Model
 		$this->tableImpactos = 'observacion_impactos';
 		$this->tableEstados = 'observacion_estados';
 		$this->tablePlanes = 'observacion_planes';
+		$this->tableUsuarios = 'usuarios';
 	}
 
 	//--------------------------------------------------------------
@@ -55,14 +57,24 @@ class Observaciones_model extends CI_Model
 	//--------------------------------------------------------------
 	public function get($id_observacion)
 	{
-		$this->db->select('obs.*, aa.ua_id, aa.nombre_aa, ua.nombre_ua, imp.impacto, est.estado, plan.plan');
+		$this->db->select('obs.*, aa.ua_id, aa.nombre_aa, ua.nombre_ua, imp.impacto, est.estado, plan.plan, us1.nombre AS nom_creador, us1.apellido AS ape_creador, us2.nombre AS nom_actualizador, us2.apellido AS ape_actualizador');
 		$this->db->from($this->table . ' obs');
 		$this->db->join($this->tableAA . ' aa', 'aa.id_area_auditada = obs.area_auditada_id');
 		$this->db->join($this->tableUA . ' ua', 'ua.id_ua = aa.ua_id');
 		$this->db->join($this->tableImpactos . ' imp', 'imp.id_impacto = obs.impacto_id');
 		$this->db->join($this->tableEstados . ' est', 'est.id_estado = obs.estado_id');
 		$this->db->join($this->tablePlanes . ' plan', 'plan.id_plan = obs.plan_id');
+		$this->db->join($this->tableUsuarios . ' us1', 'us1.id_usuario = obs.usuario_creater');
+		$this->db->join($this->tableUsuarios . ' us2', 'us2.id_usuario = obs.usuario_updater', 'LEFT');
 		$this->db->where('obs.id_observacion', $id_observacion);
+		return $this->db->get()->row();
+	}
+
+	//--------------------------------------------------------------
+	public function get_obs($id_observacion)
+	{
+		$this->db->from($this->table);
+		$this->db->where('id_observacion', $id_observacion);
 		return $this->db->get()->row();
 	}
 
@@ -78,6 +90,18 @@ class Observaciones_model extends CI_Model
 		$observacion['updated_at'] = fechaHoraHoy();
 		$this->db->where('id_observacion', $id_observacion);
 		return $this->db->update($this->table, $observacion);
+	}
+
+	//--------------------------------------------------------------
+	public function actualizarALeido($id_observacion, $observacion)
+	{
+		$observacionAct = $this->get_obs($id_observacion);
+
+		if ($observacionAct->leido != $observacion['leido']) {
+			//$observacion['updated_at'] = fechaHoraHoy();
+			$this->db->where('id_observacion', $id_observacion);
+			$this->db->update($this->table, $observacion);
+		}
 	}
 
 	//--------------------------------------------------------------

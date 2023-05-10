@@ -100,7 +100,8 @@ class Observaciones extends CI_Controller
         'detalle_observacion'   => $this->input->post('detalle_observacion'),
         'fecha_seguimiento'     => $this->input->post('fecha_seguimiento'),
         'detalle_recomendacion' => $this->input->post('detalle_recomendacion'),
-        'usuario_id'            => $this->session->id
+        'leido'                 => 1, // Sin leer
+        'usuario_creater'       => $this->session->id
       ];
 
       $resp = $this->observaciones->crear($observacion); // se inserta en bd
@@ -149,7 +150,7 @@ class Observaciones extends CI_Controller
         'detalle_observacion'   => $this->input->post('detalle_observacion'),
         'fecha_seguimiento'     => $this->input->post('fecha_seguimiento'),
         'detalle_recomendacion' => $this->input->post('detalle_recomendacion'),
-        //'usuario_id'            => $this->session->id
+        'usuario_updater'       => $this->session->id
       ];
 
       $resp = $this->observaciones->actualizar($idObservacion, $observacion); // se inserta en bd

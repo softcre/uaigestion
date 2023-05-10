@@ -52,7 +52,7 @@ class Acciones extends CI_Controller
       $accion = [
         'observacion_id'  => $observacion_id,
         'accion_encarada' => $this->input->post('accion_encarada'),
-        'leido'           => 0,
+        'leido'           => 1, //sin leer
         'usuario_id'      => $this->session->id
       ];
 

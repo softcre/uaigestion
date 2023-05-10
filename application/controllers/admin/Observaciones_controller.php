@@ -65,20 +65,25 @@ class Observaciones_controller extends CI_Controller
     $this->load->view('admin/observaciones/frmEditarObservacion', $data);
   }
 
-  //--------------------------------------------------------------
-  public function frmVer($id_observacion)
-  {
-    verificarConsulAjax();
+  // //--------------------------------------------------------------
+  // public function frmVer($id_observacion)
+  // {
+  //   verificarConsulAjax();
 
-    $data['observacion'] = $this->observaciones->get($id_observacion);
+  //   $data['observacion'] = $this->observaciones->get($id_observacion);
 
-    $this->load->view('admin/observaciones/frmVerObservacion', $data);
-  }
+  //   $this->load->view('admin/observaciones/frmVerObservacion', $data);
+  // }
 
   //--------------------------------------------------------------
   public function frmAccionesEncaradas($id_observacion)
   {
     verificarConsulAjax();
+
+    if (permisoUA_general()) {
+      // actualizo observacion a leido
+      $this->observaciones->actualizarALeido($id_observacion, ['leido' => 2]);
+    }
 
     $data['observacion'] = $this->observaciones->get($id_observacion);
 
