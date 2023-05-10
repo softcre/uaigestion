@@ -36,7 +36,7 @@
       <div>
         <img class="fas" src="<?= $this->imagen->getUrlImg('usuarios', $this->session->foto); ?>" alt="message user image">
         <div class="timeline-item">
-          <h3 class="timeline-header"><a href="#">Yo</a> Acción encarada</h3>
+          <h3 class="timeline-header">Acción encarada</h3>
 
           <form id="form_accion" name="Accion" enctype="multipart/form-data" method="post" onsubmit="addAccionEncarada(event)">
             <div class="timeline-body p-2">
