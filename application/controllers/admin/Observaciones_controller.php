@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
-//  * @property Estados_model $estados Optional description
+ * @property Estados_model $estados Optional description
  * @property Impactos_model $impactos Optional description
  * @property Observaciones_model $observaciones Optional description
  * @property Planes_model $planes Optional description
@@ -21,7 +21,7 @@ class Observaciones_controller extends CI_Controller
     verificarSesionAdmin();
 
     $this->load->model(array(
-      // ESTADOS_MODEL             => 'estados',
+      ESTADOS_MODEL             => 'estados',
       IMPACTOS_MODEL            => 'impactos',
       OBSERVACIONES_MODEL       => 'observaciones',
       PLANES_MODEL              => 'planes',
@@ -88,6 +88,20 @@ class Observaciones_controller extends CI_Controller
     $data['observacion'] = $this->observaciones->get($id_observacion);
 
     $this->load->view('admin/observaciones/frmAccionesEncaradas', $data);
+  }
+
+  //--------------------------------------------------------------
+  public function frmCambiarEstado($id_observacion)
+  {
+    verificarConsulAjax();
+
+    $observacion = $this->observaciones->get($id_observacion);
+
+    $data['observacion_id'] = $id_observacion;
+    $data['estadoActual'] = $observacion->estado;
+    $data['estados'] = $this->estados->get_select();
+
+    $this->load->view('admin/observaciones/frmCambiarEstado', $data);
   }
 
   // //--------------------------------------------------------------

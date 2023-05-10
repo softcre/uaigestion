@@ -148,6 +148,45 @@ function updateObservacion(e) {
 	});
 }
 
+//---------------------ACTUALIZAR ESTADO DE LA OBSERVACION---------------------
+function updateEstadoObs(e) {
+	e.preventDefault();
+	const formData = new FormData(e.target);
+	const btnName = "btnForm" + e.target.name;
+	const btn = document.getElementById(btnName);
+
+	$.ajax({
+		url: BASE_URL + "observaciones/actualizar-estado",
+		method: "POST",
+		data: formData,
+		cache: false,
+		contentType: false,
+		processData: false,
+		beforeSend: function () {
+			btn.disabled = true;
+			btn.children[0].classList.remove("d-none");
+			btn.children[1].classList.add("d-none");
+		},
+		success: function (response) {
+			let data = JSON.parse(response);
+
+			if (data.status === "ok") {
+				loadObs($('#nro_page').val());
+				mostrarToast("success", data.title, data.msj);
+				$("#cerrarModal").click();
+			} else {
+				mostrarErrors(data.title, data.errors);
+			}
+		},
+		error: ajaxErrors,
+		complete: function () {
+			btn.disabled = false;
+			btn.children[0].classList.add("d-none");
+			btn.children[1].classList.remove("d-none");
+		},
+	});
+}
+
 //---------------------------BUSQUEDA DE OBSERVACIONES----------------------------
 $("#form-search").submit(function (event) {
 	/*$('#btn-del-girl').attr("disabled", true);*/
@@ -247,3 +286,8 @@ function loadAcciones(observacion_id) {
 		error: ajaxErrors
 	});
 }
+
+$("#extra-large").on("hidden.bs.modal", function () {
+	// Aquí va el código a disparar en el evento
+	console.log('cerrando modal');
+});

@@ -11,6 +11,7 @@
           <!-- <?php if (permisoSuperadminSupervisor()) : ?>
             <th>Intervención</th>
           <?php endif; ?> -->
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -24,10 +25,15 @@
                 <!-- <button type="button" class="btn btn-info" title="Ver" data-toggle="modal" data-target="#large" onclick="cargarFormLarge('<?= base_url(OBSERVACIONES_PATH . '/frmVer/' . $obs->id_observacion); ?>')">
                   <i class="fas fa-eye"></i>
                 </button> -->
-
-                <button type="button" class="btn btn-primary" title="Acciones encaradas" data-toggle="modal" data-target="#extra-large" onclick="cargarFormExtraLarge('<?= base_url(OBSERVACIONES_PATH . '/frmAccionesEncaradas/' . $obs->id_observacion); ?>')">
-                    <i class="fas fa-closed-captioning"></i>
-                  </button>
+                <?php
+                $script = '';
+                if ($obs->leido == 1 && permisoUA_general()) :
+                  $script = "console.log(this);";
+                endif;
+                ?>
+                <button type="button" class="btn btn-primary" title="Acciones encaradas" data-toggle="modal" data-target="#extra-large" onclick="cargarFormExtraLarge('<?= base_url(OBSERVACIONES_PATH . '/frmAccionesEncaradas/' . $obs->id_observacion); ?>'); <?= $script; ?>">
+                  <i class="fas fa-closed-captioning"></i>
+                </button>
 
                 <?php if (permisoOperador()) : ?>
                   <button type="button" class="btn btn-warning" title="Editar observación" data-toggle="modal" data-target="#large" onclick="cargarFormLarge('<?= base_url(OBSERVACIONES_PATH . '/frmEditar/' . $obs->id_observacion); ?>')">
@@ -36,11 +42,17 @@
                 <?php endif; ?>
 
                 <?php if (permisoSupervisor()) : ?>
-                  <button type="button" class="btn btn-warning" title="Cambiar estado" data-toggle="modal" data-target="#large" onclick="cargarFormLarge('<?= base_url(OBSERVACIONES_PATH . '/frmEditar/' . $obs->id_observacion); ?>')">
+                  <button type="button" class="btn btn-warning" title="Cambiar estado" data-toggle="modal" data-target="#small" onclick="cargarFormSmall('<?= base_url(OBSERVACIONES_PATH . '/frmCambiarEstado/' . $obs->id_observacion); ?>')">
                     <i class="fas fa-pen"></i> Cambiar estado
                   </button>
                 <?php endif; ?>
               </div>
+            </td>
+            <td class="text-center">
+              <?php if ($obs->leido == 1 && permisoUA_general()) : // 1=>sin leer; 2=>leido;
+              ?>
+                <span class="badge badge-danger">No leído</span>
+              <?php endif; ?>
             </td>
             <!-- <?php if (permisoSuperadminSupervisor()) : ?>
               <td class="text-center">

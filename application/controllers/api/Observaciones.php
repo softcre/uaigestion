@@ -39,37 +39,37 @@ class Observaciones extends CI_Controller
 
   //--------------------------------------------------------------
   public function loadObservaciones()
-	{
+  {
     verificarConsulAjax();
-    
-    $data['page'] 		= ($this->input->post('page')) ? $this->input->post('page') : 1;
+
+    $data['page']     = ($this->input->post('page')) ? $this->input->post('page') : 1;
     $data['per_page'] = ($this->input->post('limit')) ? $this->input->post('limit') : 10;
-		$data['ua_id']		= ($this->input->post('ua_id')) ? $this->input->post('ua_id') : "";
-		$data['aa_id']		= ($this->input->post('aa_id')) ? $this->input->post('aa_id') : "";
-		$data['order']		= ($this->input->post('order')) ? $this->input->post('order') : "asc";
-		$data['order_by']	= ($this->input->post('order_by')) ? $this->input->post('order_by') : "id_observacion";
-		$data['search'] 	= ($this->input->post('search')) ? $this->input->post('search') : "";
-		
-		$bus_sep 			= explode(' ', $data['search']);
-		$words 				= splitArraySearch($bus_sep);
-		$data['offset'] = ($data['page'] - 1) * $data['per_page'];
-		$data['adyacentes'] = 1;
+    $data['ua_id']    = ($this->input->post('ua_id')) ? $this->input->post('ua_id') : "";
+    $data['aa_id']    = ($this->input->post('aa_id')) ? $this->input->post('aa_id') : "";
+    $data['order']    = ($this->input->post('order')) ? $this->input->post('order') : "asc";
+    $data['order_by']  = ($this->input->post('order_by')) ? $this->input->post('order_by') : "id_observacion";
+    $data['search']   = ($this->input->post('search')) ? $this->input->post('search') : "";
 
-		$total			= $this->observaciones->count($data, $words);
-		$total_pages = ceil($total / $data['per_page']);
-		//$reload 		= base_url()."admin/loadPosts";
+    $bus_sep       = explode(' ', $data['search']);
+    $words         = splitArraySearch($bus_sep);
+    $data['offset'] = ($data['page'] - 1) * $data['per_page'];
+    $data['adyacentes'] = 1;
 
-		$dataView['observaciones'] = $this->observaciones->search($data, $words);
-		$dataView['page'] = $data['page'];
-		$dataView['per_page'] = $data['per_page'];
-		$dataView['total_pages'] = $total_pages;
-		$dataView['pages_adyacentes'] = $data['adyacentes'];
-		$dataView['total'] = $total;
+    $total      = $this->observaciones->count($data, $words);
+    $total_pages = ceil($total / $data['per_page']);
+    //$reload 		= base_url()."admin/loadPosts";
 
-		$datos['view'] = $this->load->view('admin/observaciones/_tblObservaciones', $dataView, TRUE);
-		//echo json_encode($datos);
+    $dataView['observaciones'] = $this->observaciones->search($data, $words);
+    $dataView['page'] = $data['page'];
+    $dataView['per_page'] = $data['per_page'];
+    $dataView['total_pages'] = $total_pages;
+    $dataView['pages_adyacentes'] = $data['adyacentes'];
+    $dataView['total'] = $total;
+
+    $datos['view'] = $this->load->view('admin/observaciones/_tblObservaciones', $dataView, TRUE);
+    //echo json_encode($datos);
     return $this->response->ok('Observaciones obtenidas!', $datos);
-	}
+  }
 
   //--------------------------------------------------------------
   public function crear()
@@ -109,7 +109,7 @@ class Observaciones extends CI_Controller
       if ($resp) {
         //$data['selector'] = 'Observaciones';
         //$data['view'] = $this->getObservaciones();
-        return $this->response->ok('Nuevo observación creada!');
+        return $this->response->ok('Nueva observación creada!');
       } else {
 
         return $this->response->error('Ooops.. error!', 'No se pudo crear la observación. Intente más tarde!');
@@ -166,4 +166,30 @@ class Observaciones extends CI_Controller
 
     return $this->response->error('Ooops.. controle!', $this->form_validation->error_array());
   } // fin de metodo actualizar
+
+  //--------------------------------------------------------------
+  public function actualizarEstado()
+  {
+    verificarConsulAjax();
+
+    $this->form_validation->set_rules('estado_id', 'Estado', 'required|trim');
+
+    if ($this->form_validation->run()) :
+      $idObservacion = $this->input->post('idObservacion');
+      $observacion = [
+        'estado_id'       => $this->input->post('estado_id'),
+        // 'usuario_updater' => $this->session->id
+      ];
+
+      $resp = $this->observaciones->actualizar($idObservacion, $observacion); // se inserta en bd
+
+      if ($resp) {
+        return $this->response->ok('Estado de observación actualizada!');
+      } else {
+        return $this->response->error('Ooops.. error!', 'No se pudo actualizar el estado de la observación. Intente más tarde!');
+      }
+    endif;
+
+    return $this->response->error('Ooops.. controle!', $this->form_validation->error_array());
+  } // fin de metodo actualizarEstado
 }

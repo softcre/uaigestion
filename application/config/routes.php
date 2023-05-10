@@ -75,7 +75,8 @@ $route[OBSERVACION_NUEVA_PATH]  = 'admin/ObservacionNueva_controller';
 $route[OBSERVACIONES_PATH]  = 'admin/Observaciones_controller';
 $route[OBSERVACIONES_PATH . '/frmEditar/(:num)']  = 'admin/Observaciones_controller/frmEditar/$1';
 $route[OBSERVACIONES_PATH . '/frmAccionesEncaradas/(:num)']  = 'admin/Observaciones_controller/frmAccionesEncaradas/$1';
-$route[OBSERVACIONES_PATH . '/frmVer/(:num)']  = 'admin/Observaciones_controller/frmVer/$1';
+// $route[OBSERVACIONES_PATH . '/frmVer/(:num)']  = 'admin/Observaciones_controller/frmVer/$1';
+$route[OBSERVACIONES_PATH . '/frmCambiarEstado/(:num)']  = 'admin/Observaciones_controller/frmCambiarEstado/$1';
 
 
 /**
@@ -90,3 +91,4 @@ $route['api/observaciones/getByAreaAuditada']  = 'api/Observaciones/getByAreaAud
 $route['api/observaciones/load']  = 'api/Observaciones/loadObservaciones';
 $route['api/observaciones/crear']  = 'api/Observaciones/crear';
 $route['api/observaciones/actualizar']  = 'api/Observaciones/actualizar';
+$route['api/observaciones/actualizar-estado']  = 'api/Observaciones/actualizarEstado';
