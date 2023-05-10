@@ -21,19 +21,17 @@
             <td class="text-center"><?= formatearFecha($obs->fecha_observacion); ?></td>
             <td class="text-center">
               <div class="btn-group btn-group-sm">
-                <button type="button" class="btn btn-info" title="Ver" data-toggle="modal" data-target="#large" onclick="cargarFormLarge('<?= base_url(OBSERVACIONES_PATH . '/frmVer/' . $obs->id_observacion); ?>')">
+                <!-- <button type="button" class="btn btn-info" title="Ver" data-toggle="modal" data-target="#large" onclick="cargarFormLarge('<?= base_url(OBSERVACIONES_PATH . '/frmVer/' . $obs->id_observacion); ?>')">
                   <i class="fas fa-eye"></i>
-                </button>
+                </button> -->
+
+                <button type="button" class="btn btn-primary" title="Acciones encaradas" data-toggle="modal" data-target="#extra-large" onclick="cargarFormExtraLarge('<?= base_url(OBSERVACIONES_PATH . '/frmAccionesEncaradas/' . $obs->id_observacion); ?>')">
+                    <i class="fas fa-closed-captioning"></i>
+                  </button>
 
                 <?php if (permisoOperador()) : ?>
                   <button type="button" class="btn btn-warning" title="Editar observación" data-toggle="modal" data-target="#large" onclick="cargarFormLarge('<?= base_url(OBSERVACIONES_PATH . '/frmEditar/' . $obs->id_observacion); ?>')">
                     <i class="fas fa-pen text-white"></i>
-                  </button>
-                <?php endif; ?>
-
-                <?php if (permisoOperadorUA_general()) : ?>
-                  <button type="button" class="btn btn-primary" title="Acciones encaradas" data-toggle="modal" data-target="#extra-large" onclick="cargarFormExtraLarge('<?= base_url(OBSERVACIONES_PATH . '/frmAccionesEncaradas/' . $obs->id_observacion); ?>')">
-                    <i class="fas fa-closed-captioning"></i>
                   </button>
                 <?php endif; ?>
 

@@ -27,31 +27,39 @@
     </div>
   <?php endforeach; ?>
 
-  <div>
-    <img class="fas" src="<?= $this->imagen->getUrlImg('usuarios', $this->session->foto); ?>" alt="message user image">
-    <div class="timeline-item">
-      <h3 class="timeline-header"><a href="#">Yo</a> Acción encarada</h3>
-
-      <form id="form_accion" name="Accion" enctype="multipart/form-data" method="post" onsubmit="addAccionEncarada(event)">
-        <div class="timeline-body p-2">
-          <input type="hidden" name="observacion_id" value="<?= $observacion_id; ?>">
-          <textarea class="form-control mb-1" id="accion_encarada" name="accion_encarada" rows="3" placeholder="Ingrese la acción encarada..."></textarea>
-          <input type="file" name="fileAccion" id="fileAccion">
-        </div>
-      </form>
-
-      <div class="timeline-footer">
-        <button type="submit" id="btnFormAccion" form="form_accion" class="btn btn-success btn-sm" name="button">
-          <div class="d-none">
-            <span class="spinner-grow spinner-grow-sm mr-1" role="status" aria-hidden="true"></span>
-            Enviando...
-          </div>
-          <span><i class="fas fa-paper-plane mr-2"></i>Enviar</span>
-        </button>
+  <?php if (permisoOperadorUA_general()) : ?>
+    <?php if (!$accionesEncaradas && permisoOperador()) : ?>
+      <div class="alert alert-info text-center" role="alert">
+        Sin acciones encaradas por parte del area auditada...
       </div>
-    </div>
+    <?php else : ?>
+      <div>
+        <img class="fas" src="<?= $this->imagen->getUrlImg('usuarios', $this->session->foto); ?>" alt="message user image">
+        <div class="timeline-item">
+          <h3 class="timeline-header"><a href="#">Yo</a> Acción encarada</h3>
 
-  </div>
+          <form id="form_accion" name="Accion" enctype="multipart/form-data" method="post" onsubmit="addAccionEncarada(event)">
+            <div class="timeline-body p-2">
+              <input type="hidden" name="observacion_id" value="<?= $observacion_id; ?>">
+              <textarea class="form-control mb-1" id="accion_encarada" name="accion_encarada" rows="3" placeholder="Ingrese la acción encarada..."></textarea>
+              <input type="file" name="fileAccion" id="fileAccion">
+            </div>
+          </form>
+
+          <div class="timeline-footer">
+            <button type="submit" id="btnFormAccion" form="form_accion" class="btn btn-success btn-sm" name="button">
+              <div class="d-none">
+                <span class="spinner-grow spinner-grow-sm mr-1" role="status" aria-hidden="true"></span>
+                Enviando...
+              </div>
+              <span><i class="fas fa-paper-plane mr-2"></i>Enviar</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    <?php endif; ?>
+  <?php endif; ?>
 
   <!-- <div>
         <i class="fas fa-clock bg-gray"></i>
