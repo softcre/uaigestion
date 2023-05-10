@@ -1,0 +1,82 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+/**
+ * @property Acciones_model $acciones Optional description
+ * @property CI_Form_validation $form_validation Optional description
+ * @property CI_Input $input Optional description
+ * @property CI_Session $session Optional description
+ * @property Imagen $imagen Optional description
+ * @property Response $response Optional description
+ */
+class Acciones extends CI_Controller
+{
+  //--------------------------------------------------------------
+  public function __construct()
+  {
+    parent::__construct();
+    verificarSesionAdmin();
+
+    $this->load->model(array(
+      ACCIONES_MODEL => 'acciones'
+    ));
+  }
+
+  //--------------------------------------------------------------
+  public function loadAcciones()
+	{
+    verificarConsulAjax();
+    
+    $observacion_id = $this->input->post('observacion_id');
+
+    if (!$observacion_id) 
+      return $this->response->error('Ooops.. error!', 'Error al obtener las acciones encaradas');
+		
+    $dataView['accionesEncaradas'] = $this->acciones->getByObservacion($observacion_id);
+    $dataView['observacion_id'] = $observacion_id;
+
+		$data['view'] = $this->load->view('admin/observaciones/_accionesEncaradas', $dataView, TRUE);
+		//echo json_encode($datos);
+    return $this->response->ok('Acciones encaradas obtenidas!', $data);
+	}
+
+  //--------------------------------------------------------------
+  public function crear()
+  {
+    verificarConsulAjax();
+
+    $this->form_validation->set_rules('accion_encarada', 'Acción encarada', 'required|min_length[10]|trim');
+
+    if ($this->form_validation->run()) :
+      $observacion_id = $this->input->post('observacion_id');
+      $accion = [
+        'observacion_id'  => $observacion_id,
+        'accion_encarada' => $this->input->post('accion_encarada'),
+        'leido'           => 0,
+        'usuario_id'      => $this->session->id
+      ];
+
+      if (!empty($_FILES['fileAccion']['name'])) {
+        $archivoAdjunto = subirFile('fileAccion', $observacion_id);
+        if (strpos($archivoAdjunto, 'Error:') !== false)
+          return $this->response->error('Ooops.. error!', $archivoAdjunto);
+
+        $accion['archivo_adjunto'] = $archivoAdjunto;
+      }
+
+      $resp = $this->acciones->crear($accion); // se inserta en bd
+
+      if ($resp) {
+        //$data['selector'] = 'Observaciones';
+        //$data['view'] = $this->getObservaciones();
+        $data['observacion_id'] = $observacion_id;
+        return $this->response->ok('Nueva acción encarada creada!', $data);
+      } else {
+
+        return $this->response->error('Ooops.. error!', 'No se pudo crear la acción encarada. Intente más tarde!');
+      }
+    endif;
+
+    return $this->response->error('Ooops.. controle!', $this->form_validation->error_array());
+  } // fin de metodo crear
+}

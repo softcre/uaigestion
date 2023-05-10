@@ -99,6 +99,7 @@ define('PERFIL_PATH', ADMIN_PATH . '/perfil');
 
 // MODEL
 define('AREAS_AUDITADAS_MODEL', 'admin/AreasAuditadas_model');
+define('ACCIONES_MODEL', 'admin/Acciones_model');
 define('ESTADOS_MODEL', 'admin/Estados_model');
 define('IMPACTOS_MODEL', 'admin/Impactos_model');
 define('OBSERVACIONES_MODEL', 'admin/Observaciones_model');

@@ -8,6 +8,11 @@ var paramPage = {
 	order_by: "id_observacion"
 }
 
+//----------------MSJ DE ERROR AL INTENTAR DESCARGAR ARCHIVO----------------
+function errorDescarga() {
+	mostrarToast('error', 'Error', 'No se pudo encontrar la ruta del archivo');
+}
+
 //----------------------OBTENER AREAS AUDITADAS - NUEVO----------------------
 function getAreasAuditadas(id = "") {
 	let unidadAcademica_id = $("#unidad_academica").val();
@@ -161,8 +166,6 @@ $("#form-search").submit(function (event) {
 // 	loadObs(1);
 // });
 
-
-
 //---------------------------OBTENIENE LAS OBSERVACIONES---------------------------
 function loadObs(page = 1) {
 	paramPage.page = page;
@@ -180,6 +183,66 @@ function loadObs(page = 1) {
 		},
 		success: function (response) {
 			$("#observaciones-main").html(response.data.view);
+		},
+		error: ajaxErrors
+	});
+}
+
+
+//-----------------------------CREAR OBSERVACION-----------------------------
+function addAccionEncarada(e) {
+	e.preventDefault();
+	const formData = new FormData(e.target);
+	const btnName = "btnForm" + e.target.name;
+	const btn = document.getElementById(btnName);
+
+	$.ajax({
+		url: BASE_URL + "acciones/crear",
+		method: "POST",
+		data: formData,
+		cache: false,
+		contentType: false,
+		processData: false,
+		beforeSend: function () {
+			btn.disabled = true;
+			btn.children[0].classList.remove("d-none");
+			btn.children[1].classList.add("d-none");
+		},
+		success: function (response) {
+			let data = JSON.parse(response);
+
+			if (data.status === "ok") {
+				loadAcciones(data.data.observacion_id);
+				mostrarToast("success", data.title, data.msj);
+				//e.target.reset(); // setea form
+			} else {
+				mostrarErrors(data.title, data.errors);
+			}
+		},
+		error: ajaxErrors,
+		complete: function () {
+			btn.disabled = false;
+			btn.children[0].classList.add("d-none");
+			btn.children[1].classList.remove("d-none");
+		},
+	});
+}
+
+//---------------------OBTENIENE LAS ACCIONES ENCARADAS---------------------
+function loadAcciones(observacion_id) {
+	$.ajax({
+		type: "POST",
+		url: BASE_URL + "acciones/load",
+		method: "POST",
+		dataType: "JSON",
+		data: {
+			observacion_id: observacion_id
+		},
+		beforeSend: function () {
+			$("#acciones-main").html(CARGANDO_HTML);
+		},
+		success: function (response) {
+			$("#acciones-main").html(response.data.view);
 		},
 		error: ajaxErrors
 	});

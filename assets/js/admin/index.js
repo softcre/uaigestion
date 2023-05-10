@@ -34,6 +34,15 @@ function cargarFormLarge(metodo) {
 	}).fail(ajaxErrors);
 }
 
+//----------CARGA VISTA MODAL DE FORMULARIO (extra-large)---------
+function cargarFormExtraLarge(metodo) {
+	$("#modal-extra-large").html(CARGANDO_HTML);
+
+	$.post(metodo, function (data) {
+		$("#modal-extra-large").html(data);
+	}).fail(ajaxErrors);
+}
+
 //------------------ALTA - MODIFICACION GENERAL------------------
 function altaUpdate(e) {
 	e.preventDefault();

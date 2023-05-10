@@ -40,6 +40,8 @@ class Observaciones extends CI_Controller
   //--------------------------------------------------------------
   public function loadObservaciones()
 	{
+    verificarConsulAjax();
+    
     $data['page'] 		= ($this->input->post('page')) ? $this->input->post('page') : 1;
     $data['per_page'] = ($this->input->post('limit')) ? $this->input->post('limit') : 10;
 		$data['ua_id']		= ($this->input->post('ua_id')) ? $this->input->post('ua_id') : "";

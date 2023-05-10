@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-05-2023 a las 00:47:17
+-- Tiempo de generación: 10-05-2023 a las 03:13:30
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -129,6 +129,35 @@ INSERT INTO `observaciones` (`id_observacion`, `area_auditada_id`, `impacto_id`,
 (8, 10, 3, 2, 12, '2023-05-05', 'Finish the back', '12/2019', 'Hello Fani, how are you?', '2023-05-27', 'Let\'s go. She is running at the park', 3, '2023-05-06 17:17:29', '2023-05-06 22:31:56', NULL),
 (9, 21, 2, 1, 14, '2023-05-16', 'Como hacer balances', '32/2021', 'No se que paso con esoo', '2023-05-01', 'vamos corre forest', 3, '2023-05-06 17:39:19', NULL, NULL),
 (10, 4, 1, 1, 14, '2023-05-11', 'A ti te va', '23&332', 'vamos a por todo', '2023-05-26', 'Let\'s go the all', 3, '2023-05-08 19:44:14', '2023-05-09 00:44:36', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `observacion_acciones`
+--
+
+CREATE TABLE `observacion_acciones` (
+  `id_accion` bigint(20) NOT NULL,
+  `observacion_id` bigint(20) NOT NULL,
+  `accion_encarada` text NOT NULL,
+  `archivo_adjunto` varchar(255) NOT NULL,
+  `leido` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `observacion_acciones`
+--
+
+INSERT INTO `observacion_acciones` (`id_accion`, `observacion_id`, `accion_encarada`, `archivo_adjunto`, `leido`, `usuario_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 5, 'vamos aver que onda', '', 0, 3, '2023-05-09 18:52:57', NULL, NULL),
+(2, 8, 'vamos a ver como es', '10052023_1683670625.pdf', 0, 4, '2023-05-09 19:17:05', NULL, NULL),
+(3, 5, 'vamos que es asi..', '10052023_1683670844.pdf', 0, 4, '2023-05-09 19:20:44', NULL, NULL),
+(4, 5, 'Todo mal por aca.. vamos a ver despues', '', 0, 3, '2023-05-09 20:46:38', NULL, NULL),
+(5, 5, 'ya ten ingrese a todos lados', '10052023_1683676469.pdf', 0, 4, '2023-05-09 20:54:30', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -312,7 +341,7 @@ INSERT INTO `usuarios_permisos` (`id_permiso`, `usuario_id`, `usuario_tipo_id`, 
 (1, 1, 1, NULL, NULL, '2023-05-05 19:41:31', NULL, NULL),
 (2, 2, 2, NULL, NULL, '2023-05-05 21:39:09', NULL, NULL),
 (3, 3, 3, NULL, NULL, '2023-05-05 21:40:22', NULL, NULL),
-(4, 4, 4, 1, 2, '2023-05-07 00:45:17', NULL, NULL);
+(4, 4, 4, 7, NULL, '2023-05-07 00:45:17', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -361,6 +390,12 @@ ALTER TABLE `observaciones`
   ADD KEY `impacto_id` (`impacto_id`),
   ADD KEY `estado_id` (`estado_id`),
   ADD KEY `plan_id` (`plan_id`);
+
+--
+-- Indices de la tabla `observacion_acciones`
+--
+ALTER TABLE `observacion_acciones`
+  ADD PRIMARY KEY (`id_accion`);
 
 --
 -- Indices de la tabla `observacion_estados`
@@ -427,6 +462,12 @@ ALTER TABLE `intervenciones`
 --
 ALTER TABLE `observaciones`
   MODIFY `id_observacion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `observacion_acciones`
+--
+ALTER TABLE `observacion_acciones`
+  MODIFY `id_accion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `observacion_estados`
