@@ -69,7 +69,8 @@ class Index_controller extends CI_Controller
 				];
 				$this->session->set_userdata($dataUser); // cargo los datos del usuario que ingresó
 
-				$data['url'] = base_url(DASHBOARD_PATH);
+				// $data['url'] = base_url(DASHBOARD_PATH);
+				$data['url'] = base_url(OBSERVACIONES_PATH);
 				return $this->response->ok('Bienvenido ' . $this->session->nombre . '!', $data);
 			}
 
