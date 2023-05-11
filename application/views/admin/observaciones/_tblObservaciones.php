@@ -25,14 +25,8 @@
                 <!-- <button type="button" class="btn btn-info" title="Ver" data-toggle="modal" data-target="#large" onclick="cargarFormLarge('<?= base_url(OBSERVACIONES_PATH . '/frmVer/' . $obs->id_observacion); ?>')">
                   <i class="fas fa-eye"></i>
                 </button> -->
-                <?php
-                $script = '';
-                if ($obs->leido == 1 && permisoUA_general()) :
-                  $script = "console.log(this);";
-                endif;
-                ?>
-                <button type="button" class="btn btn-primary" title="Acciones encaradas" data-toggle="modal" data-target="#extra-large" onclick="cargarFormExtraLarge('<?= base_url(OBSERVACIONES_PATH . '/frmAccionesEncaradas/' . $obs->id_observacion); ?>'); <?= $script; ?>">
-                  <i class="fas fa-closed-captioning"></i>
+                <button type="button" class="btn btn-primary" title="Acciones encaradas" data-toggle="modal" data-target="#extra-large" onclick="cargarFormExtraLarge('<?= base_url(OBSERVACIONES_PATH . '/frmAccionesEncaradas/' . $obs->id_observacion); ?>')">
+                  <i class="fas fa-eye"></i>
                 </button>
 
                 <?php if (permisoOperador()) : ?>
@@ -51,7 +45,7 @@
             <td class="text-center">
               <?php if ($obs->leido == 1 && permisoUA_general()) : // 1=>sin leer; 2=>leido;
               ?>
-                <i class="fas fa-circle text-primary">
+                <i class="fas fa-circle text-info">
                   <!-- <span class="badge badge-danger">No leído</span> -->
                 <?php endif; ?>
             </td>
@@ -72,7 +66,7 @@
     <?php if (permisoUA_general()) : ?>
       <div class="mt-3 text-center small">
         <span class="mr-2">
-          <i class="fas fa-circle text-primary"></i> Observaciones sin leer
+          <i class="fas fa-circle text-info"></i> Observaciones sin leer
         </span>
       </div>
     <?php endif; ?>
