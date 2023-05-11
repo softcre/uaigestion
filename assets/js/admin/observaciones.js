@@ -295,5 +295,6 @@ function loadAcciones(observacion_id) {
 
 $("#extra-large").on("hidden.bs.modal", function () {
 	// Aquí va el código a disparar en el evento
-	console.log('cerrando modal');
+	//console.log('cerrando modal');
+	loadObs($('#nro_page').val());
 });
