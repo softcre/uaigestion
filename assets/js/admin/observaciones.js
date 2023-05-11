@@ -22,7 +22,7 @@ function getAreasAuditadas(id = "") {
 		'<option disabled selected value="0">Seleccione un area auditada</option>'
 	);
 
-	if (unidadAcademica_id == 0) return;
+	if (unidadAcademica_id =='') return;
 
 	obtenerAA(unidadAcademica_id, areaAuditada, id);
 }
@@ -31,14 +31,20 @@ function getAreasAuditadas(id = "") {
 function getAreasAuditadasList() {
 	let unidadAcademica_id = $("#ua_busq").val();
 	let areaAuditada = $("#aa_busq");
-	areaAuditada.empty();
-	areaAuditada.append('<option selected value="">TODAS</option>');
-
-	if (areaAuditada == 0) return;
 
 	paramPage.ua_id = unidadAcademica_id;
-	loadObs()
-	obtenerAA(unidadAcademica_id, areaAuditada);
+
+	if (unidadAcademica_id != '' && document.getElementById('ua_busq').type != 'hidden') {
+		areaAuditada.empty();
+		areaAuditada.append('<option selected value="">TODAS</option>');
+		obtenerAA(unidadAcademica_id, areaAuditada);
+	} 
+	else if (unidadAcademica_id == '') {
+		areaAuditada.empty();
+		areaAuditada.append('<option selected value="">TODAS</option>');
+	}
+
+	loadObs();
 }
 
 //---------------------------OBTENER AREAS AUDITADAS---------------------------

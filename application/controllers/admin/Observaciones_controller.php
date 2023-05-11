@@ -2,6 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
+ * @property AreasAuditadas_model $areasAuditadas Optional description
  * @property Estados_model $estados Optional description
  * @property Impactos_model $impactos Optional description
  * @property Observaciones_model $observaciones Optional description
@@ -21,6 +22,7 @@ class Observaciones_controller extends CI_Controller
     verificarSesionAdmin();
 
     $this->load->model(array(
+      AREAS_AUDITADAS_MODEL     => 'areasAuditadas',
       ESTADOS_MODEL             => 'estados',
       IMPACTOS_MODEL            => 'impactos',
       OBSERVACIONES_MODEL       => 'observaciones',
@@ -35,8 +37,22 @@ class Observaciones_controller extends CI_Controller
     $data['title'] = 'Observaciones';
     $data['act'] = 'list_obs';
     $data['desplegado'] = 'obs';
-    $data['unidadesAcademicas'] = $this->unidadesAcademicas->get_select();
+    if (permisoUA_general()) {
+      $ua_id =$_SESSION['rol']['ua_id'];
+      $aa_id =$_SESSION['rol']['aa_id'];
 
+      $data['unidadAcademica'] = $this->unidadesAcademicas->get($ua_id);
+
+      if ($aa_id) {
+        $data['areaAuditada'] = $this->areasAuditadas->get($aa_id);
+      } else {
+        $data['areasAuditadas'] = $this->areasAuditadas->getByUnidadAcademica($ua_id);
+      }
+        
+    } else {
+      $data['unidadesAcademicas'] = $this->unidadesAcademicas->get_select();
+    }
+    
     $this->load->view('admin/observaciones/indexObservaciones', $data);
   }
 

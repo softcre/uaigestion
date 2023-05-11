@@ -37,27 +37,45 @@
 							<div class="col-md-3">
 								<div class="form-group">
 									<label for="ua_busq" class="mb-0">Unidad Académica</label>
-									<select class="form-control" id="ua_busq" name="ua_busq_id" onchange="getAreasAuditadasList()">
-										<?php if (!permisoUA_general()) : ?>
-											<?php $selected = 'selected'; ?>
+									<?php if (isset($unidadAcademica)) : ?>
+										<input type="hidden" class="form-control" id="ua_busq" name="ua_busq_id" value="<?= $unidadAcademica->id_ua; ?>">
+										<input type="text" class="form-control-plaintext" value="<?= $unidadAcademica->nombre_ua; ?>" readonly>
+
+									<?php else : ?>
+										<select class="form-control" id="ua_busq" name="ua_busq_id" onchange="getAreasAuditadasList()">
 											<option value="" selected>TODAS</option>
-										<?php endif; ?>
-										<?php foreach ($unidadesAcademicas as $key => $ua) : ?>
-											<?php $s = ($selected == '' && $key == 0) ? 'selected' : ''; ?>
-											<option value="<?= $ua->id_ua; ?>" <?= $s; ?>>
-												<?= $ua->nombre_ua; ?>
-											</option>
-										<?php endforeach; ?>
-									</select>
+											<?php foreach ($unidadesAcademicas as $key => $ua) : ?>
+												<option value="<?= $ua->id_ua; ?>">
+													<?= $ua->nombre_ua; ?>
+												</option>
+											<?php endforeach; ?>
+										</select>
+									<?php endif; ?>
 								</div>
 							</div>
 
 							<div class="col-md-3">
 								<div class="form-group">
 									<label for="aa_busq" class="mb-0">Área Auditada</label>
-									<select class="form-control" id="aa_busq" name="aa_busq_id" onchange="loadObs()">
-										<option value="" selected>TODAS</option>
-									</select>
+									<?php if (isset($areaAuditada)) : ?>
+										<input type="hidden" class="form-control" id="aa_busq" name="aa_busq_id" value="<?= $areaAuditada->id_area_auditada; ?>">
+										<input type="text" class="form-control-plaintext" value="<?= $areaAuditada->nombre_aa; ?>" readonly>
+
+									<?php elseif (isset($areasAuditadas)) : ?>
+										<select class="form-control" id="aa_busq" name="aa_busq_id" onchange="loadObs()">
+											<option value="" selected>TODAS</option>
+											<?php foreach ($areasAuditadas as $key => $aa) : ?>
+												<option value="<?= $aa->id_area_auditada; ?>">
+													<?= $aa->nombre_aa; ?>
+												</option>
+											<?php endforeach; ?>
+										</select>
+
+									<?php else : ?>
+										<select class="form-control" id="aa_busq" name="aa_busq_id" onchange="loadObs()">
+											<option value="" selected>TODAS</option>
+										</select>
+									<?php endif; ?>
 								</div>
 							</div>
 

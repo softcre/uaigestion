@@ -26,7 +26,7 @@ class UnidadesAcademicas_model extends CI_Model
 	{
 		$this->db->select('id_ua, nombre_ua');
 		$this->db->from($this->table);
-		if (permisoUA_general()) $this->db->where('id_ua', $_SESSION['rol']['ua_id']);
+		//if (permisoUA_general()) $this->db->where('id_ua', $_SESSION['rol']['ua_id']);
 		$this->db->where('deleted_at IS NULL');
 
 		return $this->db->get()->result();
