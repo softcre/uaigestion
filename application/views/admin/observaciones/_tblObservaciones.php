@@ -51,8 +51,9 @@
             <td class="text-center">
               <?php if ($obs->leido == 1 && permisoUA_general()) : // 1=>sin leer; 2=>leido;
               ?>
-                <span class="badge badge-danger">No leído</span>
-              <?php endif; ?>
+                <i class="fas fa-circle text-primary">
+                  <!-- <span class="badge badge-danger">No leído</span> -->
+                <?php endif; ?>
             </td>
             <!-- <?php if (permisoSuperadminSupervisor()) : ?>
               <td class="text-center">
@@ -67,6 +68,14 @@
         <?php endforeach; ?>
       </tbody>
     </table>
+
+    <?php if (permisoUA_general()) : ?>
+      <div class="mt-3 text-center small">
+        <span class="mr-2">
+          <i class="fas fa-circle text-primary"></i> Observaciones sin leer
+        </span>
+      </div>
+    <?php endif; ?>
   </div>
 
   <!-- <hr class="mb-1"> -->
