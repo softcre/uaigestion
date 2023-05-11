@@ -38,3 +38,35 @@ function formatearNumero($numero, $decimales = 2)
 {
   return number_format($numero, $decimales, ',', '.');
 }
+
+/**
+ * Indica el color correspondiente para el estado de la observacion
+ * 
+ * @param int $estado_id Estado de la observacion
+ * 
+ * @return string Color perteneciente al estado
+ */
+function colorEstadoObs($estado_id)
+{
+  switch ($estado_id) {
+    case '1':
+      $color = 'badge-secondary';
+      break;
+    case '2':
+      $color = 'badge-primary';
+      break;
+    case '3':
+      $color = 'badge-warning';
+      break;
+    case '4':
+      $color = 'badge-success';
+      break;
+    case '5':
+      $color = 'badge-danger';
+      break;
+    default:
+      $color = '';
+      break;
+  }
+  return $color;
+}

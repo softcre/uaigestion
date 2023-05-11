@@ -56,7 +56,7 @@
   </div>
   <div class="col-md-6">
     <p class="font-weight-bold m-0">Estado</p>
-    <p class="m-0 text-info"><?= $observacion->estado; ?></p>
+    <p class="m-0"><span class="badge <?=colorEstadoObs($observacion->estado_id);?>"><?= $observacion->estado; ?></span></p>
   </div>
 </div>
 
