@@ -233,7 +233,6 @@ function loadObs(page = 1) {
 	});
 }
 
-
 //-----------------------------CREAR OBSERVACION-----------------------------
 function addAccionEncarada(e) {
 	e.preventDefault();
