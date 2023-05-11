@@ -20,6 +20,8 @@
 <script>
   $(function() {
     // bsCustomFileInput.init();
+    marcarObsLeido(<?= $observacion->id_observacion; ?>);
+    
     loadAcciones(<?= $observacion->id_observacion; ?>)
   });
 </script>

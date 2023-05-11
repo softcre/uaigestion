@@ -292,8 +292,17 @@ function loadAcciones(observacion_id) {
 	});
 }
 
-$("#extra-large").on("hidden.bs.modal", function () {
-	// Aquí va el código a disparar en el evento
-	//console.log('cerrando modal');
-	loadObs($('#nro_page').val());
-});
+//---------------------MARCA COMO LEIDA UNA OBSERVACION---------------------
+function marcarObsLeido(id_obs) {
+	let leidoObs = document.getElementById('leido-obs-' + id_obs);
+  
+	if (leidoObs) {
+    leidoObs.style.display = 'none';
+	}
+}
+
+// $("#extra-large").on("hidden.bs.modal", function () {
+// 	// Aquí va el código a disparar en el evento
+// 	//console.log('cerrando modal');
+// 	loadObs($('#nro_page').val());
+// });

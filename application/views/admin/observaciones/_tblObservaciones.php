@@ -42,12 +42,14 @@
                 <?php endif; ?>
               </div>
             </td>
-            <td class="text-center">
-              <?php if ($obs->leido == 1 && permisoUA_general()) : // 1=>sin leer; 2=>leido;
-              ?>
-                <i class="fas fa-circle text-info">
-                  <!-- <span class="badge badge-danger">No leído</span> -->
-                <?php endif; ?>
+            <td class="text-center ">
+              <?php if ($obs->leido == 1 && permisoUA_general()) : // 1=>sin leer; 2=>leido; ?>
+                <i id="leido-obs-<?= $obs->id_observacion; ?>" class="fas fa-dot-circle fa-xs text-info">
+              <?php endif; ?>
+
+                <!-- <span id="leido-acc-<?= $obs->id_observacion; ?>">
+                  <i class="fas fa-circle text-purple">
+                </span> -->
             </td>
             <!-- <?php if (permisoSuperadminSupervisor()) : ?>
               <td class="text-center">
@@ -66,7 +68,7 @@
     <?php if (permisoUA_general()) : ?>
       <div class="mt-3 text-center small">
         <span class="mr-2">
-          <i class="fas fa-circle text-info"></i> Observaciones sin leer
+          <i class="fas fa-dot-circle text-info"></i> Observaciones sin leer
         </span>
       </div>
     <?php endif; ?>
