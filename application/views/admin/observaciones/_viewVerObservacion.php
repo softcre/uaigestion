@@ -55,8 +55,14 @@
     <p class="m-0"><?= formatearFecha($observacion->fecha_seguimiento); ?></p>
   </div>
   <div class="col-md-6">
-    <p class="font-weight-bold m-0">Estado</p>
-    <p class="m-0"><span class="badge <?=colorEstadoObs($observacion->estado_id);?>"><?= $observacion->estado; ?></span></p>
+    <p class="font-weight-bold m-0">Estado
+      <?php if (permisoSupervisor()) : ?>
+        <button type="button" class="btn btn-link btn-sm p-0 pb-1" title="Cambiar estado" data-toggle="modal" data-target="#small" onclick="cerrarModalExtraLarge();cargarFormSmall('<?= base_url(OBSERVACIONES_PATH . '/frmCambiarEstado/' . $observacion->id_observacion); ?>')">
+        <i class="fas fa-pen"></i>
+        </button>
+      <?php endif; ?>
+    </p>
+    <p class="m-0"><span class="badge <?= colorEstadoObs($observacion->estado_id); ?>"><?= $observacion->estado; ?></span></p>
   </div>
 </div>
 

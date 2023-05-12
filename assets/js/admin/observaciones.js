@@ -306,3 +306,7 @@ function marcarObsLeido(id_obs) {
 // 	//console.log('cerrando modal');
 // 	loadObs($('#nro_page').val());
 // });
+function cerrarModalExtraLarge() {
+	// $('#extra-large').modal('toggle');
+	$('#extra-large').modal('hide');
+}
