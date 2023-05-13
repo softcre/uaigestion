@@ -45,11 +45,11 @@
             <td class="text-center ">
               <?php if ($obs->leido == 1 && permisoUA_general()) : // 1=>sin leer; 2=>leido; ?>
                 <i id="leido-obs-<?= $obs->id_observacion; ?>" class="fas fa-dot-circle fa-xs text-info">
-              <?php endif; ?>
+                <?php endif; ?>
 
-                <!-- <span id="leido-acc-<?= $obs->id_observacion; ?>">
-                  <i class="fas fa-circle text-purple">
-                </span> -->
+                <?php if ($obs->acciones_no_leidas > 0 && permisoOperadorUA_general()) : ?>
+                  <i id="leido-acc-<?= $obs->id_observacion; ?>" class="fas fa-dot-circle fa-xs text-purple">
+                <?php endif; ?>
             </td>
             <!-- <?php if (permisoSuperadminSupervisor()) : ?>
               <td class="text-center">
@@ -65,10 +65,15 @@
       </tbody>
     </table>
 
-    <?php if (permisoUA_general()) : ?>
+    <?php if (permisoOperadorUA_general()) : ?>
       <div class="mt-3 text-center small">
+        <?php if (permisoUA_general()) : ?>
+          <span class="mr-2">
+            <i class="fas fa-dot-circle text-info"></i> Observaciones sin leer
+          </span>
+        <?php endif; ?>
         <span class="mr-2">
-          <i class="fas fa-dot-circle text-info"></i> Observaciones sin leer
+          <i class="fas fa-dot-circle text-purple"></i> Observaciones con acciones correctivas sin leer
         </span>
       </div>
     <?php endif; ?>

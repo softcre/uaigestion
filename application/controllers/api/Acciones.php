@@ -24,21 +24,32 @@ class Acciones extends CI_Controller
 
   //--------------------------------------------------------------
   public function loadAcciones()
-	{
+  {
     verificarConsulAjax();
-    
+
     $observacion_id = $this->input->post('observacion_id');
 
-    if (!$observacion_id) 
+    if (!$observacion_id)
       return $this->response->error('Ooops.. error!', 'Error al obtener las acciones encaradas');
-		
-    $dataView['accionesEncaradas'] = $this->acciones->getByObservacion($observacion_id);
+
+    $accionesEncaradas = $this->acciones->getByObservacion($observacion_id);
+
+    if (permisoOperadorUA_general()) {
+      foreach ($accionesEncaradas as $ae) {
+        if ($ae->leido == 1 && $_SESSION['rol']['id_rol'] != $ae->usuario_tipo_id) {
+          // se marca como leido
+          $this->acciones->actualizarALeido($ae->id_accion, ['leido' => 2]);
+        }
+      }
+    }
+
+    $dataView['accionesEncaradas'] = $accionesEncaradas;
     $dataView['observacion_id'] = $observacion_id;
 
-		$data['view'] = $this->load->view('admin/observaciones/_accionesEncaradas', $dataView, TRUE);
-		//echo json_encode($datos);
+    $data['view'] = $this->load->view('admin/observaciones/_accionesEncaradas', $dataView, TRUE);
+    //echo json_encode($datos);
     return $this->response->ok('Acciones encaradas obtenidas!', $data);
-	}
+  }
 
   //--------------------------------------------------------------
   public function crear()

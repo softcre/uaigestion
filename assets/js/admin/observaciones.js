@@ -293,11 +293,15 @@ function loadAcciones(observacion_id) {
 }
 
 //---------------------MARCA COMO LEIDA UNA OBSERVACION---------------------
-function marcarObsLeido(id_obs) {
+function marcarObsyAccionesLeidas(id_obs) {
 	let leidoObs = document.getElementById('leido-obs-' + id_obs);
+	let leidoAcciones = document.getElementById('leido-acc-' + id_obs);
   
 	if (leidoObs) {
     leidoObs.style.display = 'none';
+	}
+	if (leidoAcciones) {
+    leidoAcciones.style.display = 'none';
 	}
 }
 

@@ -168,7 +168,15 @@ class Observaciones_model extends CI_Model
 	//--------------------------------------------------------------
 	public function search($data, $words)
 	{
-		$this->db->select("obs.*");
+		$queryInt = "0";
+		if (permisoOperadorUA_general()) {
+			if (permisoOperador()) $usuario_tipo_id = 4; // busca los no leido por el UA General
+			if (permisoUA_general()) $usuario_tipo_id = 3; // busca los no leido por el Operador
+			
+			$queryInt = "(SELECT COUNT(*) FROM observacion_acciones oa INNER JOIN usuarios_permisos up ON up.usuario_id = oa.usuario_id WHERE oa.observacion_id = obs.id_observacion AND oa.leido = 1 AND up.usuario_tipo_id = '$usuario_tipo_id')";
+		}
+
+		$this->db->select("obs.*,  $queryInt AS acciones_no_leidas");
 		$this->db->from($this->table . " obs");
 		$this->db->join($this->tableAA . ' aa', 'aa.id_area_auditada = obs.area_auditada_id');
 		
