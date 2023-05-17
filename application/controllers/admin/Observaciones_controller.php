@@ -37,7 +37,8 @@ class Observaciones_controller extends CI_Controller
     $data['title'] = 'Observaciones';
     $data['act'] = 'list_obs';
     $data['desplegado'] = 'obs';
-    if (permisoUA_general()) {
+
+    if (permisoUA_generalUA_superadmin()) {
       $ua_id =$_SESSION['rol']['ua_id'];
       $aa_id =$_SESSION['rol']['aa_id'];
 

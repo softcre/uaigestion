@@ -48,6 +48,11 @@ function permisoUA_general()
   return ($_SESSION['rol']['name'] == 'UA_GENERAL');
 }
 
+function permisoUA_generalUA_superadmin()
+{
+  return ($_SESSION['rol']['name'] == 'UA_GENERAL' || $_SESSION['rol']['name'] == 'UA_SUPERADMIN');
+}
+
 function permisoSuperadminSupervisor()
 {
   return ($_SESSION['rol']['name'] == 'SUPERADMIN' || $_SESSION['rol']['name'] == 'SUPERVISOR');

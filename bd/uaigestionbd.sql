@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2023 a las 00:13:23
+-- Tiempo de generación: 18-05-2023 a las 00:46:27
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -121,7 +121,7 @@ CREATE TABLE `observaciones` (
 --
 
 INSERT INTO `observaciones` (`id_observacion`, `area_auditada_id`, `impacto_id`, `estado_id`, `plan_id`, `fecha_observacion`, `proyecto`, `nro_informe_uai`, `detalle_observacion`, `fecha_seguimiento`, `detalle_recomendacion`, `leido`, `usuario_creater`, `usuario_updater`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 2, 1, 1, 16, '2023-04-30', 'Prueba', '42465-79', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-04-30', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', 2, 1, NULL, '2023-04-30 19:40:35', '2023-05-10 21:34:16', NULL),
+(1, 2, 1, 1, 16, '2023-04-30', 'Prueba', '42465-79', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-04-30', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', 2, 1, NULL, '2023-04-30 19:40:35', '2023-05-12 02:42:24', NULL),
 (2, 1, 2, 4, 14, '2023-05-01', 'No se prueba', '2/2014', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Ok', '2023-05-06', 'nosh ggjhuhb e que lallala', 2, 1, 3, '2023-05-03 17:57:43', '2023-05-11 00:09:46', NULL),
 (3, 7, 1, 3, 15, '2023-05-12', 'vamos probando', 'r35356', '535tfregrthfefe', '2023-05-27', '43y5yhf grthb grgrt', 1, 1, 1, '2023-05-03 19:37:36', NULL, NULL),
 (4, 22, 2, 4, 8, '2023-04-06', 'Otra vez', '123e', 'otra vez seeraa', '2023-05-27', 'odfjidnrkeg rytty', 1, 1, 1, '2023-05-03 19:38:08', NULL, NULL),
@@ -130,7 +130,7 @@ INSERT INTO `observaciones` (`id_observacion`, `area_auditada_id`, `impacto_id`,
 (7, 9, 3, 4, 15, '2023-03-02', 'Nunca jamas', '12/2022', 'Ques el detalle de observacion', '2023-03-12', 'Ay nruperta abrile a\r\nla puerta--', 1, 1, 1, '2023-05-04 18:09:50', '2023-05-06 21:47:49', NULL),
 (8, 10, 3, 2, 12, '2023-05-05', 'Finish the back', '12/2019', 'Hello Fani, how are you?', '2023-05-27', 'Let\'s go. She is running at the park', 1, 3, 3, '2023-05-06 17:17:29', '2023-05-06 22:31:56', NULL),
 (9, 21, 2, 1, 14, '2023-05-16', 'Como hacer balances', '32/2021', 'No se que paso con esoo', '2023-05-01', 'vamos corre forest', 1, 3, 3, '2023-05-06 17:39:19', NULL, NULL),
-(10, 4, 1, 1, 14, '2023-05-11', 'A ti te va', '23&332', 'vamos a por todo', '2023-05-26', 'Let\'s go the all', 1, 3, 3, '2023-05-08 19:44:14', '2023-05-09 00:44:36', NULL);
+(10, 4, 1, 1, 14, '2023-05-11', 'A ti te va', '23&332', 'vamos a por todo', '2023-05-26', 'Let\'s go the all', 2, 3, 3, '2023-05-08 19:44:14', '2023-05-09 00:44:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -160,7 +160,14 @@ INSERT INTO `observacion_acciones` (`id_accion`, `observacion_id`, `accion_encar
 (3, 5, 'vamos que es asi..', '10052023_1683670844.pdf', 1, 4, '2023-05-09 19:20:44', NULL, NULL),
 (4, 5, 'Todo mal por aca.. vamos a ver despues', '', 1, 3, '2023-05-09 20:46:38', NULL, NULL),
 (5, 5, 'ya ten ingrese a todos lados', '10052023_1683676469.pdf', 1, 4, '2023-05-09 20:54:30', NULL, NULL),
-(6, 5, 'No funca dicen que..', '10052023_1683714158.pdf', 1, 3, '2023-05-10 07:22:38', NULL, NULL);
+(6, 5, 'No funca dicen que..', '10052023_1683714158.pdf', 1, 3, '2023-05-10 07:22:38', NULL, NULL),
+(7, 1, 'vamos probanod..', '11052023_1683773948.pdf', 2, 4, '2023-05-10 23:59:08', NULL, NULL),
+(8, 1, 'otra prueba mas...', '11052023_1683774147.pdf', 2, 4, '2023-05-11 00:02:27', NULL, NULL),
+(9, 2, 'probando con archivo..', '11052023_1683774246.pdf', 1, 4, '2023-05-11 00:04:06', NULL, NULL),
+(10, 1, 'ya va yendo.... esperame', '', 2, 3, '2023-05-12 22:30:16', NULL, NULL),
+(11, 10, 'Nueva accion correctiva a realizar', '', 2, 4, '2023-05-12 23:30:42', NULL, NULL),
+(12, 10, 'vamos a contestar dos veices', '', 2, 3, '2023-05-12 23:31:38', NULL, NULL),
+(13, 10, 'por que no respondes forro', '', 2, 3, '2023-05-12 23:31:50', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -317,7 +324,8 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido`, `telefono`, `foto`, 
 (1, 'Superadmin', 'UAI', '', 'no-user.jpg', 'superadmin@uaigestion.com', '$2y$10$6O97Y/KXgg3PfEK4UZSEieML92b5tMKHXFXSf8gRv7pJ5rBU/iD1.', '2023-04-23 19:38:55', '2023-04-23 20:36:10', NULL),
 (2, 'Supervisor', 'UAI', NULL, 'no-user.jpg', 'supervisor@uaigestion.com', '$2y$10$a50ZZ4nzPH8q.KBxNEhvDeJeAdfoOZPQnLI5IgBZZ7YORDdeokNOW', '2023-05-05 21:20:38', NULL, NULL),
 (3, 'Operador', 'UAI', NULL, 'no-user.jpg', 'operador@uaigestion.com', '$2y$10$a50ZZ4nzPH8q.KBxNEhvDeJeAdfoOZPQnLI5IgBZZ7YORDdeokNOW', '2023-05-05 21:22:24', NULL, NULL),
-(4, 'General', 'UA', NULL, 'no-user.jpg', 'ua_general@uaigestion.com', '$2y$10$a50ZZ4nzPH8q.KBxNEhvDeJeAdfoOZPQnLI5IgBZZ7YORDdeokNOW', '2023-05-05 21:24:33', NULL, NULL);
+(4, 'General', 'UA', NULL, 'no-user.jpg', 'ua_general@uaigestion.com', '$2y$10$a50ZZ4nzPH8q.KBxNEhvDeJeAdfoOZPQnLI5IgBZZ7YORDdeokNOW', '2023-05-05 21:24:33', NULL, NULL),
+(5, 'Superadmin', 'UA', NULL, 'no-user.jpg', 'ua_superadmin@uaigestion.com', '$2y$10$a50ZZ4nzPH8q.KBxNEhvDeJeAdfoOZPQnLI5IgBZZ7YORDdeokNOW', '2023-05-17 19:38:57', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -344,7 +352,8 @@ INSERT INTO `usuarios_permisos` (`id_permiso`, `usuario_id`, `usuario_tipo_id`, 
 (1, 1, 1, NULL, NULL, '2023-05-05 19:41:31', NULL, NULL),
 (2, 2, 2, NULL, NULL, '2023-05-05 21:39:09', NULL, NULL),
 (3, 3, 3, NULL, NULL, '2023-05-05 21:40:22', NULL, NULL),
-(4, 4, 4, 1, NULL, '2023-05-07 00:45:17', NULL, NULL);
+(4, 4, 4, 1, NULL, '2023-05-07 00:45:17', NULL, NULL),
+(5, 5, 5, 10, NULL, '2023-05-17 19:37:42', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -365,7 +374,8 @@ INSERT INTO `usuarios_tipo` (`id_tipo_usuario`, `tipo_usuario`) VALUES
 (3, 'OPERADOR'),
 (1, 'SUPERADMIN'),
 (2, 'SUPERVISOR'),
-(4, 'UA_GENERAL');
+(4, 'UA_GENERAL'),
+(5, 'UA_SUPERADMIN');
 
 --
 -- Índices para tablas volcadas
@@ -470,7 +480,7 @@ ALTER TABLE `observaciones`
 -- AUTO_INCREMENT de la tabla `observacion_acciones`
 --
 ALTER TABLE `observacion_acciones`
-  MODIFY `id_accion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_accion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `observacion_estados`
@@ -500,19 +510,19 @@ ALTER TABLE `unidades_academicas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios_permisos`
 --
 ALTER TABLE `usuarios_permisos`
-  MODIFY `id_permiso` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_permiso` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios_tipo`
 --
 ALTER TABLE `usuarios_tipo`
-  MODIFY `id_tipo_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_tipo_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
