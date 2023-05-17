@@ -11,7 +11,7 @@
 
 <div class="row mb-3">
   <div class="col-md-6">
-    <p class="font-weight-bold m-0">Unidad Académica</p>
+    <p class="font-weight-bold m-0">Unidad Académica / Instituto</p>
     <p class="m-0"><?= $observacion->nombre_ua; ?></p>
   </div>
   <div class="col-md-6">

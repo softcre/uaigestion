@@ -10,7 +10,7 @@
 <div class="row">
   <div class="col-md-6">
     <div class="form-group">
-      <label for="unidad_academica" class="mb-0" title="Obligatorio">Unidad Académica <span class="text-danger" title="Obligatorio">*</span></label>
+      <label for="unidad_academica" class="mb-0" title="Obligatorio">Unidad Académica / Instituto<span class="text-danger" title="Obligatorio">*</span></label>
       <select class="form-control" id="unidad_academica" name="unidad_academica_id" onchange="getAreasAuditadas()">
         <option value="0" disabled selected>Seleccione una unidad académica</option>
         <?php foreach ($unidadesAcademicas as $ua) : ?>
