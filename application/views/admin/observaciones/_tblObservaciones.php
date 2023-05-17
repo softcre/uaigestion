@@ -4,7 +4,10 @@
     <table class="table table-sm table-hover">
       <thead>
         <tr class="text-center">
-          <th data-field="id_observacion" class="th-link"> <i class="fas fa-sort"></i> N° Orden </th>
+          <th data-field="id_observacion" class="th-link"> <i class="fas fa-sort"></i> N° Orden</th>
+          <?php if (permisoSuperadminSupervisorOperador()) : ?>
+            <th data-field="nombre_ua" class="th-link"> <i class="fas fa-sort"></i> Unidad académica</th>
+          <?php endif; ?>
           <th data-field="proyecto" class="th-link"><i class="fas fa-sort"></i> Proyecto</th>
           <th data-field="fecha_observacion" class="th-link"><i class="fas fa-sort"></i> Fecha Observación</th>
           <th>Acciones</th>
@@ -18,6 +21,9 @@
         <?php foreach ($observaciones as $obs) : ?>
           <tr id="row-id-<?= $obs->id_observacion; ?>">
             <td><?= $obs->id_observacion; ?></td>
+            <?php if (permisoSuperadminSupervisorOperador()) : ?>
+              <td><?= $obs->nombre_ua; ?></td>
+            <?php endif; ?>
             <td><?= $obs->proyecto; ?></td>
             <td class="text-center"><?= formatearFecha($obs->fecha_observacion); ?></td>
             <td class="text-center">
@@ -43,13 +49,14 @@
               </div>
             </td>
             <td class="text-center ">
-              <?php if ($obs->leido == 1 && permisoUA_general()) : // 1=>sin leer; 2=>leido; ?>
+              <?php if ($obs->leido == 1 && permisoUA_general()) : // 1=>sin leer; 2=>leido; 
+              ?>
                 <i id="leido-obs-<?= $obs->id_observacion; ?>" class="fas fa-dot-circle fa-xs text-info">
                 <?php endif; ?>
 
                 <?php if ($obs->acciones_no_leidas > 0 && permisoOperadorUA_general()) : ?>
                   <i id="leido-acc-<?= $obs->id_observacion; ?>" class="fas fa-dot-circle fa-xs text-purple">
-                <?php endif; ?>
+                  <?php endif; ?>
             </td>
             <!-- <?php if (permisoSuperadminSupervisor()) : ?>
               <td class="text-center">

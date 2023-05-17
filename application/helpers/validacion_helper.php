@@ -57,3 +57,8 @@ function permisoOperadorUA_general()
 {
   return ($_SESSION['rol']['name'] == 'OPERADOR' || $_SESSION['rol']['name'] == 'UA_GENERAL');
 }
+
+function permisoSuperadminSupervisorOperador()
+{
+  return ($_SESSION['rol']['name'] == 'SUPERADMIN' || $_SESSION['rol']['name'] == 'SUPERVISOR' || $_SESSION['rol']['name'] == 'OPERADOR');
+}

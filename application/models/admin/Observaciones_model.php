@@ -138,6 +138,7 @@ class Observaciones_model extends CI_Model
 		$this->db->select("COUNT(*) total");
 		$this->db->from($this->table . " obs");
 		$this->db->join($this->tableAA . ' aa', 'aa.id_area_auditada = obs.area_auditada_id');
+		$this->db->join($this->tableUA . ' ua', 'ua.id_ua = aa.ua_id');
 		
 		if ($data['ua_id']) $this->db->where("aa.ua_id", $data['ua_id']);
 		if ($data['aa_id']) $this->db->where("obs.area_auditada_id", $data['aa_id']);
@@ -176,9 +177,10 @@ class Observaciones_model extends CI_Model
 			$queryInt = "(SELECT COUNT(*) FROM observacion_acciones oa INNER JOIN usuarios_permisos up ON up.usuario_id = oa.usuario_id WHERE oa.observacion_id = obs.id_observacion AND oa.leido = 1 AND up.usuario_tipo_id = '$usuario_tipo_id')";
 		}
 
-		$this->db->select("obs.*,  $queryInt AS acciones_no_leidas");
+		$this->db->select("obs.*,  ua.nombre_ua, $queryInt AS acciones_no_leidas");
 		$this->db->from($this->table . " obs");
 		$this->db->join($this->tableAA . ' aa', 'aa.id_area_auditada = obs.area_auditada_id');
+		$this->db->join($this->tableUA . ' ua', 'ua.id_ua = aa.ua_id');
 		
 		if ($data['ua_id']) $this->db->where("aa.ua_id", $data['ua_id']);
 		if ($data['aa_id']) $this->db->where("obs.area_auditada_id", $data['aa_id']);
