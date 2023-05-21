@@ -85,9 +85,11 @@ class Observaciones_model extends CI_Model
 	}
 
 	//--------------------------------------------------------------
-	public function actualizar($id_observacion, $observacion)
+	public function actualizar($id_observacion, $observacion, $updateFecha = TRUE)
 	{
-		$observacion['updated_at'] = fechaHoraHoy();
+		if ($updateFecha) 
+			$observacion['updated_at'] = fechaHoraHoy();
+			
 		$this->db->where('id_observacion', $id_observacion);
 		return $this->db->update($this->table, $observacion);
 	}

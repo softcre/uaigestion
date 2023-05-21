@@ -3,6 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  * @property Acciones_model $acciones Optional description
+ * @property Observaciones_model $observaciones Optional description
  * @property CI_Form_validation $form_validation Optional description
  * @property CI_Input $input Optional description
  * @property CI_Session $session Optional description
@@ -18,7 +19,8 @@ class Acciones extends CI_Controller
     verificarSesionAdmin();
 
     $this->load->model(array(
-      ACCIONES_MODEL => 'acciones'
+      ACCIONES_MODEL      => 'acciones',
+      OBSERVACIONES_MODEL => 'observaciones'
     ));
   }
 
@@ -56,10 +58,28 @@ class Acciones extends CI_Controller
   {
     verificarConsulAjax();
 
+    $totalAcciones = $this->input->post('totalAcciones');
+
+    if ($totalAcciones == 0) {
+      $this->form_validation->set_rules('area_involucrada', 'Área/s Involucrada/s', 'required|min_length[3]|trim');
+      $this->form_validation->set_rules('responsable_implementacion', 'Responsable/s de Implementación', 'required|min_length[3]|trim');
+      $this->form_validation->set_rules('fecha_estimada_reg', 'Fecha de Estimada de Regularización', 'required|trim');
+    }
+    
     $this->form_validation->set_rules('accion_encarada', 'Acción encarada', 'required|min_length[10]|trim');
 
     if ($this->form_validation->run()) :
       $observacion_id = $this->input->post('observacion_id');
+
+      if ($totalAcciones == 0) {
+        $obs = [
+          'area_involucrada'            => $this->input->post('area_involucrada'),
+          'responsable_implementacion'  => $this->input->post('responsable_implementacion'),
+          'fecha_estimada_reg'          => $this->input->post('fecha_estimada_reg')
+        ];
+        $this->observaciones->actualizar($observacion_id, $obs, FALSE);
+      }
+
       $accion = [
         'observacion_id'  => $observacion_id,
         'accion_encarada' => $this->input->post('accion_encarada'),

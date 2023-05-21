@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-05-2023 a las 00:46:27
+-- Tiempo de generación: 22-05-2023 a las 01:51:17
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -108,6 +108,9 @@ CREATE TABLE `observaciones` (
   `detalle_observacion` text NOT NULL,
   `fecha_seguimiento` date NOT NULL,
   `detalle_recomendacion` text NOT NULL,
+  `area_involucrada` varchar(255) DEFAULT NULL,
+  `responsable_implementacion` varchar(255) DEFAULT NULL,
+  `fecha_estimada_reg` date DEFAULT NULL,
   `leido` int(11) NOT NULL,
   `usuario_creater` int(11) NOT NULL,
   `usuario_updater` int(11) DEFAULT NULL,
@@ -120,17 +123,18 @@ CREATE TABLE `observaciones` (
 -- Volcado de datos para la tabla `observaciones`
 --
 
-INSERT INTO `observaciones` (`id_observacion`, `area_auditada_id`, `impacto_id`, `estado_id`, `plan_id`, `fecha_observacion`, `proyecto`, `nro_informe_uai`, `detalle_observacion`, `fecha_seguimiento`, `detalle_recomendacion`, `leido`, `usuario_creater`, `usuario_updater`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 2, 1, 1, 16, '2023-04-30', 'Prueba', '42465-79', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-04-30', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', 2, 1, NULL, '2023-04-30 19:40:35', '2023-05-12 02:42:24', NULL),
-(2, 1, 2, 4, 14, '2023-05-01', 'No se prueba', '2/2014', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Ok', '2023-05-06', 'nosh ggjhuhb e que lallala', 2, 1, 3, '2023-05-03 17:57:43', '2023-05-11 00:09:46', NULL),
-(3, 7, 1, 3, 15, '2023-05-12', 'vamos probando', 'r35356', '535tfregrthfefe', '2023-05-27', '43y5yhf grthb grgrt', 1, 1, 1, '2023-05-03 19:37:36', NULL, NULL),
-(4, 22, 2, 4, 8, '2023-04-06', 'Otra vez', '123e', 'otra vez seeraa', '2023-05-27', 'odfjidnrkeg rytty', 1, 1, 1, '2023-05-03 19:38:08', NULL, NULL),
-(5, 10, 3, 2, 13, '2023-05-27', 'cegae', '2345 0055', 'oksjoifnj ge kgk bnf', '2023-05-28', 'dgfdgdfg uyyiooo', 1, 1, 1, '2023-05-03 19:38:46', NULL, NULL),
-(6, 15, 1, 3, 14, '2023-05-28', 'Ultimaaa ya', '1277899', 'beso a beso aaa', '2023-05-20', 'un dos tre un dos tres', 1, 1, 1, '2023-05-03 19:39:33', '2023-05-06 21:48:07', NULL),
-(7, 9, 3, 4, 15, '2023-03-02', 'Nunca jamas', '12/2022', 'Ques el detalle de observacion', '2023-03-12', 'Ay nruperta abrile a\r\nla puerta--', 1, 1, 1, '2023-05-04 18:09:50', '2023-05-06 21:47:49', NULL),
-(8, 10, 3, 2, 12, '2023-05-05', 'Finish the back', '12/2019', 'Hello Fani, how are you?', '2023-05-27', 'Let\'s go. She is running at the park', 1, 3, 3, '2023-05-06 17:17:29', '2023-05-06 22:31:56', NULL),
-(9, 21, 2, 1, 14, '2023-05-16', 'Como hacer balances', '32/2021', 'No se que paso con esoo', '2023-05-01', 'vamos corre forest', 1, 3, 3, '2023-05-06 17:39:19', NULL, NULL),
-(10, 4, 1, 1, 14, '2023-05-11', 'A ti te va', '23&332', 'vamos a por todo', '2023-05-26', 'Let\'s go the all', 2, 3, 3, '2023-05-08 19:44:14', '2023-05-09 00:44:36', NULL);
+INSERT INTO `observaciones` (`id_observacion`, `area_auditada_id`, `impacto_id`, `estado_id`, `plan_id`, `fecha_observacion`, `proyecto`, `nro_informe_uai`, `detalle_observacion`, `fecha_seguimiento`, `detalle_recomendacion`, `area_involucrada`, `responsable_implementacion`, `fecha_estimada_reg`, `leido`, `usuario_creater`, `usuario_updater`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 2, 1, 1, 16, '2023-04-30', 'Prueba', '42465-79', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-04-30', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', NULL, NULL, NULL, 2, 1, NULL, '2023-04-30 19:40:35', '2023-05-12 02:42:24', NULL),
+(2, 1, 2, 4, 14, '2023-05-01', 'No se prueba', '2/2014', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Ok', '2023-05-06', 'nosh ggjhuhb e que lallala', NULL, NULL, NULL, 2, 1, 3, '2023-05-03 17:57:43', '2023-05-11 00:09:46', NULL),
+(3, 7, 1, 3, 15, '2023-05-12', 'vamos probando', 'r35356', '535tfregrthfefe', '2023-05-27', '43y5yhf grthb grgrt', 'Tesoreria', 'Pirelli, Jose', '2023-06-01', 2, 1, 1, '2023-05-03 19:37:36', NULL, NULL),
+(4, 22, 2, 4, 8, '2023-04-06', 'Otra vez', '123e', 'otra vez seeraa', '2023-05-27', 'odfjidnrkeg rytty', NULL, NULL, NULL, 1, 1, 1, '2023-05-03 19:38:08', NULL, NULL),
+(5, 10, 3, 2, 13, '2023-05-27', 'cegae', '2345 0055', 'oksjoifnj ge kgk bnf', '2023-05-28', 'dgfdgdfg uyyiooo', NULL, NULL, NULL, 1, 1, 1, '2023-05-03 19:38:46', NULL, NULL),
+(6, 15, 1, 3, 14, '2023-05-28', 'Ultimaaa ya', '1277899', 'beso a beso aaa', '2023-05-20', 'un dos tre un dos tres', NULL, NULL, NULL, 1, 1, 1, '2023-05-03 19:39:33', '2023-05-06 21:48:07', NULL),
+(7, 9, 3, 4, 15, '2023-03-02', 'Nunca jamas', '12/2022', 'Ques el detalle de observacion', '2023-03-12', 'Ay nruperta abrile a\r\nla puerta--', NULL, NULL, NULL, 1, 1, 1, '2023-05-04 18:09:50', '2023-05-06 21:47:49', NULL),
+(8, 10, 3, 2, 12, '2023-05-05', 'Finish the back', '12/2019', 'Hello Fani, how are you?', '2023-05-27', 'Let\'s go. She is running at the park', NULL, NULL, NULL, 1, 3, 3, '2023-05-06 17:17:29', '2023-05-06 22:31:56', NULL),
+(9, 21, 2, 1, 14, '2023-05-16', 'Como hacer balances', '32/2021', 'No se que paso con esoo', '2023-05-01', 'vamos corre forest', NULL, NULL, NULL, 1, 3, 3, '2023-05-06 17:39:19', NULL, NULL),
+(10, 4, 1, 1, 14, '2023-05-11', 'A ti te va', '23&332', 'vamos a por todo', '2023-05-26', 'Let\'s go the all', NULL, NULL, NULL, 2, 3, 3, '2023-05-08 19:44:14', '2023-05-09 00:44:36', NULL),
+(11, 7, 2, 1, 15, '2023-05-24', 'Otro mas para acaa', '24/2022', 'Barbaridades de la vidad...', '2023-05-26', 'Otra vez de todo yo..', 'Secretaria', 'Guillermo Paul.', '2023-05-23', 2, 3, NULL, '2023-05-21 20:48:28', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -167,7 +171,10 @@ INSERT INTO `observacion_acciones` (`id_accion`, `observacion_id`, `accion_encar
 (10, 1, 'ya va yendo.... esperame', '', 2, 3, '2023-05-12 22:30:16', NULL, NULL),
 (11, 10, 'Nueva accion correctiva a realizar', '', 2, 4, '2023-05-12 23:30:42', NULL, NULL),
 (12, 10, 'vamos a contestar dos veices', '', 2, 3, '2023-05-12 23:31:38', NULL, NULL),
-(13, 10, 'por que no respondes forro', '', 2, 3, '2023-05-12 23:31:50', NULL, NULL);
+(13, 10, 'por que no respondes forro', '', 2, 3, '2023-05-12 23:31:50', NULL, NULL),
+(14, 3, 'Vamos probando...', '', 2, 4, '2023-05-21 20:32:42', NULL, NULL),
+(15, 11, 'Vamos a comenzar..', '22052023_1684712998.pdf', 2, 4, '2023-05-21 20:49:58', NULL, NULL),
+(16, 11, 'Como quieres estar hoy...', '', 2, 3, '2023-05-21 20:50:39', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -352,7 +359,7 @@ INSERT INTO `usuarios_permisos` (`id_permiso`, `usuario_id`, `usuario_tipo_id`, 
 (1, 1, 1, NULL, NULL, '2023-05-05 19:41:31', NULL, NULL),
 (2, 2, 2, NULL, NULL, '2023-05-05 21:39:09', NULL, NULL),
 (3, 3, 3, NULL, NULL, '2023-05-05 21:40:22', NULL, NULL),
-(4, 4, 4, 1, NULL, '2023-05-07 00:45:17', NULL, NULL),
+(4, 4, 4, 4, NULL, '2023-05-07 00:45:17', NULL, NULL),
 (5, 5, 5, 10, NULL, '2023-05-17 19:37:42', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -474,13 +481,13 @@ ALTER TABLE `intervenciones`
 -- AUTO_INCREMENT de la tabla `observaciones`
 --
 ALTER TABLE `observaciones`
-  MODIFY `id_observacion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_observacion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `observacion_acciones`
 --
 ALTER TABLE `observacion_acciones`
-  MODIFY `id_accion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_accion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `observacion_estados`

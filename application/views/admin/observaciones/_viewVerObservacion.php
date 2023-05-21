@@ -58,7 +58,7 @@
     <p class="font-weight-bold m-0">Estado
       <?php if (permisoSupervisor()) : ?>
         <button type="button" class="btn btn-link btn-sm p-0 pb-1" title="Cambiar estado" data-toggle="modal" data-target="#small" onclick="cerrarModalExtraLarge();cargarFormSmall('<?= base_url(OBSERVACIONES_PATH . '/frmCambiarEstado/' . $observacion->id_observacion); ?>')">
-        <i class="fas fa-pen"></i>
+          <i class="fas fa-pen"></i>
         </button>
       <?php endif; ?>
     </p>
@@ -72,6 +72,25 @@
     <p class="m-0 text-justify"><?= $observacion->detalle_recomendacion; ?></p>
   </div>
 </div>
+
+<?php if ($observacion->area_involucrada) : ?>
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <p class="font-weight-bold m-0">Área/s Involucrada/s</p>
+      <p class="m-0"><?= $observacion->area_involucrada; ?></p>
+    </div>
+    <div class="col-md-6">
+      <p class="font-weight-bold m-0">Responsable/s de Implementación</p>
+      <p class="m-0"><?= $observacion->responsable_implementacion; ?></p>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <p class="font-weight-bold m-0">Fecha de Estimada de Regularización</p>
+      <p class="m-0"><?= formatearFecha($observacion->fecha_estimada_reg); ?></p>
+    </div>
+  </div>
+<?php endif; ?>
 
 <?php if (permisoSuperadminSupervisor()) : ?>
   <div class="row mb-3">
