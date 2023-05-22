@@ -36,7 +36,7 @@
 
 							<div class="col-md-3">
 								<div class="form-group">
-									<label for="ua_busq" class="mb-0">Unidad Académica</label>
+									<label for="ua_busq" class="mb-0">Unidad Académica/Instituto</label>
 									<?php if (isset($unidadAcademica)) : ?>
 										<input type="hidden" class="form-control" id="ua_busq" name="ua_busq_id" value="<?= $unidadAcademica->id_ua; ?>">
 										<input type="text" class="form-control-plaintext" value="<?= $unidadAcademica->nombre_ua; ?>" readonly>

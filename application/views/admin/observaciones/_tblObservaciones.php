@@ -6,9 +6,9 @@
         <tr class="text-center">
           <th data-field="id_observacion" class="th-link"> <i class="fas fa-sort"></i> N° Orden</th>
           <?php if (permisoSuperadminSupervisorOperador()) : ?>
-            <th data-field="nombre_ua" class="th-link"> <i class="fas fa-sort"></i> Unidad académica</th>
+            <th data-field="nombre_ua" class="th-link"> <i class="fas fa-sort"></i> Unidad académica/Instituto</th>
           <?php endif; ?>
-          <th data-field="proyecto" class="th-link"><i class="fas fa-sort"></i> Proyecto</th>
+          <th data-field="proyecto" class="th-link"><i class="fas fa-sort"></i> Proyecto/Actividad</th>
           <th data-field="fecha_observacion" class="th-link"><i class="fas fa-sort"></i> Fecha Observación</th>
           <th>Acciones</th>
           <!-- <?php if (permisoSuperadminSupervisor()) : ?>
