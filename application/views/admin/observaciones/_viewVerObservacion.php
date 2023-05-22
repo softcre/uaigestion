@@ -44,7 +44,7 @@
 
 <div class="row mb-3">
   <div class="col-md-12">
-    <p class="font-weight-bold m-0">Recomendación UAI</p>
+    <p class="font-weight-bold m-0">Observación UAI</p>
     <p class="m-0 text-justify"><?= $observacion->detalle_observacion; ?></p>
   </div>
 </div>
@@ -68,7 +68,7 @@
 
 <div class="row mb-3">
   <div class="col-md-12">
-    <p class="font-weight-bold m-0">Detalle de la Recomendación</p>
+    <p class="font-weight-bold m-0">Recomendación UAI</p>
     <p class="m-0 text-justify"><?= $observacion->detalle_recomendacion; ?></p>
   </div>
 </div>

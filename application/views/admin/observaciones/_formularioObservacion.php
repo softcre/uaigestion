@@ -84,8 +84,8 @@
 <div class="row">
   <div class="col-12">
     <div class="form-group">
-      <label for="detalle_observacion" class="mb-0" title="Obligatorio">Recomendación UAI <span class="text-danger" title="Obligatorio">*</span></label>
-      <textarea class="form-control" id="detalle_observacion" name="detalle_observacion" rows="4" placeholder="Ingrese la recomendación..."><?= (isset($observacion)) ? $observacion->detalle_observacion : ''; ?></textarea>
+      <label for="detalle_observacion" class="mb-0" title="Obligatorio">Observación UAI <span class="text-danger" title="Obligatorio">*</span></label>
+      <textarea class="form-control" id="detalle_observacion" name="detalle_observacion" rows="4" placeholder="Ingrese detalle de la Observación..."><?= (isset($observacion)) ? $observacion->detalle_observacion : ''; ?></textarea>
     </div>
   </div>
 </div>
@@ -117,8 +117,8 @@
 <div class="row">
   <div class="col-12">
     <div class="form-group">
-      <label for="detalle_recomendacion" class="mb-0" title="Obligatorio">Detalle de la recomendación <span class="text-danger" title="Obligatorio">*</span></label>
-      <textarea class="form-control" id="detalle_recomendacion" name="detalle_recomendacion" rows="4" placeholder="Ingrese detalle de la recomendación..."><?= (isset($observacion)) ? $observacion->detalle_recomendacion : ''; ?></textarea>
+      <label for="detalle_recomendacion" class="mb-0" title="Obligatorio">Recomendación UAI <span class="text-danger" title="Obligatorio">*</span></label>
+      <textarea class="form-control" id="detalle_recomendacion" name="detalle_recomendacion" rows="4" placeholder="Ingrese la recomendación..."><?= (isset($observacion)) ? $observacion->detalle_recomendacion : ''; ?></textarea>
     </div>
   </div>
 </div>
