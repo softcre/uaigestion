@@ -9,10 +9,10 @@
 				<ol class="breadcrumb float-sm-right">
 					<li class="breadcrumb-item"><a href="#">Home</a></li>
 					<?php if ($act == "nue_obs") : ?>
-						<li class="breadcrumb-item"><a href="<?= base_url(OBSERVACIONES_PATH); ?>">Observaciones</a></li>
-						<li class="breadcrumb-item active">Nueva</li>
+						<li class="breadcrumb-item"><a href="<?= base_url(OBSERVACIONES_PATH); ?>">Seguimientos UAI</a></li>
+						<li class="breadcrumb-item active">Nueva observación UAI</li>
 					<?php else : ?>
-						<li class="breadcrumb-item active">Observaciones</li>
+						<li class="breadcrumb-item active">Seguimientos UAI</li>
 					<?php endif; ?>
 				</ol>
 			</div><!-- /.col -->

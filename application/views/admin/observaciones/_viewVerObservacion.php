@@ -26,14 +26,14 @@
     <p class="m-0"><?= $observacion->plan; ?></p>
   </div>
   <div class="col-md-6">
-    <p class="font-weight-bold m-0">Proyecto</p>
+    <p class="font-weight-bold m-0">Proyecto / Actividad</p>
     <p class="m-0"><?= $observacion->proyecto; ?></p>
   </div>
 </div>
 
 <div class="row mb-3">
   <div class="col-md-6">
-    <p class="font-weight-bold m-0">N° Informe UAI</p>
+    <p class="font-weight-bold m-0">Informe de Auditoria N°</p>
     <p class="m-0"><?= $observacion->nro_informe_uai; ?></p>
   </div>
   <div class="col-md-6">
@@ -44,7 +44,7 @@
 
 <div class="row mb-3">
   <div class="col-md-12">
-    <p class="font-weight-bold m-0">Detalle de la Observación</p>
+    <p class="font-weight-bold m-0">Recomendación UAI</p>
     <p class="m-0 text-justify"><?= $observacion->detalle_observacion; ?></p>
   </div>
 </div>

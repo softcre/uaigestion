@@ -32,7 +32,7 @@ class ObservacionNueva_controller extends CI_Controller
   //--------------------------------------------------------------
   public function index()
   {
-    $data['title'] = 'Nueva Observación';
+    $data['title'] = 'Nueva observación UAI';
     $data['act'] = 'nue_obs';
     $data['desplegado'] = 'obs';
     $data['unidadesAcademicas'] = $this->unidadesAcademicas->get_select();

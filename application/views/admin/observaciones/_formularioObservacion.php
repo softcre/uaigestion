@@ -51,8 +51,8 @@
 
   <div class="col-md-6">
     <div class="form-group">
-      <label for="proyecto" class="mb-0" title="Obligatorio">Proyecto <span class="text-danger" title="Obligatorio">*</span></label>
-      <input type="text" class="form-control" id="proyecto" name="proyecto" placeholder="Proyecto" value="<?= (isset($observacion)) ? $observacion->proyecto : ''; ?>">
+      <label for="proyecto" class="mb-0" title="Obligatorio">Proyecto / Actividad <span class="text-danger" title="Obligatorio">*</span></label>
+      <input type="text" class="form-control" id="proyecto" name="proyecto" placeholder="Proyecto / Actividad" value="<?= (isset($observacion)) ? $observacion->proyecto : ''; ?>">
     </div>
   </div>
 </div>
@@ -60,8 +60,8 @@
 <div class="row">
   <div class="col-md-6">
     <div class="form-group">
-      <label for="nro_informe_uai" class="mb-0" title="Obligatorio">Nro. Informe UAI <span class="text-danger" title="Obligatorio">*</span></label>
-      <input type="text" class="form-control" id="nro_informe_uai" name="nro_informe_uai" placeholder="Nro. Informe UAI" value="<?= (isset($observacion)) ? $observacion->nro_informe_uai : ''; ?>">
+      <label for="nro_informe_uai" class="mb-0" title="Obligatorio">Informe de Auditoria N°<span class="text-danger" title="Obligatorio">*</span></label>
+      <input type="text" class="form-control" id="nro_informe_uai" name="nro_informe_uai" placeholder="Informe de Auditoria N°" value="<?= (isset($observacion)) ? $observacion->nro_informe_uai : ''; ?>">
     </div>
   </div>
 
@@ -84,8 +84,8 @@
 <div class="row">
   <div class="col-12">
     <div class="form-group">
-      <label for="detalle_observacion" class="mb-0" title="Obligatorio">Detalle de la Observación <span class="text-danger" title="Obligatorio">*</span></label>
-      <textarea class="form-control" id="detalle_observacion" name="detalle_observacion" rows="4" placeholder="Ingrese detalle de la observación..."><?= (isset($observacion)) ? $observacion->detalle_observacion : ''; ?></textarea>
+      <label for="detalle_observacion" class="mb-0" title="Obligatorio">Recomendación UAI <span class="text-danger" title="Obligatorio">*</span></label>
+      <textarea class="form-control" id="detalle_observacion" name="detalle_observacion" rows="4" placeholder="Ingrese la recomendación..."><?= (isset($observacion)) ? $observacion->detalle_observacion : ''; ?></textarea>
     </div>
   </div>
 </div>

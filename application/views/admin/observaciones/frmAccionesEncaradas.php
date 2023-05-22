@@ -1,6 +1,6 @@
 <div class="card card-primary">
   <div class="card-header">
-    <div class="card-title">Observación N° <?= $observacion->id_observacion; ?></div>
+    <div class="card-title">Observación UAI N° <?= $observacion->id_observacion; ?></div>
     <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>

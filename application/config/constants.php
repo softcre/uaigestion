@@ -87,7 +87,7 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 /**
  * CONSTANTES
  */
-define('APP_NAME', 'UAI GESTIÓN');
+define('APP_NAME', 'Seguimientos UAI');
 
 // RUTAS
 define('ADMIN_PATH', 'sc-admin');

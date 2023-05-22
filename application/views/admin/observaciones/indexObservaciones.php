@@ -9,13 +9,13 @@
 		<div class="container-fluid">
 			<?php if (permisoOperador()) : ?>
 				<a href="<?= base_url(OBSERVACION_NUEVA_PATH) ?>" class="btn bg-gradient-primary mb-3" title="Nueva observación">
-					<i class="fas fa-plus fa-fw"></i> Nueva observación
+					<i class="fas fa-plus fa-fw"></i> Nueva observación UAI
 				</a>
 			<?php endif; ?>
 
 			<div class="card card-primary">
 				<div class="card-header">
-					<h3 class="card-title">Listado de Observaciones</h3>
+					<h3 class="card-title">Listado de Seguimientos UAI</h3>
 				</div>
 
 				<div class="card-body">

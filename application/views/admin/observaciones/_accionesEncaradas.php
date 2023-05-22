@@ -1,6 +1,6 @@
 <div class="timeline">
   <div class="time-label">
-    <span class="bg-red">Acciones encaradas</span>
+    <span class="bg-blue">Propuesta de Acción</span>
   </div>
 
   <?php foreach ($accionesEncaradas as $key => $accion) : ?>
@@ -36,7 +36,7 @@
       <div>
         <img class="fas" src="<?= $this->imagen->getUrlImg('usuarios', $this->session->foto); ?>" alt="message user image">
         <div class="timeline-item">
-          <h3 class="timeline-header">Acción encarada</h3>
+          <h3 class="timeline-header">Propuesta de Acción</h3>
 
           <form id="form_accion" name="Accion" enctype="multipart/form-data" method="post" onsubmit="addAccionEncarada(event)">
             <input type="hidden" name="totalAcciones" value="<?= count($accionesEncaradas); ?>">
@@ -67,7 +67,7 @@
               <?php endif; ?>
 
               <input type="hidden" name="observacion_id" value="<?= $observacion_id; ?>">
-              <textarea class="form-control mb-1" id="accion_encarada" name="accion_encarada" rows="3" placeholder="Ingrese la acción encarada..."></textarea>
+              <textarea class="form-control mb-1" id="accion_encarada" name="accion_encarada" rows="3" placeholder="Ingrese la propuesta de acción..."></textarea>
               <input type="file" name="fileAccion" id="fileAccion">
             </div>
           </form>

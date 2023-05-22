@@ -34,7 +34,7 @@ class Observaciones_controller extends CI_Controller
   //--------------------------------------------------------------
   public function index()
   {
-    $data['title'] = 'Observaciones';
+    $data['title'] = 'Seguimientos UAI';
     $data['act'] = 'list_obs';
     $data['desplegado'] = 'obs';
 
