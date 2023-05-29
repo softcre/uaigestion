@@ -25,7 +25,7 @@ function getUrlFile($observacion_id, $file)
 function subirFile($nombreFile, $observacion_id)
 {
   $CI = &get_instance();
-  $tipos  = array('application/msword', 'application/vnd.ms-excel', 'application/pdf', 'image/jpeg', 'image/pjpeg', 'image/bmp', 'image/png', 'imagen/x-png');
+  $tipos  = array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf', 'bmp', 'jpeg', 'jpg', 'png', 'rar', 'zip', 'txt');
   $destino = 'assets/observaciones/' . $observacion_id . '/';
 
   if (!file_exists($destino)) {
@@ -34,12 +34,13 @@ function subirFile($nombreFile, $observacion_id)
 
 
   if (isset($_FILES[$nombreFile]['name'])) {
-    $mime  =  get_mime_by_extension($_FILES[$nombreFile]['name']); //obtiene la extension del file
+    //$mime  =  get_mime_by_extension($_FILES[$nombreFile]['name']); //obtiene la extension del file
+    $extension = pathinfo($_FILES[$nombreFile]['name'], PATHINFO_EXTENSION);
 
-    if (in_array($mime,  $tipos)) {
+    if (in_array($extension,  $tipos)) {
       //cargar configuración 
       $config['upload_path'] = $destino;
-      $config['allowed_types'] = 'docx|doc|xls|xlsx|pdf|bmp|jpeg|jpg|png';
+      $config['allowed_types'] = implode('|', $tipos);
       $config['file_name'] = date('dmY') . '_' . time();
 
       $CI->upload->initialize($config); // Se inicializa la config
@@ -51,7 +52,7 @@ function subirFile($nombreFile, $observacion_id)
         //return $destino . $imgSubida['orig_name'];
       }
     }
-    return 'Error: Tipo de archivo no soportado.';
+    return "Error: Tipo de archivo($extension) no soportado.";// Tipos de archivos soportados: " . implode('|', $tipos);
   }
   return 'Error: No se pudo cargar el archivo adjunto.';
   //return $destino . $imgDefault;
