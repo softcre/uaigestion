@@ -52,10 +52,11 @@ class Index_controller extends CI_Controller
 					return $this->response->error('Ooops.. error!', 'Usuario sin permisos');
 
 				$rol = array(
-					'id_rol'	=> $permiso->usuario_tipo_id,
-					'name' 		=> $permiso->tipo_usuario,
-					'ua_id'		=> $permiso->unidad_academica_id,
-					'aa_id'		=> $permiso->area_auditada_id
+					'id_rol'		=> $permiso->usuario_tipo_id,
+					'name' 			=> $permiso->tipo_usuario,
+					'ua_id'			=> $permiso->unidad_academica_id,
+					'secre_id'	=> $permiso->secretaria_id,
+					'aa_id'			=> $permiso->area_auditada_id
 				);
 				$dataUser = [
 					'id'				=> $user->id_usuario,

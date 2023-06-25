@@ -27,7 +27,7 @@
     </div>
   <?php endforeach; ?>
 
-  <?php if (permisoOperadorUA_general()) : ?>
+  <?php if (permisoOperador_UAOperador()) : ?>
     <?php if (!$accionesEncaradas && permisoOperador()) : ?>
       <div class="alert alert-info text-center" role="alert">
         Sin acciones encaradas por parte del area auditada...

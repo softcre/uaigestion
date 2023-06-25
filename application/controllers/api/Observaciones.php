@@ -45,9 +45,10 @@ class Observaciones extends CI_Controller
     $data['page']     = ($this->input->post('page')) ? $this->input->post('page') : 1;
     $data['per_page'] = ($this->input->post('limit')) ? $this->input->post('limit') : 10;
     $data['ua_id']    = ($this->input->post('ua_id')) ? $this->input->post('ua_id') : "";
+    $data['secre_id'] = ($this->input->post('secre_id')) ? $this->input->post('secre_id') : "";
     $data['aa_id']    = ($this->input->post('aa_id')) ? $this->input->post('aa_id') : "";
     $data['order']    = ($this->input->post('order')) ? $this->input->post('order') : "asc";
-    $data['order_by']  = ($this->input->post('order_by')) ? $this->input->post('order_by') : "id_observacion";
+    $data['order_by'] = ($this->input->post('order_by')) ? $this->input->post('order_by') : "id_observacion";
     $data['search']   = ($this->input->post('search')) ? $this->input->post('search') : "";
 
     $bus_sep       = explode(' ', $data['search']);
@@ -77,16 +78,17 @@ class Observaciones extends CI_Controller
     verificarConsulAjax();
 
     $this->form_validation->set_rules('fecha_observacion', 'Fecha de Observación', 'required|trim');
-    $this->form_validation->set_rules('unidad_academica_id', 'Unidad Académica', 'required|trim');
+    $this->form_validation->set_rules('unidad_academica_id', 'Unidad Académica / Instituto', 'required|trim');
+    $this->form_validation->set_rules('secretaria_id', 'Secretaría', 'required|trim');
     $this->form_validation->set_rules('area_auditada_id', 'Área Auditada', 'required|trim');
     $this->form_validation->set_rules('plan_id', 'Plan', 'required|trim');
-    $this->form_validation->set_rules('proyecto', 'Proyecto', 'required|min_length[3]|trim');
+    $this->form_validation->set_rules('proyecto', 'Proyecto / Actividad', 'required|min_length[3]|trim');
     $this->form_validation->set_rules('nro_informe_uai', 'Nro. Informe UAI', 'required|trim');
     $this->form_validation->set_rules('impacto_id', 'Impacto', 'required|trim');
-    $this->form_validation->set_rules('detalle_observacion', 'Detalle de la Observación', 'required|min_length[10]|trim');
+    $this->form_validation->set_rules('detalle_observacion', 'Observación UAI', 'required|min_length[10]|trim');
     $this->form_validation->set_rules('fecha_seguimiento', 'Fecha de Seguimiento', 'required|trim');
     // $this->form_validation->set_rules('estado_id', 'Estado', 'required|trim');
-    $this->form_validation->set_rules('detalle_recomendacion', 'Detalle de la Recomendación', 'required|min_length[10]|trim');
+    $this->form_validation->set_rules('detalle_recomendacion', 'Recomendación UAI', 'required|min_length[10]|trim');
 
     if ($this->form_validation->run()) :
       $observacion = [
@@ -126,16 +128,17 @@ class Observaciones extends CI_Controller
     verificarConsulAjax();
 
     $this->form_validation->set_rules('fecha_observacion', 'Fecha de Observación', 'required|trim');
-    $this->form_validation->set_rules('unidad_academica_id', 'Unidad Académica', 'required|trim');
+    $this->form_validation->set_rules('unidad_academica_id', 'Unidad Académica / Instituto', 'required|trim');
+    $this->form_validation->set_rules('secretaria_id', 'Secretaría', 'required|trim');
     $this->form_validation->set_rules('area_auditada_id', 'Área Auditada', 'required|trim');
     $this->form_validation->set_rules('plan_id', 'Plan', 'required|trim');
-    $this->form_validation->set_rules('proyecto', 'Proyecto', 'required|min_length[3]|trim');
+    $this->form_validation->set_rules('proyecto', 'Proyecto / Actividad', 'required|min_length[3]|trim');
     $this->form_validation->set_rules('nro_informe_uai', 'Nro. Informe UAI', 'required|trim');
     $this->form_validation->set_rules('impacto_id', 'Impacto', 'required|trim');
-    $this->form_validation->set_rules('detalle_observacion', 'Detalle de la Observación', 'required|min_length[10]|trim');
+    $this->form_validation->set_rules('detalle_observacion', 'Observación UAI', 'required|min_length[10]|trim');
     $this->form_validation->set_rules('fecha_seguimiento', 'Fecha de Seguimiento', 'required|trim');
     // $this->form_validation->set_rules('estado_id', 'Estado', 'required|trim');
-    $this->form_validation->set_rules('detalle_recomendacion', 'Detalle de la Recomendación', 'required|min_length[10]|trim');
+    $this->form_validation->set_rules('detalle_recomendacion', 'Recomendación UAI', 'required|min_length[10]|trim');
 
     if ($this->form_validation->run()) :
       $idObservacion = $this->input->post('idObservacion');

@@ -36,7 +36,7 @@ class Acciones extends CI_Controller
 
     $accionesEncaradas = $this->acciones->getByObservacion($observacion_id);
 
-    if (permisoOperadorUA_general()) {
+    if (permisoOperador_UAOperador()) {
       foreach ($accionesEncaradas as $ae) {
         if ($ae->leido == 1 && $_SESSION['rol']['id_rol'] != $ae->usuario_tipo_id) {
           // se marca como leido

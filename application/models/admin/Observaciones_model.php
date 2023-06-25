@@ -5,6 +5,7 @@ class Observaciones_model extends CI_Model
 {
 	private $table;
 	private $tableAA;
+	private $tableSecretarias;
 	private $tableUA;
 	private $tableImpactos;
 	private $tableEstados;
@@ -18,6 +19,7 @@ class Observaciones_model extends CI_Model
 
 		$this->table = 'observaciones';
 		$this->tableAA = 'areas_auditadas';
+		$this->tableSecretarias = 'secretarias';
 		$this->tableUA = 'unidades_academicas';
 		$this->tableImpactos = 'observacion_impactos';
 		$this->tableEstados = 'observacion_estados';
@@ -57,10 +59,11 @@ class Observaciones_model extends CI_Model
 	//--------------------------------------------------------------
 	public function get($id_observacion)
 	{
-		$this->db->select('obs.*, aa.ua_id, aa.nombre_aa, ua.nombre_ua, imp.impacto, est.estado, plan.plan, us1.nombre AS nom_creador, us1.apellido AS ape_creador, us2.nombre AS nom_actualizador, us2.apellido AS ape_actualizador');
+		$this->db->select('obs.*, sec.ua_id, aa.secretaria_id, aa.nombre_aa, ua.nombre_ua, sec.nombre_secretaria, imp.impacto, est.estado, plan.plan, us1.nombre AS nom_creador, us1.apellido AS ape_creador, us2.nombre AS nom_actualizador, us2.apellido AS ape_actualizador');
 		$this->db->from($this->table . ' obs');
 		$this->db->join($this->tableAA . ' aa', 'aa.id_area_auditada = obs.area_auditada_id');
-		$this->db->join($this->tableUA . ' ua', 'ua.id_ua = aa.ua_id');
+		$this->db->join($this->tableSecretarias . ' sec', 'sec.id_secretaria = aa.secretaria_id');
+		$this->db->join($this->tableUA . ' ua', 'ua.id_ua = sec.ua_id');
 		$this->db->join($this->tableImpactos . ' imp', 'imp.id_impacto = obs.impacto_id');
 		$this->db->join($this->tableEstados . ' est', 'est.id_estado = obs.estado_id');
 		$this->db->join($this->tablePlanes . ' plan', 'plan.id_plan = obs.plan_id');
@@ -140,9 +143,11 @@ class Observaciones_model extends CI_Model
 		$this->db->select("COUNT(*) total");
 		$this->db->from($this->table . " obs");
 		$this->db->join($this->tableAA . ' aa', 'aa.id_area_auditada = obs.area_auditada_id');
-		$this->db->join($this->tableUA . ' ua', 'ua.id_ua = aa.ua_id');
+		$this->db->join($this->tableSecretarias . ' sec', 'sec.id_secretaria = aa.secretaria_id');
+		$this->db->join($this->tableUA . ' ua', 'ua.id_ua = sec.ua_id');
 		
-		if ($data['ua_id']) $this->db->where("aa.ua_id", $data['ua_id']);
+		if ($data['ua_id']) $this->db->where("sec.ua_id", $data['ua_id']);
+		if ($data['secre_id']) $this->db->where("aa.secretaria_id", $data['secre_id']);
 		if ($data['aa_id']) $this->db->where("obs.area_auditada_id", $data['aa_id']);
 		//$this->db->where("sec.act_sec=1 and (sec.visible_sec='panel' or sec.visible_sec='sidebar')");
 		//$this->db->where("sec.act_post", $data['filter']);
@@ -172,9 +177,9 @@ class Observaciones_model extends CI_Model
 	public function search($data, $words)
 	{
 		$queryInt = "0";
-		if (permisoOperadorUA_general()) {
+		if (permisoOperador_UAOperador()) {
 			if (permisoOperador()) $usuario_tipo_id = 4; // busca los no leido por el UA General
-			if (permisoUA_general()) $usuario_tipo_id = 3; // busca los no leido por el Operador
+			if (permisoUAOperador()) $usuario_tipo_id = 3; // busca los no leido por el Operador
 			
 			$queryInt = "(SELECT COUNT(*) FROM observacion_acciones oa INNER JOIN usuarios_permisos up ON up.usuario_id = oa.usuario_id WHERE oa.observacion_id = obs.id_observacion AND oa.leido = 1 AND up.usuario_tipo_id = '$usuario_tipo_id')";
 		}
@@ -182,9 +187,12 @@ class Observaciones_model extends CI_Model
 		$this->db->select("obs.*,  ua.nombre_ua, $queryInt AS acciones_no_leidas");
 		$this->db->from($this->table . " obs");
 		$this->db->join($this->tableAA . ' aa', 'aa.id_area_auditada = obs.area_auditada_id');
-		$this->db->join($this->tableUA . ' ua', 'ua.id_ua = aa.ua_id');
+		$this->db->join($this->tableSecretarias . ' sec', 'sec.id_secretaria = aa.secretaria_id');
+		$this->db->join($this->tableUA . ' ua', 'ua.id_ua = sec.ua_id');
 		
-		if ($data['ua_id']) $this->db->where("aa.ua_id", $data['ua_id']);
+		
+		if ($data['ua_id']) $this->db->where("sec.ua_id", $data['ua_id']);
+		if ($data['secre_id']) $this->db->where("aa.secretaria_id", $data['secre_id']);
 		if ($data['aa_id']) $this->db->where("obs.area_auditada_id", $data['aa_id']);
 
 		$this->db->group_start();

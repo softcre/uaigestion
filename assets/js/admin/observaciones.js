@@ -2,6 +2,7 @@ var paramPage = {
 	page: 1,
 	limit: 5,
 	ua_id: null,
+	secre_id: null,
 	aa_id: null,
 	search: "",
 	order: "asc",
@@ -14,45 +15,44 @@ function errorDescarga() {
 }
 
 //----------------------OBTENER AREAS AUDITADAS - NUEVO----------------------
-function getAreasAuditadas(id = "") {
-	let unidadAcademica_id = $("#unidad_academica").val();
+function getAreasAuditadas(id_sec = "", id_aa = "") {
+	let secretaria_id = $("#secretaria").val();
 	let areaAuditada = $("#area_auditada");
 	areaAuditada.empty();
 	areaAuditada.append(
 		'<option disabled selected value="0">Seleccione un area auditada</option>'
 	);
 
-	if (unidadAcademica_id =='') return;
+	if (secretaria_id == null) secretaria_id = id_sec;
+	if (secretaria_id =='') return;
 
-	obtenerAA(unidadAcademica_id, areaAuditada, id);
+	obtenerAA(secretaria_id, areaAuditada, id_aa);
 }
 
 //---------------------------OBTENER AREAS AUDITADAS---------------------------
 function getAreasAuditadasList() {
-	let unidadAcademica_id = $("#ua_busq").val();
+	let secretaria_id = $("#secretaria_busq").val();
 	let areaAuditada = $("#aa_busq");
 
-	paramPage.ua_id = unidadAcademica_id;
+	paramPage.secre_id = secretaria_id;
 
-	if (unidadAcademica_id != '' && document.getElementById('ua_busq').type != 'hidden') {
-		areaAuditada.empty();
-		areaAuditada.append('<option selected value="">TODAS</option>');
-		obtenerAA(unidadAcademica_id, areaAuditada);
+	if (secretaria_id != '' && document.getElementById('secretaria_busq').type != 'hidden') {
+		initSelect(areaAuditada);
+		obtenerAA(secretaria_id, areaAuditada);
 	} 
-	else if (unidadAcademica_id == '') {
-		areaAuditada.empty();
-		areaAuditada.append('<option selected value="">TODAS</option>');
+	else if (secretaria_id == '') {
+		initSelect(areaAuditada);
 	}
 
 	loadObs();
 }
 
 //---------------------------OBTENER AREAS AUDITADAS---------------------------
-function obtenerAA(unidadAcademica_id, areaAuditada, id = "") {
+function obtenerAA(secretaria_id, areaAuditada, id = "") {
 	$.post(
-		BASE_URL + "areas-auditadas/getByUnidadAcademica",
+		BASE_URL + "areas-auditadas/getBySecretaria",
 		{
-			unidadAcademica_id: unidadAcademica_id,
+			secretaria_id: secretaria_id,
 		},
 		function (response) {
 			if (response.status === "ok") {
@@ -69,6 +69,72 @@ function obtenerAA(unidadAcademica_id, areaAuditada, id = "") {
 					}
 					areaAuditada.append(
 						"<option value=" + ele.id_area_auditada +" " + selec + ">" + ele.nombre_aa + "</option>"
+					);
+				});
+			}
+		},
+		"json"
+	).fail(ajaxErrors);
+}
+
+//------------------------OBTENER SECRETARIAS - NUEVO------------------------
+function getSecretarias(id = "") {
+	let unidadAcademica_id = $("#unidad_academica").val();
+	let secretaria = $("#secretaria");
+	let area_auditada = $("#area_auditada");
+	secretaria.empty();
+	secretaria.append(
+		'<option disabled selected value="0">Seleccione una secretaría</option>'
+	);
+
+	if (unidadAcademica_id =='') return;
+
+	initSelect(area_auditada, 'Seleccione un área auditada');
+	obtenerSecretarias(unidadAcademica_id, secretaria, id);
+}
+
+//------------------------OBTENER SECRETARIAS BUSQUEDA------------------------
+function getSecretariasList() {
+	let unidadAcademica_id = $("#ua_busq").val();
+	let secretaria = $("#secretaria_busq");
+	let areaAuditada = $("#aa_busq");
+
+	paramPage.ua_id = unidadAcademica_id;
+
+	if (unidadAcademica_id != '' && document.getElementById('ua_busq').type != 'hidden') {
+		initSelect(secretaria);
+		obtenerSecretarias(unidadAcademica_id, secretaria);
+	} 
+	else if (unidadAcademica_id == '') {
+		initSelect(secretaria);
+		initSelect(areaAuditada);
+	}
+
+	loadObs();
+}
+
+//----------------------------OBTENER SECRETARIAS----------------------------
+function obtenerSecretarias(unidadAcademica_id, secretaria, id = "") {
+	$.post(
+		BASE_URL + "secretarias/getByUnidadAcademica",
+		{
+			unidadAcademica_id: unidadAcademica_id,
+		},
+		function (response) {
+			if (response.status === "ok") {
+				let selec = '';
+				
+				if (id == '' && response.data.selected != null) {
+					secretaria.empty();
+					selec = response.data.selected;
+				}
+				
+				response.data.secretarias.forEach((ele) => {
+					if (id != '') {
+						selec = (id == ele.id_secretaria) ? "selected" : "";
+					}
+					secretaria.append(
+						"<option value=" + ele.id_secretaria +" " + selec + ">" + ele.nombre_secretaria + "</option>"
 					);
 				});
 			}
@@ -303,6 +369,12 @@ function marcarObsyAccionesLeidas(id_obs) {
 	if (leidoAcciones) {
     leidoAcciones.style.display = 'none';
 	}
+}
+
+//---------------------------INICIALIZA UN SELECT---------------------------
+function initSelect(ele, nombre = "TODAS") {
+	ele.empty();
+	ele.append('<option selected value="">' + nombre + '</option>');
 }
 
 // $("#extra-large").on("hidden.bs.modal", function () {

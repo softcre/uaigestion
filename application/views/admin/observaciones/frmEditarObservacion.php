@@ -28,5 +28,6 @@
 </div>
 
 <script>
-  getAreasAuditadas(<?= $observacion->area_auditada_id; ?>);
+  getSecretarias(<?= $observacion->secretaria_id; ?>);
+  getAreasAuditadas(<?= $observacion->secretaria_id; ?>, <?= $observacion->area_auditada_id; ?>);
 </script>

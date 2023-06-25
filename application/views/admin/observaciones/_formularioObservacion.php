@@ -11,7 +11,7 @@
   <div class="col-md-6">
     <div class="form-group">
       <label for="unidad_academica" class="mb-0" title="Obligatorio">Unidad Académica / Instituto<span class="text-danger" title="Obligatorio">*</span></label>
-      <select class="form-control" id="unidad_academica" name="unidad_academica_id" onchange="getAreasAuditadas()">
+      <select class="form-control" id="unidad_academica" name="unidad_academica_id" onchange="getSecretarias()">
         <option value="0" disabled selected>Seleccione una unidad académica</option>
         <?php foreach ($unidadesAcademicas as $ua) : ?>
           <?php $s = (isset($observacion)) ? (($observacion->ua_id == $ua->id_ua) ? 'selected' : '') : ''; ?>
@@ -23,6 +23,17 @@
     </div>
   </div>
 
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="secretaria" class="mb-0" title="Obligatorio">Secretaría <span class="text-danger" title="Obligatorio">*</span></label>
+      <select class="form-control" id="secretaria" name="secretaria_id" onchange="getAreasAuditadas()">
+        <option value="0" disabled selected>Seleccione una secretaría</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="row">
   <div class="col-md-6">
     <div class="form-group">
       <label for="area_auditada" class="mb-0" title="Obligatorio">Área Auditada <span class="text-danger" title="Obligatorio">*</span></label>

@@ -21,19 +21,29 @@ class AreasAuditadas_model extends CI_Model
 		return $this->db->get()->result();
 	}
 
-  //--------------------------------------------------------------
-	public function getByUnidadAcademica($ua_id)
+	//--------------------------------------------------------------
+	public function getBySecretaria($secretaria_id)
 	{
     $this->db->select('id_area_auditada, nombre_aa');
 		$this->db->from($this->table);
-
-		// if (permisoUA_general()) {
-		// 	if ($_SESSION['rol']['aa_id']) $this->db->where('id_area_auditada', $_SESSION['rol']['aa_id']);
-		// }
-    $this->db->where('ua_id', $ua_id);
+    $this->db->where('secretaria_id', $secretaria_id);
 		$this->db->where('deleted_at IS NULL');
 		return $this->db->get()->result();
 	}
+
+  // //--------------------------------------------------------------
+	// public function getByUnidadAcademica($ua_id)
+	// {
+  //   $this->db->select('id_area_auditada, nombre_aa');
+	// 	$this->db->from($this->table);
+
+	// 	// if (permisoUA_general()) {
+	// 	// 	if ($_SESSION['rol']['aa_id']) $this->db->where('id_area_auditada', $_SESSION['rol']['aa_id']);
+	// 	// }
+  //   $this->db->where('ua_id', $ua_id);
+	// 	$this->db->where('deleted_at IS NULL');
+	// 	return $this->db->get()->result();
+	// }
 
 	//--------------------------------------------------------------
 	public function get($id_area_auditada)

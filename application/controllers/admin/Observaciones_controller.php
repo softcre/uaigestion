@@ -7,6 +7,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * @property Impactos_model $impactos Optional description
  * @property Observaciones_model $observaciones Optional description
  * @property Planes_model $planes Optional description
+ * @property Secretarias_model $secretarias Optional description
  * @property UnidadesAcademicas_model $unidadesAcademicas Optional description
  * @property CI_Form_validation $form_validation Optional description
  * @property CI_Input $input Optional description
@@ -27,6 +28,7 @@ class Observaciones_controller extends CI_Controller
       IMPACTOS_MODEL            => 'impactos',
       OBSERVACIONES_MODEL       => 'observaciones',
       PLANES_MODEL              => 'planes',
+      SECRETARIAS_MODEL         => 'secretarias',
       UNIDADES_ACADEMICAS_MODEL => 'unidadesAcademicas'
     ));
   }
@@ -38,16 +40,23 @@ class Observaciones_controller extends CI_Controller
     $data['act'] = 'list_obs';
     $data['desplegado'] = 'obs';
 
-    if (permisoUA_generalUA_superadmin()) {
-      $ua_id =$_SESSION['rol']['ua_id'];
-      $aa_id =$_SESSION['rol']['aa_id'];
+    if (permiso_all_UA()) {
+      $ua_id = $_SESSION['rol']['ua_id'];
+      $secre_id = $_SESSION['rol']['secre_id'];
+      $aa_id = $_SESSION['rol']['aa_id'];
 
       $data['unidadAcademica'] = $this->unidadesAcademicas->get($ua_id);
 
-      if ($aa_id) {
-        $data['areaAuditada'] = $this->areasAuditadas->get($aa_id);
+      if ($secre_id) {
+        $data['secretaria'] = $this->secretarias->get($secre_id);
+
+        if ($aa_id) {
+          $data['areaAuditada'] = $this->areasAuditadas->get($aa_id);
+        } else {
+          $data['areasAuditadas'] = $this->areasAuditadas->getBySecretaria($secre_id);
+        }
       } else {
-        $data['areasAuditadas'] = $this->areasAuditadas->getByUnidadAcademica($ua_id);
+        $data['secretarias'] = $this->secretarias->getByUnidadAcademica($ua_id);
       }
         
     } else {
@@ -97,7 +106,7 @@ class Observaciones_controller extends CI_Controller
   {
     verificarConsulAjax();
 
-    if (permisoUA_general()) {
+    if (permisoUAOperador()) {
       // actualizo observacion a leido
       $this->observaciones->actualizarALeido($id_observacion, ['leido' => 2]);
     }

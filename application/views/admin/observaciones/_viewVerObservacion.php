@@ -15,6 +15,13 @@
     <p class="m-0"><?= $observacion->nombre_ua; ?></p>
   </div>
   <div class="col-md-6">
+    <p class="font-weight-bold m-0">Secretaría</p>
+    <p class="m-0"><?= $observacion->nombre_secretaria; ?></p>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-md-6">
     <p class="font-weight-bold m-0">Área Auditada</p>
     <p class="m-0"><?= $observacion->nombre_aa; ?></p>
   </div>

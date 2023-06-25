@@ -39,10 +39,10 @@
 									<label for="ua_busq" class="mb-0">Unidad Académica/Instituto</label>
 									<?php if (isset($unidadAcademica)) : ?>
 										<input type="hidden" class="form-control" id="ua_busq" name="ua_busq_id" value="<?= $unidadAcademica->id_ua; ?>">
-										<input type="text" class="form-control-plaintext" value="<?= $unidadAcademica->nombre_ua; ?>" readonly>
+										<input type="text" class="form-control-plaintext p-0" value="<?= $unidadAcademica->nombre_ua; ?>" readonly>
 
 									<?php else : ?>
-										<select class="form-control" id="ua_busq" name="ua_busq_id" onchange="getAreasAuditadasList()">
+										<select class="form-control" id="ua_busq" name="ua_busq_id" onchange="getSecretariasList()">
 											<option value="" selected>TODAS</option>
 											<?php foreach ($unidadesAcademicas as $key => $ua) : ?>
 												<option value="<?= $ua->id_ua; ?>">
@@ -56,10 +56,35 @@
 
 							<div class="col-md-3">
 								<div class="form-group">
+									<label for="secretaria_busq" class="mb-0">Secretaría</label>
+									<?php if (isset($secretaria)) : ?>
+										<input type="hidden" class="form-control" id="secretaria_busq" name="secretaria_busq_id" value="<?= $secretaria->id_secretaria; ?>">
+										<input type="text" class="form-control-plaintext p-0" value="<?= $secretaria->nombre_secretaria; ?>" readonly>
+
+									<?php elseif (isset($secretarias)) : ?>
+										<select class="form-control" id="secretaria_busq" name="secretaria_busq_id" onchange="getAreasAuditadasList()">
+											<option value="" selected>TODAS</option>
+											<?php foreach ($secretarias as $key => $secre) : ?>
+												<option value="<?= $secre->id_secretaria; ?>">
+													<?= $secre->nombre_secretaria; ?>
+												</option>
+											<?php endforeach; ?>
+										</select>
+
+									<?php else : ?>
+										<select class="form-control" id="secretaria_busq" name="secretaria_busq_id" onchange="getAreasAuditadasList()">
+											<option value="" selected>TODAS</option>
+										</select>
+									<?php endif; ?>
+								</div>
+							</div>
+
+							<div class="col-md-3">
+								<div class="form-group">
 									<label for="aa_busq" class="mb-0">Área Auditada</label>
 									<?php if (isset($areaAuditada)) : ?>
 										<input type="hidden" class="form-control" id="aa_busq" name="aa_busq_id" value="<?= $areaAuditada->id_area_auditada; ?>">
-										<input type="text" class="form-control-plaintext" value="<?= $areaAuditada->nombre_aa; ?>" readonly>
+										<input type="text" class="form-control-plaintext p-0" value="<?= $areaAuditada->nombre_aa; ?>" readonly>
 
 									<?php elseif (isset($areasAuditadas)) : ?>
 										<select class="form-control" id="aa_busq" name="aa_busq_id" onchange="loadObs()">
@@ -79,7 +104,7 @@
 								</div>
 							</div>
 
-							<div class="col-md-6 col-sm-12 align-self-center">
+							<div class="col-md-3 col-sm-12 align-self-center">
 								<div class="input-group">
 									<div class="search-panel input-group-prepend">
 									</div>
@@ -111,6 +136,6 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		getAreasAuditadasList();
+		getSecretariasList();
 	});
 </script>

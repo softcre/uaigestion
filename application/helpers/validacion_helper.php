@@ -43,14 +43,14 @@ function permisoOperador()
   return ($_SESSION['rol']['name'] == 'OPERADOR');
 }
 
-function permisoUA_general()
+function permisoUAOperador()
 {
-  return ($_SESSION['rol']['name'] == 'UA_GENERAL');
+  return ($_SESSION['rol']['name'] == 'UA_OPERADOR');
 }
 
-function permisoUA_generalUA_superadmin()
+function permiso_all_UA()
 {
-  return ($_SESSION['rol']['name'] == 'UA_GENERAL' || $_SESSION['rol']['name'] == 'UA_SUPERADMIN');
+  return ($_SESSION['rol']['name'] == 'UA_DECANO' || $_SESSION['rol']['name'] == 'UA_SECRETARIO' || $_SESSION['rol']['name'] == 'UA_OPERADOR');
 }
 
 function permisoSuperadminSupervisor()
@@ -58,12 +58,12 @@ function permisoSuperadminSupervisor()
   return ($_SESSION['rol']['name'] == 'SUPERADMIN' || $_SESSION['rol']['name'] == 'SUPERVISOR');
 }
 
-function permisoOperadorUA_general()
+function permisoOperador_UAOperador()
 {
-  return ($_SESSION['rol']['name'] == 'OPERADOR' || $_SESSION['rol']['name'] == 'UA_GENERAL');
+  return ($_SESSION['rol']['name'] == 'OPERADOR' || $_SESSION['rol']['name'] == 'UA_OPERADOR');
 }
 
-function permisoSuperadminSupervisorOperador()
+function permiso_all_UAI()
 {
   return ($_SESSION['rol']['name'] == 'SUPERADMIN' || $_SESSION['rol']['name'] == 'SUPERVISOR' || $_SESSION['rol']['name'] == 'OPERADOR');
 }

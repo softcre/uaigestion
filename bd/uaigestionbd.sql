@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2023 a las 01:51:17
+-- Tiempo de generación: 25-06-2023 a las 16:35:53
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `areas_auditadas` (
   `id_area_auditada` int(11) NOT NULL,
-  `ua_id` int(11) NOT NULL,
+  `secretaria_id` int(11) DEFAULT NULL,
   `nombre_aa` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
@@ -40,38 +40,51 @@ CREATE TABLE `areas_auditadas` (
 -- Volcado de datos para la tabla `areas_auditadas`
 --
 
-INSERT INTO `areas_auditadas` (`id_area_auditada`, `ua_id`, `nombre_aa`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'Dirección de Gestión Económico Financiera', '2023-05-08 19:27:01', NULL, NULL),
-(2, 1, 'Tesorería', '2023-05-08 19:27:01', NULL, NULL),
-(3, 1, 'Dirección Gestión de Estudios', '2023-05-08 19:27:01', NULL, NULL),
-(4, 1, 'Secretaría académica', '2023-05-08 19:27:01', NULL, NULL),
-(5, 2, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(6, 3, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(7, 4, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(8, 5, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(9, 6, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(10, 7, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(11, 8, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(12, 9, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(13, 10, 'Dirección de Gestión y Desarrollo de Personas', '2023-05-08 19:27:01', NULL, NULL),
-(14, 10, 'Dirección de Gestión Económico Financiera', '2023-05-08 19:27:01', NULL, NULL),
-(15, 10, 'Dirección de Gestión Académica', '2023-05-08 19:27:01', NULL, NULL),
-(16, 10, 'Dirección de Gestión de Estudios', '2023-05-08 19:27:01', NULL, NULL),
-(17, 11, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(18, 12, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(19, 13, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(20, 14, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(21, 15, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(22, 16, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(23, 17, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(24, 18, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(25, 19, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(26, 20, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(27, 21, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(28, 22, 'Dirección de Gestión Económico Financiera', '2023-05-08 19:27:01', NULL, NULL),
-(29, 22, 'Secretaría académica', '2023-05-08 19:27:01', NULL, NULL),
-(30, 23, 'General', '2023-05-08 19:27:01', NULL, NULL),
-(31, 24, 'General', '2023-05-08 19:27:01', NULL, NULL);
+INSERT INTO `areas_auditadas` (`id_area_auditada`, `secretaria_id`, `nombre_aa`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 11, 'Dirección de Gestión Económico Financiera', '2023-05-08 19:27:01', NULL, NULL),
+(2, 11, 'Tesorería', '2023-05-08 19:27:01', NULL, NULL),
+(3, 10, 'Dirección Gestión de Estudios', '2023-05-08 19:27:01', NULL, NULL),
+(4, 10, 'Secretaría académica', '2023-05-08 19:27:01', NULL, NULL),
+(5, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(6, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(7, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(8, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(9, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(10, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(11, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(12, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(13, 5, 'Dirección de Gestión y Desarrollo de Personas', '2023-05-08 19:27:01', NULL, NULL),
+(14, 5, 'Dirección de Gestión Económico Financiera', '2023-05-08 19:27:01', NULL, NULL),
+(15, 4, 'Dirección de Gestión Académica', '2023-05-08 19:27:01', NULL, NULL),
+(16, 4, 'Dirección de Gestión de Estudios', '2023-05-08 19:27:01', NULL, NULL),
+(17, 8, 'Dirección Gestión Económico Financiera', '2023-05-08 19:27:01', NULL, NULL),
+(18, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(19, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(20, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(21, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(22, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(23, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(24, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(25, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(26, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(28, 1, 'Dirección de Gestión Económico Financiera', '2023-05-08 19:27:01', NULL, NULL),
+(29, 2, 'Dirección Gestión de Estudios', '2023-05-08 19:27:01', NULL, NULL),
+(30, 13, 'Dirección Gestión Estudios', '2023-05-08 19:27:01', NULL, NULL),
+(31, NULL, 'General', '2023-05-08 19:27:01', NULL, NULL),
+(32, 6, 'Coordinación de Posgrado', '2023-05-11 14:23:32', '2023-05-11 14:22:46', NULL),
+(37, 3, 'Dirección Gestión Administrativa', '2023-05-11 14:29:06', '2023-05-11 14:27:54', NULL),
+(38, 3, 'Dirección Económico Financiera', '2023-05-11 14:29:06', '2023-05-11 14:27:54', NULL),
+(39, 2, 'Dirección Gestión Académica', '2023-05-11 14:32:34', '2023-05-11 14:32:01', NULL),
+(40, 12, 'Secretaría de Postgrado', '2023-05-11 14:33:55', '2023-05-11 14:33:17', NULL),
+(41, NULL, 'Area de prueba', '2023-05-24 10:54:16', '2023-05-24 10:53:40', NULL),
+(42, 8, 'Dirección Gestión en Personal', '2023-06-06 11:23:22', NULL, NULL),
+(43, 8, 'Dirección Gestión Administrativa', '2023-06-06 11:23:22', NULL, NULL),
+(44, 7, 'Dirección Gestión de Estudios', '2023-06-06 11:24:02', NULL, NULL),
+(45, 7, 'Dirección Gestión Académica', '2023-06-06 11:24:02', NULL, NULL),
+(46, 9, 'Departamento de Posgrado', '2023-06-06 11:24:02', NULL, NULL),
+(47, 13, 'Dirección Gestión Académica', '2023-06-23 18:07:48', NULL, NULL),
+(48, 14, 'Dirección Económico Financiera', '2023-06-23 18:07:48', NULL, NULL),
+(49, 14, 'Dirección Gestión en Personal', '2023-06-23 18:08:08', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -124,17 +137,61 @@ CREATE TABLE `observaciones` (
 --
 
 INSERT INTO `observaciones` (`id_observacion`, `area_auditada_id`, `impacto_id`, `estado_id`, `plan_id`, `fecha_observacion`, `proyecto`, `nro_informe_uai`, `detalle_observacion`, `fecha_seguimiento`, `detalle_recomendacion`, `area_involucrada`, `responsable_implementacion`, `fecha_estimada_reg`, `leido`, `usuario_creater`, `usuario_updater`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 2, 1, 1, 16, '2023-04-30', 'Prueba', '42465-79', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-04-30', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', NULL, NULL, NULL, 2, 1, NULL, '2023-04-30 19:40:35', '2023-05-12 02:42:24', NULL),
-(2, 1, 2, 4, 14, '2023-05-01', 'No se prueba', '2/2014', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Ok', '2023-05-06', 'nosh ggjhuhb e que lallala', NULL, NULL, NULL, 2, 1, 3, '2023-05-03 17:57:43', '2023-05-11 00:09:46', NULL),
-(3, 7, 1, 3, 15, '2023-05-12', 'vamos probando', 'r35356', '535tfregrthfefe', '2023-05-27', '43y5yhf grthb grgrt', 'Tesoreria', 'Pirelli, Jose', '2023-06-01', 2, 1, 1, '2023-05-03 19:37:36', NULL, NULL),
-(4, 22, 2, 4, 8, '2023-04-06', 'Otra vez', '123e', 'otra vez seeraa', '2023-05-27', 'odfjidnrkeg rytty', NULL, NULL, NULL, 1, 1, 1, '2023-05-03 19:38:08', NULL, NULL),
-(5, 10, 3, 2, 13, '2023-05-27', 'cegae', '2345 0055', 'oksjoifnj ge kgk bnf', '2023-05-28', 'dgfdgdfg uyyiooo', NULL, NULL, NULL, 1, 1, 1, '2023-05-03 19:38:46', NULL, NULL),
-(6, 15, 1, 3, 14, '2023-05-28', 'Ultimaaa ya', '1277899', 'beso a beso aaa', '2023-05-20', 'un dos tre un dos tres', NULL, NULL, NULL, 1, 1, 1, '2023-05-03 19:39:33', '2023-05-06 21:48:07', NULL),
-(7, 9, 3, 4, 15, '2023-03-02', 'Nunca jamas', '12/2022', 'Ques el detalle de observacion', '2023-03-12', 'Ay nruperta abrile a\r\nla puerta--', NULL, NULL, NULL, 1, 1, 1, '2023-05-04 18:09:50', '2023-05-06 21:47:49', NULL),
-(8, 10, 3, 2, 12, '2023-05-05', 'Finish the back', '12/2019', 'Hello Fani, how are you?', '2023-05-27', 'Let\'s go. She is running at the park', NULL, NULL, NULL, 1, 3, 3, '2023-05-06 17:17:29', '2023-05-06 22:31:56', NULL),
-(9, 21, 2, 1, 14, '2023-05-16', 'Como hacer balances', '32/2021', 'No se que paso con esoo', '2023-05-01', 'vamos corre forest', NULL, NULL, NULL, 1, 3, 3, '2023-05-06 17:39:19', NULL, NULL),
-(10, 4, 1, 1, 14, '2023-05-11', 'A ti te va', '23&332', 'vamos a por todo', '2023-05-26', 'Let\'s go the all', NULL, NULL, NULL, 2, 3, 3, '2023-05-08 19:44:14', '2023-05-09 00:44:36', NULL),
-(11, 7, 2, 1, 15, '2023-05-24', 'Otro mas para acaa', '24/2022', 'Barbaridades de la vidad...', '2023-05-26', 'Otra vez de todo yo..', 'Secretaria', 'Guillermo Paul.', '2023-05-23', 2, 3, NULL, '2023-05-21 20:48:28', NULL, NULL);
+(1, 14, 3, 1, 7, '2014-11-03', 'Movimiento de Fondos y Valores', '38/2014', 'Los agentes que intervienen en el proceso no tienen asignación formal de sus funciones.', '2017-12-31', 'Definir y aprobar formalmente un manual de procedimientos administrativos que contemple la totalidad de los circuitos administrativos y de control interno que se emplean en los movimientos de fondos y valores, definiendo además  claramente las tareas, actividades y procedimientos de control interno de cada uno de los agentes de las áreas intervinientes', NULL, NULL, NULL, 1, 3, NULL, '2023-05-11 13:57:05', NULL, NULL),
+(2, 14, 2, 1, 8, '2015-12-21', 'Compras y Contrataciones', '48/2015', 'La Facultad carece de un procedimiento y/o circuito administrativo formalmente definido para el proceso de compras y contrataciones que contenga los controles a realizar en cada una de las intervenciones.', '2016-08-31', 'Elaborar Manual de Circuitos y Procedimientos Administrativos que defina en forma precisa y clara las responsabilidades y funciones de las áreas intervinientes y determine el procedimiento de generación, ejecución y control de las operaciones administrativas para el proceso de compras y contrataciones.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-11 14:03:07', NULL, NULL),
+(3, 14, 2, 1, 8, '2015-12-21', 'Compras y Contrataciones', '48/2015', 'En los expedientes Nros. 09-2014-04833, 09-2014-05900, 09-2014-02740 y 09-2014-06177 la fecha de la constancia de imputación del compromiso es posterior a la fecha de la orden de compra.', '2016-08-31', 'Corregir mediante el procedimiento administrativo que corresponda.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-11 15:15:52', NULL, NULL),
+(4, 14, 2, 1, 8, '2015-12-21', 'Compras y Contrataciones', '48/2015', 'No se verifica constancia de la intervención de la Comisión de Recepción en el expediente Nº 09-2014-02740, orden de compra Nº 76.', '2016-08-31', 'Corregir mediante el procedimiento administrativo que corresponda.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-12 15:59:58', NULL, NULL),
+(5, 16, 2, 1, 8, '2015-06-05', 'Otorgamiento de Títulos', '18/2015', 'Ausencia de manual de procedimientos y/o circuito administrativo debidamente aprobado por autoridad competente, en el área de  la Secretaría Académica.', '2022-09-15', 'Se deberá definir y aprobar un manual de procedimiento y/o circuito administrativo en  el área auditada, con definición específica de las tareas, actividades y responsabilidades de cada agente, que si bien ésta UAI constató la existencia de documentos internos que se aplican para la tramitación de títulos, es necesario dictar un reglamento en donde se establezcan los criterios fundamentales y los límites de acción de cada sector de la organización, detallándose en los mismos los pasos a cumplir por los diferentes sectores de manera que los operadores puedan tener una guía eficaz sobre cómo proceder para el logro del objetivo.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-15 16:36:49', NULL, NULL),
+(6, 32, 2, 1, 8, '2015-06-05', 'Otorgamiento de Titulos', '18/2015', 'Ausencia de manual de procedimientos y/o circuito administrativo debidamente aprobado por autoridad competente, en el área de la Secretaría de Investigación y Posgrado.', '2022-09-15', 'Se deberá definir y aprobar un manual de procedimiento y/o circuito administrativo en el área auditada, con definición específica de las tareas, actividades y responsabilidades de cada agente.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 11:43:28', NULL, NULL),
+(7, 16, 2, 1, 8, '2015-06-05', 'Otorgamiento de Titulos', '18/2015', 'Se detectaron los siguientes defectos formales en los legajos de alumnos de Grado: \r\na) No se encuentran debidamente foliados, por ejemplo los Legajos Nº 11127, 9551, 11271, 11308, 13528, 13106,12663, 11373, 10358, 12859, 11741, 6491, 14520, 13394, 12151, 13069. \r\nLas actas de examen de los alumnos de Grado: \r\na) Falta la aclaración de firma de los docentes del tribunal examinador, como por ejemplo en el acta Nº J-19/604. \r\nb) Las actas de examen originales se encuentran físicamente en el área de Bedelía. Deberían estar encuadernadas cronológicamente y físicamente almacenadas en el área de gestión de estudios.', '2022-09-15', 'Corregir, a través del procedimiento pertinente, los hallazgos mencionados.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 13:08:53', NULL, NULL),
+(8, 32, 2, 1, 8, '2015-06-05', 'Otorgamiento de Titulos', '18/2015', 'Se detectaron los siguientes defectos formales en los legajos de alumnos de Posgrado: a) El legajo de la alumna Vallejos, Silvina Vanesa, no se encuentra debidamente foliado, tampoco se verifica la intervención del funcionario responsable.', '2022-09-15', 'Corregir, a través del procedimiento pertinente, los hallazgos mencionados.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 13:13:33', NULL, NULL),
+(9, 13, 2, 1, 14, '2021-11-30', 'Capital Humano', '28/2021', 'Falta de Manuales de Procedimientos formales definidos aprobados para el desarrollo de las tareas y actividades del área.', '2021-11-30', 'Definir formalmente los procedimientos operativos relevantes y periódicos del área, reglamentarlos, formalizar la implementación y dar a conocer de manera efectiva al personal involucrado.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 13:23:31', NULL, NULL),
+(10, 13, 2, 1, 14, '2021-11-30', 'Capital Humano', '28/2021', 'La certificación del servicio del personal Docente se realiza mediante una planilla de asistencia de confección manual cuyo punto de control efectivo de su confección se encuentra al finalizar cada mes la cual debe ser entregada en la Secretaria del Departamento quien a su vez remite la misma a la Dirección de Personal de la Facultad.', '2021-11-30', 'Implementar una herramienta automatizada que mejore la calidad y frecuencia de los controles de asistencia y minimice los riesgos de manipulación de la información durante el mes que se certifica la prestación del servicio, como también adaptar los controles de prestación de servicios a la situación que implica el incremento constante del trabajo a distancia  y el dictado de clases que se realicen en forma virtual sin la presencia del personal Docente en al sede de la Unidad Académica.', NULL, NULL, NULL, 1, 3, 3, '2023-05-16 13:24:45', NULL, NULL),
+(11, 13, 2, 1, 14, '2021-11-30', 'Capital Humano', '28/2021', 'El sistema informático utilizado para la registración de asistencia de personal No Docente carece de acto administrativo pertinente que apruebe los procesos y procedimientos utilizados y autorice su implementación.', '2021-11-30', 'Formalizar por acto administrativo pertinente, procesos y procedimientos de utilización del sistema informático de registración de asistencia del personal No Docente, como así también la definición de accesos y usuarios.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 13:25:41', NULL, NULL),
+(12, 13, 2, 1, 14, '2021-11-30', 'Capital Humano', '28/2021', 'La resolución de designación del personal responsable de operar el sistema SIU-MAPUCHE no especifica atributos de acceso y/o nivel operativo asignado para cada agente encargado de operar en el sistema SIU-MAPUCHE.', '2021-11-30', 'Especificar claramente mediante acto administrativo el perfil de acceso de cada agente encargado de operar en el sistema SIU-MAPUCHE y los atributos operativos que dicho perfil de acceso la confiere.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 13:26:54', NULL, NULL),
+(13, 13, 3, 1, 14, '2021-11-30', 'Capital Humano', '28/2021', 'Ausencia en los legajos únicos de las DDJJ de incompatibilidades y documentaciones correspondientes a los años 2020 y 2021, como también falta de aplicación de aspectos formales como ser, foliados incompletos o nulos.', '2021-11-30', 'A fin de dar cumplimiento a las normativas vigentes, actualizar legajos con la documentación faltante y realizar las acciones administrativas que permitan contar con una base de legajos actualizados. Asimismo, se recomienda implementar en el corto plazo a nivel Universidad legajos únicos electrónicos.', NULL, NULL, NULL, 1, 3, 3, '2023-05-16 13:29:02', NULL, NULL),
+(14, 38, 3, 2, 13, '2020-10-26', 'Cierre de Ejercicio', '13/2020', 'No existe una estructura organizativa formalmente aprobada. No existe un Manual de Misiones y Funciones de acuerdo a la Estructura ni existen Manuales de Procedimiento. Falta de cobertura de cargos y funciones esenciales', '2020-10-26', 'Elaborar la Estructura Orgánico Funcional del I.S.S.U.N.N.E, y su correspondiente Manual de Misiones y Funciones y elevar para su aprobación ante el Consejo Superior de la Universidad; en un todo de acuerdo con las normas específicas que deban ser cumplidas. Asimismo elaborar Manual de Procedimientos. Cubrir los cargos con sus correspondientes funciones de carácter esencial para evitar riesgos que podrían afectar a la organización. Se recomienda urgente trámite.', 'PRUEBA', 'PRUEBA', '2023-05-29', 2, 3, NULL, '2023-05-16 13:54:28', '2023-05-29 10:47:56', NULL),
+(15, 38, 3, 1, 13, '2020-10-26', 'Cierre de Ejercicio', '13/2020', 'El área auditada no realizó las tareas de cierre del ejercicio el último día hábil del ejercicio 2019.', '2020-10-25', 'Realizar el último día hábil de cada cierre del ejercicio las actividades que comprenden los arqueos de fondos y valores, corte de documentación y cierre de libros. La información resultante debe ser incluida en los anexos 1 a 17 de los Lineamientos Básicos de Control Interno y suscriptas por los responsables interviniente dichas actividades.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 14:07:45', NULL, NULL),
+(16, 38, 1, 1, 13, '2020-10-26', 'Cierre de Ejercicio', '13/2020', 'Existe inconsistencia numérica entre los valores declarados en Anexo 1 “Efectivo Recontado en Tesorería”, la registración en el sistema SIU Pilagá y el importe expuesto en los Cuadros de Cierres y Balances 2019 Presupuestario y Extrapresupuestario', '2020-10-26', 'El efectivo recontado en tesorería se debe registrar correctamente en el sistema SIU Pilagá y exponer al cierre en la cuenta Caja del rubro disponibildades del Activo del Balance Presupuestario y Extrapresupuestario. Exposición Incorrecta se expuso como Caja lo que corresponde a  Fondos Rotatorios (Presupuestario) $2.084.625,00. $ Diferencia no encontrada de $ 23.913,00.\r\nSe recomienda registrar y exponer correctamente y conciliar e informar la diferencia no hallada. \r\nSe recomienda unificar las bases buscando a través de la Contaduría General de la UNNE la manera de tener en una sola base toda la información.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 14:10:02', NULL, NULL),
+(17, 38, 1, 1, 13, '2020-10-26', 'Cierre de Ejercicio', '13/2020', 'Existe inconsistencia numérica entre la información declarada en Anexo 2 “Cheques Propios en Cartera” y los importes expuestos en los Cuadros de Cierres y Balances 2019 Presupuestario y Extrapresupuestario.', '2020-10-26', 'Los cheques en cartera deben ser registrados en el sistema SIU Pilagá utilizando las opciones disponibles de manera de reflejar el real estado de los mismos, como también de poder listar los cheques que se encuentran emitidos pero no entregados al proveedor/acreedor; lo que permitirá emitir el listado “Cheques en cartera” (Por ej. Pagado/En cartera/ Anulado).', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 14:12:13', NULL, NULL),
+(18, 38, 2, 1, 13, '2020-10-26', 'Cierre de Ejercicio', '13/2020', 'Existe inconsistencia numérica entre la información declarada en Anexo 4 “Documentación Obrante en Tesorería” y los saldos de la Cuentas Comerciales a Pagar expuestos en los Cuadros de Cierres y Balances 2019 Presupuestario y Extrapresupuestario.', '2020-10-26', 'En caso de corresponder se deberá exponer en forma correcta la información solicitada en el Anexo 4.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 14:13:45', NULL, NULL),
+(19, 38, 1, 1, 13, '2020-10-26', 'Cierre de Ejercicio', '13/2020', 'Se incluyo en el anexo 5 “Efectivo Recontado de Caja Chica o Fondo Permanente” a los anticipos de caja chica pendientes de rendición al cierre del ejercicio las que se deben incluir en el Anexo 6 “Anticipo de Cajas Chicas o Fondos Permanentes Pendientes de Rendición”.', '2020-10-26', 'Corregir la información expuesta en los anexos 5 “Efectivo Recontado de Caja Chica o Fondo Permanente” y Anexo 6 “Anticipo de Cajas Chicas o Fondos Permanentes Pendientes de Rendición”.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 14:19:03', NULL, NULL),
+(20, 38, 3, 1, 13, '2020-10-26', 'Cierre de Ejercicio', '13/2020', 'En Anexo 12 “Corte de Chequeras” el último cheque emitido de la cuenta corriente N° 221.10238/93 del Banco de la Nación Argentina no posee registración contable.', '2020-10-26', 'Se deberá asegurar que todos los ingresos y egresos deben ser registrados en el sistema SIU Pilagá.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 14:20:40', NULL, NULL),
+(21, 38, 2, 1, 13, '2020-10-26', 'Cierre de Ejercicio', '13/2020', 'En Anexo 13 “Corte de Documentación” falta acompañar la documentación de respaldo de los últimos documentos emitidos.', '2020-10-26', 'Adjuntar la documentación faltante.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 14:22:18', NULL, NULL),
+(22, 38, 3, 1, 13, '2020-10-26', 'Cierre de Ejercicio', '13/2020', 'Se observa que se ha transcripto en el Anexo 15 lo que resulta de las bases presupuestarias y extrapresupuestarias del listado Ingresos Corrientes del Sistema SIU Pilagá, no siendo conceptualmente correcta la totalidad recursos.', '2020-10-26', 'La información sobre los recursos propios serán verificadas con posterioridad al aislamiento social preventivo y obligatorio por lo que en dicha oportunidad se realizará la recomendación. Se deja constancia que la base de datos al 31 de diciembre de 2019 es parte de la información de esta auditoría.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 14:24:29', NULL, NULL),
+(23, 38, 3, 1, 13, '2020-10-26', 'Cierre de Ejercicio', '13/2020', 'Falta de un Reglamento que estipule los criterios y políticas de administración relacionados con las Inversiones Financieras del Instituto.', '2020-10-26', 'En aras de establecer una sana práctica administrativa, se hace necesario que se disponga de un instrumento que defina las políticas que en materia de Inversiones Financieras, oriente y regule la colocación de los recursos financieros de la Institución.', 'CONTABLE/*TESORERIA', 'Raul Herrera/ José Pirelli', '2023-05-30', 2, 3, NULL, '2023-05-16 14:25:25', NULL, NULL),
+(24, 38, 2, 1, 13, '2020-10-26', 'Cierre de Ejercicio', '13/2020', 'La Unidad Auditada no remite a la Unidad de Auditoria Interna la aprobación de los recursos propios como establece la Resolución Rectoral Nº 0683/08 “Lineamientos Básicos de Control Interno sobre los Recursos Propios y Gastos”.', '2020-10-26', 'Cumplir con lo establecido por la normativa mencionada en lo referente a la aprobación de los recursos propios en forma mensual con documentación de respaldo.', 'CONTABLE', 'Raul Herrera', '2023-05-30', 2, 3, NULL, '2023-05-16 14:26:57', NULL, NULL),
+(25, 37, 2, 1, 14, '2021-11-30', 'Capital Humano', '28/2021', 'La Estructura Orgánico Funcional y Manual de Misiones y funciones del ISSUNNE como Instituto dependiente del Rectorado se encuentra aprobada por Resolución Nº 1115/18 del Consejo Superior. No obstante, no existe manual de misiones y funciones ni procedimientos formalmente definidos aprobados para  el desarrollo de las tareas y actividades del área.', '2021-11-30', 'Definir formalmente el manual de misiones y funciones y los procedimientos operativos relevantes y periódicos del área, reglamentarlos, formalizar la implementación y dar a conocer de manera efectiva al personal involucrado.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 14:30:27', NULL, NULL),
+(26, 37, 2, 1, 14, '2021-11-30', 'Capital Humano', '28/2021', 'Se constató que la Res. 2629/20 R- designa a la Srta. Andrea Guerrero para cumplir tareas administrativas en ISSUNNE del 1 enero 2021 al 31 Diciembre 2021- planta  temporaria.  La Res. de la Srta. Andrea Guerrero No asigna a la misma al  Área de Personal.', '2021-11-30', 'Se sugiere asignar formalmente las actividades de la Srta. Andrea Guerrero al Dpto. de Personal del ISSUNNE.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 14:33:29', NULL, NULL),
+(27, 37, 2, 1, 14, '2021-11-30', 'Capital Humano', '28/2021', 'El sistema informático de control de asistencia de personal no se encuentra aprobado y reglamentado por acto administrativo pertinente.', '2021-11-30', 'efectuar la aprobación formal y la reglamentación de la funcionalidad del sistema informático  para control de asistencia.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 14:34:48', NULL, NULL),
+(28, 37, 2, 1, 14, '2021-11-30', 'Capital Humano', '28/2021', 'A los agentes cuyas huellas dactilares no pueden ser leídas por el sistema de registración de ingreso/egreso de personal se les asigna usuario y contraseña para la registración de su asistencia.', '2021-11-30', 'Se sugiere incorporar la opción del reconocimiento facial para todo el personal, de modo de tener dos formas de registración efectiva para cada agente.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 14:41:37', NULL, NULL),
+(29, 37, 3, 1, 14, '2021-11-30', 'Capital Humano', '28/2021', 'El personal que tiene acceso operativo al sistema informático se desempeña tanto en el Dpto. de Personal como en el área de Informática del Instituto, utilizan el mismo usuario y contraseña para el acceso.  De acuerdo a lo relevado, las dos áreas de trabajo utilizan las mismas credenciales de acceso y poseen iguales perfiles operativos.', '2021-11-30', 'Cada agente que posea un acceso a un sistema de información debe poseer un identificador de usuario único que identifique a la persona, un perfil operativo asignado y autorización formal donde se describa el perfil operativo de acceso otorgado.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 14:44:21', NULL, NULL),
+(30, 37, 3, 1, 14, '2021-11-30', 'Capital Humano', '28/2021', 'El personal de las delegaciones secundarias del Instituto, remiten el registro de asistencia de manera telefónica a la oficina de personal en sede central del ISSUNNE.', '2021-11-30', 'Se sugiere diseñar e implementar un mecanismo de control de asistencia eficiente y efectivo en el lugar de la prestación del servicio. Es conveniente que la certificación del servicio se realice de alguna de determinada forma presencial en el lugar donde se realizan las actividades.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 14:45:37', NULL, NULL),
+(31, 37, 2, 1, 14, '2021-11-30', 'Capital Humano', '28/2021', 'a)El personal del área auditada responsable de operar en el sistema SIU-MAPUCHE no tiene asignado formalmente la tarea de operar en el sistema, así como no se pudo determinar los atributos de acceso y/o nivel operativo asignado al personal para operar dentro del sistema SIU-MAPUCHE.\r\nb)No fue posible constatar identificadores y clave de acceso al sistema SIU-MAPUCHE.\r\nc)El personal no tiene conocimiento de la aprobación formal de un manual de operación para el sistema SIU-MAPUCHE. No obstante, recibe instructivos y capacitaciones para la operación de los distintos módulos del Sistema.\r\nd)No existe acto administrativo que indique la comprensión y aceptación formal por parte del personal involucrado, referida a las atribuciones operativas que implica el acceso otorgado para la operación del sistema SIU-MAPUCHE.', '2021-11-30', 'a) Dictar acto administrativo que asigne formalmente la tarea de operar en el sistema de Liq. de haberes, se defina nivel de acceso y atributos operativos asignado a cada personal autorizado a operar en el sistema  SIU-MAPUCHE. Los agentes deben notificarse y aceptar la operación del sistema asignada.\r\nb) Definir credenciales de acceso al sistema que sean únicas para cada agente encargado  de la operación.', NULL, NULL, NULL, 1, 3, 3, '2023-05-16 14:47:21', NULL, NULL),
+(32, 38, 2, 4, 15, '2022-12-30', 'Recursos Propios', '35/2022', 'No se deja constancia de los arqueos diarios de los producidos percibidos (Anexo I – Res. Rectoral Nº0683/08 “Lineamientos Básicos de Control Interno de Recursos Propios y Gastos”).', '2022-12-30', 'Realizar el arqueo diario de acuerdo a la norma citada.', NULL, NULL, NULL, 1, 3, NULL, '2023-05-16 15:23:15', NULL, NULL),
+(33, 38, 2, 1, 15, '2022-12-30', 'Recursos Propios', '35/2022', 'Los recursos propios registrados en el sistema SIU Pilagá según concepto Posnet, Recaudación de servicio ISSUNNE vía Posnet, engloba los ingresos percibidos por esa modalidad de pago sin desagregar por concepto de ingreso.', '2022-12-30', 'Registrar  los ingresos en el sistema SIU Pilagá por concepto de recaudación.', 'Tesorería', 'Pirelli José', '2023-06-30', 2, 3, NULL, '2023-05-16 15:25:01', NULL, NULL),
+(34, 38, 2, 1, 15, '2022-12-30', 'Recursos Propios', '35/2022', 'Falta de control de las recaudaciones realizadas por los puntos de ventas distintos de la sede central de Corrientes.', '2022-12-30', 'Formalizar los mecanismos de rendiciones de las sedes del ISSUNNE solicitando adjuntar los comprobantes de recaudación numerados en forma correlativa y depósitos bancarios realizados o la recaudación a depositar.', 'control', 'Raul Herrera', '2023-06-30', 2, 3, NULL, '2023-05-16 15:27:37', NULL, NULL),
+(35, 38, 2, 1, 15, '2022-12-30', 'Recursos Propios', '35/2022', 'Falta de control del área de contaduría de los recibos manuales emitidos con los comprobantes de depósito bancario de las recaudaciones.', '2022-12-30', 'El área de Contaduría debe realizar un control cruzado de comprobantes  recaudación del área de tesorería con los depósitos bancarios.', 'CONTABLE', 'Raul Herrera', '2023-06-30', 2, 3, NULL, '2023-05-16 15:28:35', NULL, NULL),
+(36, 38, 2, 1, 15, '2022-12-30', 'Recursos Propios', '35/2022', 'No se emiten recibos por los ingresos mediante transferencias bancarias.', '2022-12-30', 'Emitir Recibos por todos los ingresos independientemente de la modalidad de cobro.', 'Tesorería', 'Pirelli José', '2023-12-31', 2, 3, NULL, '2023-05-16 15:30:53', NULL, NULL),
+(37, 38, 3, 1, 15, '2022-12-30', 'Recursos Propios', '35/2022', 'No se cuenta con un sistema informático para la emisión de comprobantes de recaudación de los recursos propios.', '2022-12-30', 'Considerar la posibilidad de contar con un sistema informático que permita la emisión de comprobantes de recaudación.', 'Sistemas / Tesorería', 'Martín De Biassi / Pirelli José', '2023-12-31', 2, 3, NULL, '2023-05-16 15:33:36', NULL, NULL),
+(38, 41, 2, 1, 14, '2023-05-24', 'Capital Humano', '25-2023', 'Carencia de Manual de Misiones y Funciones en el área auditada', '2023-05-24', 'Elaborar el Manual de Misiones y Funciones', 'Área de Prueba', 'Juan Pérez', '2023-11-30', 2, 3, 3, '2023-05-24 11:01:11', '2023-05-24 11:10:21', NULL),
+(39, 41, 3, 1, 16, '2023-05-24', 'Capital Humano', '25-2023', 'Falta de Manuales de Procedimientos', '2023-05-24', 'Elaborar los Manuales de Procedimientos', NULL, NULL, NULL, 1, 3, NULL, '2023-05-24 11:08:04', NULL, NULL),
+(40, 29, 3, 1, 10, '2017-06-23', 'Gestión Académica- Otorgamiento de Título', '19/2017', 'Ausencia de manuales de procedimientos y/o circuito administrativo y de control en el área de Gestión de Estudios de la Facultad.', '2017-06-23', 'Definir y aprobar formalmente un manual de procedimiento que establezca en forma clara las actividades operativas y de control interno, como así también definir las responsabilidades de cada funcionario interviniente en el proceso que se aplica para la emisión de título.', NULL, NULL, NULL, 1, 3, 3, '2023-06-14 08:59:06', '2023-06-14 14:26:02', NULL),
+(41, 40, 3, 1, 10, '2017-06-23', 'Gestión Académica- Otorgamiento de Título', '19/2017', 'Ausencia de manuales de procedimientos y/o circuito administrativo y de control en el área de Posgrado de la Facultad.', '2017-06-23', 'Definir y aprobar formalmente un manual de procedimiento que establezca en forma clara las actividades operativas y de control interno, como así también definir las responsabilidades de cada funcionario interviniente en el proceso que se aplica para la emisión de título.', NULL, NULL, NULL, 1, 3, 3, '2023-06-14 09:02:05', '2023-06-14 14:26:30', NULL),
+(42, 29, 2, 1, 10, '2017-06-23', 'Gestión Académica- Otorgamiento de Título', '19/2017', 'Ausencia de un manual de usuario para la utilización del sistema SIU GUARANÍ, es decir que no cuentan con una guía detallada del uso del sistema que facilite al personal por una mejor comprensión y lograr así un óptimo funcionamiento del mismo.', '2017-06-23', 'Elaborar un manual de usuario que sirva de base para la comprensión y correcta utilización del sistema informático, en donde se explique en forma detallada e ilustrada las funcionalidades del sistema informático y que además se describa claramente el alcance de los perfiles habilitados para su uso. Delimitar los roles o privilegios de los usuarios que utilizan el sistema informático de acuerdo a las funciones y/o responsabilidades que debe tener asignado cada uno de los agentes.', NULL, NULL, NULL, 1, 3, NULL, '2023-06-14 09:05:52', NULL, NULL),
+(43, 40, 2, 1, 10, '2017-06-23', 'Gestión Académica- Otorgamiento de Título', '19/2017', 'Ausencia de un manual de usuario para la utilización del sistema SIU GUARANÍ, es decir que no cuentan con una guía detallada del uso del sistema que facilite al personal por una mejor comprensión y lograr así un óptimo funcionamiento del mismo.', '2017-06-23', 'Elaborar un manual de usuario que sirva de base para la comprensión y correcta utilización del sistema informático, en donde se explique en forma detallada e ilustrada las funcionalidades del sistema informático y que además se describa claramente el alcance de los perfiles habilitados para su uso. Delimitar los roles o privilegios de los usuarios que utilizan el sistema informático de acuerdo a las funciones y/o responsabilidades que debe tener asignado cada uno de los agentes.', NULL, NULL, NULL, 1, 3, NULL, '2023-06-14 11:54:26', NULL, NULL),
+(44, 29, 2, 1, 10, '2017-06-23', 'Gestión Académica- Otorgamiento de Título', '19/2017', 'Los legajos de los alumnos de grado examinados no se encuentran debidamente foliados y no obran en ellos copia de los certificados analíticos correspondientes.', '2017-06-23', 'Realizar los trámites administrativos pertinentes para su corrección y mantener los legajos correctamente foliados y con copia de los certificados analíticos.', NULL, NULL, NULL, 1, 3, NULL, '2023-06-14 12:17:13', NULL, NULL),
+(45, 40, 2, 1, 10, '2017-06-23', 'Gestión Académica- Otorgamiento de Título', '19/2017', 'En el expediente N° 10-2016-05846 (trámite de título de posgrado) el certificado analítico agregado extendido a favor de la Bioquímica Carballo Graciela Mariel de la carrera de Maestría en Micología Médica, no contiene los datos de registro de las calificaciones y además el formulario Anexo II (Ficha de Tramitación de Título de Posgrado) no posee firma del interesado.', '2017-06-23', 'Tomar los recaudos pertinentes para la correcta confección de los certificados analíticos emitidos que contenga los nombres de las materias de acuerdo al plan de estudio aprobado.', NULL, NULL, NULL, 1, 3, NULL, '2023-06-14 12:31:33', NULL, NULL),
+(46, 28, 3, 1, 11, '2018-11-12', 'Compras y Contrataciones', '52/2018', 'Ausencia de manuales de procedimientos y/o circuito administrativo y de control interno en las áreas intervinientes en el proceso de compras y contrataciones.', '2018-11-12', 'Definir y aprobar formalmente un manual de procedimiento que establezca en forma clara las actividades operativas y de control, como así también definir las responsabilidades de cada funcionario interviniente en el trámite de las contrataciones.', NULL, NULL, NULL, 1, 3, NULL, '2023-06-14 12:41:12', NULL, NULL),
+(47, 28, 2, 1, 11, '2018-11-12', 'Compras y Contrataciones', '52/2018', 'No se elaboró el Plan Anual de compras y contrataciones y de su aprobación por autoridad competente como establece el Reglamento del Régimen de Contrataciones de la Administración Nacional (art. 8 del Decreto N° 1030/16).', '2018-11-12', 'En lo sucesivo, se deberá formular y aprobar un programa de compras y contrataciones, de conformidad a la normativa vigente.', NULL, NULL, NULL, 1, 3, NULL, '2023-06-14 12:43:44', NULL, NULL),
+(48, 28, 1, 1, 11, '2018-11-12', 'Compras y Contrataciones', '52/2018', 'Bienes adquiridos como bienes de consumo (Inc. 2), cuando por sus   características, que no se agotan en el primer uso, son bienes de usos (Inc. 4) y por lo tanto deben inventariarse. Por Ejemplo: Expte. Nº 10-2017-04093, 10-2017-10-04961.', '2018-11-12', 'Los bienes adquiridos deberán imputarse de acuerdo al clasificador por objeto del gasto vigente.', NULL, NULL, NULL, 1, 3, NULL, '2023-06-14 12:46:02', NULL, NULL),
+(49, 28, 2, 1, 11, '2018-11-12', 'Compras y Contrataciones', '52/2018', 'Falta de constancia en las actuaciones administrativas de la recepción definitiva de los bienes adquiridos. Por ejemplo: Expte. Nº 10-2017-07889, Nº 10-2017-06508.', '2018-11-12', 'Se deberá labrar acta de recepción definitiva de los bienes adquiridos como establece la normativa y agregarse la misma al expediente.', NULL, NULL, NULL, 1, 3, NULL, '2023-06-14 12:48:45', NULL, NULL),
+(50, 28, 2, 1, 11, '2018-11-12', 'Compras y Contrataciones', '52/2018', 'La registración de imputación presupuestaria del gasto en el sistema SIU PILAGA no se realizó en la fuente de financiamiento establecida en la Resolución Nº 3003/17 D de adjudicación. Por ejemplo: Expte. Nº 10-2017-06550.', '2018-11-12', 'Registrar contablemente el gasto en el Sistema SIU PILAGA de acuerdo a como establece la Resolución de adjudicación de la compra.', NULL, NULL, NULL, 1, 3, NULL, '2023-06-14 12:51:42', NULL, NULL),
+(51, 28, 1, 1, 11, '2018-11-12', 'Compras y Contrataciones', '52/2018', 'No se realizó la registración patrimonial de los bienes adquiridos como bienes de usos (Inc. 4). Por ejemplo: Expte. N° 10-2017-07889, 10-2017-06508.', '2018-11-12', 'Registrar patrimonialmente todos los bienes adquiridos por la Facultad como bienes de usos (Inc. 4).', NULL, NULL, NULL, 1, 3, NULL, '2023-06-14 12:55:05', NULL, NULL),
+(52, 28, 2, 1, 11, '2018-11-12', 'Compras y Contrataciones', '52/2018', 'En todos los expedientes de contratos como locación de obra, no consta la certificación de real prestación de servicios previa al pago de la factura.', '2018-11-12', 'En todas las contrataciones de personal se deberá prestar la conformidad de la real prestación de servicios del agente por parte de funcionario competente, previo al pago de los honorarios profesionales.', NULL, NULL, NULL, 1, 3, NULL, '2023-06-14 12:59:47', NULL, NULL),
+(53, 28, 3, 1, 8, '2015-10-20', 'Recursos Propios', '39/2015', 'Ausencia de manuales de procedimientos y/o circuito administrativo debidamente aprobado por autoridad competente en las áreas intervinientes en el proceso de recaudación, registración y aplicación de los recursos propios.', '2015-12-31', 'Elaborar un Manual de circuitos y Procedimientos Administrativos que defina en forma precisa y clara las responsabilidades y funciones de las áreas intervinientes, como así también determine el procedimiento de generación, ejecución, gasto y control de las operaciones administrativas para el proceso de recaudación y registración de los recursos propios.', NULL, NULL, NULL, 1, 3, NULL, '2023-06-14 13:09:57', NULL, NULL),
+(54, 28, 3, 1, 8, '2015-12-20', 'Recursos Propios', '39/2015', 'La estructura organizativa aprobada por el Consejo Directivo de la Facultad de Medicina en fecha 01/09/2006 no cumplimenta el requisito de aprobación de estructuras, misiones y funciones por el Consejo Superior que en ejercicio de la administración de personal, es el órgano competente para reglamentar el estado y desempeño de los funcionarios y empleados de la Universidad, en el orden docente y no docente, en el marco de la legislación vigente (art. 64 del Estatuto).', '2015-12-30', 'Instrumentar la aprobación de la estructura orgánica funcional, misiones y funciones de la Facultad de Medicina conforme a la Resolución N° 606/08 C.S. (estructura tipo) con intervención del Consejo Superior.', NULL, NULL, NULL, 1, 3, NULL, '2023-06-14 13:19:20', NULL, NULL),
+(55, 29, 1, 1, 16, '2023-06-25', 'Prueba --', '12/2023', 'Creacion de observacion para prueba 2023', '2023-06-20', 'Eliminarlo a posteriori por favor', NULL, NULL, NULL, 1, 3, 3, '2023-06-25 10:46:56', '2023-06-25 16:17:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -159,22 +216,17 @@ CREATE TABLE `observacion_acciones` (
 --
 
 INSERT INTO `observacion_acciones` (`id_accion`, `observacion_id`, `accion_encarada`, `archivo_adjunto`, `leido`, `usuario_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 5, 'vamos aver que onda', '', 1, 3, '2023-05-09 18:52:57', NULL, NULL),
-(2, 8, 'vamos a ver como es', '10052023_1683670625.pdf', 1, 4, '2023-05-09 19:17:05', NULL, NULL),
-(3, 5, 'vamos que es asi..', '10052023_1683670844.pdf', 1, 4, '2023-05-09 19:20:44', NULL, NULL),
-(4, 5, 'Todo mal por aca.. vamos a ver despues', '', 1, 3, '2023-05-09 20:46:38', NULL, NULL),
-(5, 5, 'ya ten ingrese a todos lados', '10052023_1683676469.pdf', 1, 4, '2023-05-09 20:54:30', NULL, NULL),
-(6, 5, 'No funca dicen que..', '10052023_1683714158.pdf', 1, 3, '2023-05-10 07:22:38', NULL, NULL),
-(7, 1, 'vamos probanod..', '11052023_1683773948.pdf', 2, 4, '2023-05-10 23:59:08', NULL, NULL),
-(8, 1, 'otra prueba mas...', '11052023_1683774147.pdf', 2, 4, '2023-05-11 00:02:27', NULL, NULL),
-(9, 2, 'probando con archivo..', '11052023_1683774246.pdf', 1, 4, '2023-05-11 00:04:06', NULL, NULL),
-(10, 1, 'ya va yendo.... esperame', '', 2, 3, '2023-05-12 22:30:16', NULL, NULL),
-(11, 10, 'Nueva accion correctiva a realizar', '', 2, 4, '2023-05-12 23:30:42', NULL, NULL),
-(12, 10, 'vamos a contestar dos veices', '', 2, 3, '2023-05-12 23:31:38', NULL, NULL),
-(13, 10, 'por que no respondes forro', '', 2, 3, '2023-05-12 23:31:50', NULL, NULL),
-(14, 3, 'Vamos probando...', '', 2, 4, '2023-05-21 20:32:42', NULL, NULL),
-(15, 11, 'Vamos a comenzar..', '22052023_1684712998.pdf', 2, 4, '2023-05-21 20:49:58', NULL, NULL),
-(16, 11, 'Como quieres estar hoy...', '', 2, 3, '2023-05-21 20:50:39', NULL, NULL);
+(1, 38, 'Se adjunta propuesta de Manual de Misiones y Funciones', '', 2, 10, '2023-05-24 11:11:23', NULL, NULL),
+(2, 38, 'Se adjunta propuesta de Manual de Misiones y Funciones', '24052023_1684926722.jpeg', 2, 10, '2023-05-24 11:12:02', NULL, NULL),
+(4, 38, 'Se adjunta propuesta de Manual de Misiones y Funciones', '', 1, 10, '2023-05-30 21:26:51', NULL, NULL),
+(5, 38, 'Se adjunta propuesta de Manual de Misiones y Funciones', '31052023_1685526844.jpg', 1, 10, '2023-05-31 06:54:03', NULL, NULL),
+(6, 33, 'Se concreto reunión con UAI, para coordinar modalidad de registración, atento al volumen de transacciones, cantidad de terminales posnet con las que trabajamos y la ubicación de las mismas; se implemento planilla de rendición diaria de recaudaciones de posnet por terminal, se adjunta planilla de rendición.-', '01062023_1685580671.xlsx', 2, 6, '2023-05-31 21:51:10', NULL, NULL),
+(7, 23, 'El instituto realiza las inversiones de acuerdo a las necesitades operativas económicas, de los requerimientos de fondos para afrontarlos, los cuales son aleatorios conforme a los requerimientos de salud a cubrir.', '', 1, 6, '2023-05-31 21:55:27', NULL, NULL),
+(8, 24, 'Se remite mensualmente, informe de recursos propios por expediente a la Delegada ISSUNNE, para que luego la misma tomado conocimiento eleve a la Contaduría General, esto se encuentra implementado de esta manera.-', '', 1, 6, '2023-05-31 21:57:34', NULL, NULL),
+(9, 34, 'Se encuentra en proceso de coordinación con la sede Chaco, para control de pagos por transferencias y vía posnet.-', '', 1, 6, '2023-05-31 21:58:43', NULL, NULL),
+(10, 35, 'Se encuentra en proceso de implementación de control díario de los recibo , atento a que en sede Corrientes y Chaco se emiten recibos.-', '', 1, 6, '2023-05-31 21:59:46', NULL, NULL),
+(11, 36, 'El Dpto Tesorería, se encuentra trabajando, para regularizar el presente punto.', '', 1, 6, '2023-05-31 22:00:43', NULL, NULL),
+(12, 37, 'Se realizaron reuniones con el área de sistemas de ISSUNNE para el desarrollo de un sistema de recaudación, el área de Sistema se encuentra en etapa de relevamiento para el desarrollo del mismo', '', 1, 6, '2023-05-31 22:01:26', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -263,6 +315,67 @@ INSERT INTO `observacion_planes` (`id_plan`, `plan`, `created_at`, `updated_at`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `permisos_det`
+--
+
+CREATE TABLE `permisos_det` (
+  `id_detalle` bigint(20) NOT NULL,
+  `permiso_id` bigint(20) NOT NULL,
+  `unidad_academica_id` int(11) DEFAULT NULL,
+  `area_auditada_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `permisos_det`
+--
+
+INSERT INTO `permisos_det` (`id_detalle`, `permiso_id`, `unidad_academica_id`, `area_auditada_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 11, 10, 14, '2023-06-21 11:26:38', NULL, NULL),
+(2, 11, 10, 32, '2023-06-21 11:33:00', NULL, NULL),
+(3, 11, 12, NULL, '2023-06-21 15:30:25', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `secretarias`
+--
+
+CREATE TABLE `secretarias` (
+  `id_secretaria` int(11) NOT NULL,
+  `ua_id` int(11) NOT NULL,
+  `nombre_secretaria` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `secretarias`
+--
+
+INSERT INTO `secretarias` (`id_secretaria`, `ua_id`, `nombre_secretaria`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 22, 'Secretaría Administrativa', '2023-06-21 21:02:16', NULL, NULL),
+(2, 22, 'Secretaría Academica', '2023-06-21 21:02:16', NULL, NULL),
+(3, 21, 'Coordinación Administrativa', '2023-06-23 17:15:25', NULL, NULL),
+(4, 10, 'Secretaría Académica', '2023-06-23 17:16:17', NULL, NULL),
+(5, 10, 'Secretaría Administrativa', '2023-06-23 17:16:17', NULL, NULL),
+(6, 10, 'Secretaría de Investigación y Posgrado', '2023-06-23 17:16:46', NULL, NULL),
+(7, 11, 'Secretaría Académica', '2023-06-23 17:18:01', NULL, NULL),
+(8, 11, 'Secretaría Administrativa', '2023-06-23 17:18:01', NULL, NULL),
+(9, 11, 'Secretaría de Investigación y Posgrado', '2023-06-23 17:18:15', NULL, NULL),
+(10, 1, 'Secretaría Académica', '2023-06-23 17:19:06', NULL, NULL),
+(11, 1, 'Secretaría Administrativa', '2023-06-23 17:19:06', NULL, NULL),
+(12, 22, 'Secretaría de Posgrado', '2023-06-23 18:01:25', NULL, NULL),
+(13, 23, 'Secretaría Académica', '2023-06-23 18:04:19', NULL, NULL),
+(14, 23, 'Secretaría de Posgrado', '2023-06-23 18:04:19', NULL, NULL),
+(15, 23, 'Dirección de Coordinación Administrativa', '2023-06-23 18:05:00', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `unidades_academicas`
 --
 
@@ -302,7 +415,8 @@ INSERT INTO `unidades_academicas` (`id_ua`, `nombre_ua`, `created_at`, `updated_
 (21, 'ISSUNNE', '2023-04-23 22:32:35', NULL, NULL),
 (22, 'Medicina', '2023-04-23 22:32:35', NULL, NULL),
 (23, 'Odontología', '2023-04-23 22:32:35', NULL, NULL),
-(24, 'Secretaria General de Extensión Universitaria', '2023-04-23 22:32:35', NULL, NULL);
+(24, 'Secretaria General de Extensión Universitaria', '2023-04-23 22:32:35', NULL, NULL),
+(25, 'Facultad de Prueba', '2023-05-24 10:53:21', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -328,11 +442,29 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido`, `telefono`, `foto`, `email`, `password`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Superadmin', 'UAI', '', 'no-user.jpg', 'superadmin@uaigestion.com', '$2y$10$6O97Y/KXgg3PfEK4UZSEieML92b5tMKHXFXSf8gRv7pJ5rBU/iD1.', '2023-04-23 19:38:55', '2023-04-23 20:36:10', NULL),
-(2, 'Supervisor', 'UAI', NULL, 'no-user.jpg', 'supervisor@uaigestion.com', '$2y$10$a50ZZ4nzPH8q.KBxNEhvDeJeAdfoOZPQnLI5IgBZZ7YORDdeokNOW', '2023-05-05 21:20:38', NULL, NULL),
-(3, 'Operador', 'UAI', NULL, 'no-user.jpg', 'operador@uaigestion.com', '$2y$10$a50ZZ4nzPH8q.KBxNEhvDeJeAdfoOZPQnLI5IgBZZ7YORDdeokNOW', '2023-05-05 21:22:24', NULL, NULL),
-(4, 'General', 'UA', NULL, 'no-user.jpg', 'ua_general@uaigestion.com', '$2y$10$a50ZZ4nzPH8q.KBxNEhvDeJeAdfoOZPQnLI5IgBZZ7YORDdeokNOW', '2023-05-05 21:24:33', NULL, NULL),
-(5, 'Superadmin', 'UA', NULL, 'no-user.jpg', 'ua_superadmin@uaigestion.com', '$2y$10$a50ZZ4nzPH8q.KBxNEhvDeJeAdfoOZPQnLI5IgBZZ7YORDdeokNOW', '2023-05-17 19:38:57', NULL, NULL);
+(1, 'Superadmin', 'UAI', '', 'no-user.jpg', 'superadmin@seguimientosuai.unne.edu.ar', '$2y$10$375n/3m0s7EXzKZDE07ZHeCNQdievTJRCLmbTJBbVKrwOKKVm6FbK', '2023-04-23 19:38:55', '2023-04-23 20:36:10', NULL),
+(2, 'Leila Lourdes', 'Pérez Lugo', '', 'no-user.jpg', 'lperezlugo@unne.edu.ar', '$2y$10$375n/3m0s7EXzKZDE07ZHeCNQdievTJRCLmbTJBbVKrwOKKVm6FbK', '2023-05-05 21:20:38', '2023-05-30 15:49:13', NULL),
+(3, 'Tamara', 'Segovia', '', 'no-user.jpg', 'tsegovia@unne.edu.ar', '$2y$10$375n/3m0s7EXzKZDE07ZHeCNQdievTJRCLmbTJBbVKrwOKKVm6FbK', '2023-05-05 21:22:24', '2023-05-30 15:46:21', NULL),
+(4, 'Dana ', 'Zimerman', NULL, 'no-user.jpg', 'dana_zimerman@hotmail.com', '$2y$10$a50ZZ4nzPH8q.KBxNEhvDeJeAdfoOZPQnLI5IgBZZ7YORDdeokNOW', '2023-05-05 21:24:33', NULL, NULL),
+(5, 'José Vicente', 'Pirelli', NULL, 'no-user.jpg', 'tesoreria_issunne@unne.edu.ar', '$2y$10$a50ZZ4nzPH8q.KBxNEhvDeJeAdfoOZPQnLI5IgBZZ7YORDdeokNOW', '2023-05-18 02:18:03', '2023-05-18 02:17:31', NULL),
+(6, 'Sergio Fabián', 'Fournier', NULL, 'no-user.jpg', 'contable_issunne@unne.edu.ar', '$2y$10$a50ZZ4nzPH8q.KBxNEhvDeJeAdfoOZPQnLI5IgBZZ7YORDdeokNOW', '2023-05-22 22:36:49', '2023-05-22 22:35:41', NULL),
+(7, 'Sergio Andrés', 'Mendoza Bazan ', NULL, 'no-user.jpg', 'mendozasergio@seguimientosuai.unne.edu.ar', '$2y$10$a50ZZ4nzPH8q.KBxNEhvDeJeAdfoOZPQnLI5IgBZZ7YORDdeokNOW', '2023-05-22 22:36:49', '2023-05-22 22:35:41', NULL),
+(8, 'Andrea', 'Guerrero', NULL, 'no-user.jpg', 'personal_issunne@unne.edu.ar', '$2y$10$a50ZZ4nzPH8q.KBxNEhvDeJeAdfoOZPQnLI5IgBZZ7YORDdeokNOW', '2023-05-22 22:41:46', '2023-05-22 22:40:59', NULL),
+(9, 'Ernesto', 'Romero', NULL, 'no-user.jpg', 'personal.issunne@gmail.com', '$2y$10$a50ZZ4nzPH8q.KBxNEhvDeJeAdfoOZPQnLI5IgBZZ7YORDdeokNOW', '2023-05-22 22:41:46', '2023-05-22 22:40:59', NULL),
+(10, 'Nombre ', 'Apellido', NULL, 'no-user.jpg', 'prueba@unne.edu.ar', '$2y$10$6O97Y/KXgg3PfEK4UZSEieML92b5tMKHXFXSf8gRv7pJ5rBU/iD1.', '2023-05-24 10:55:38', '2023-05-24 10:54:32', NULL),
+(11, 'María Viviana', 'Godoy Guglielmone', NULL, 'no-user.jpg', 'mvgodoy@exa.unne.edu.ar', '$2y$10$375n/3m0s7EXzKZDE07ZHeCNQdievTJRCLmbTJBbVKrwOKKVm6FbK', '2023-06-16 10:06:52', NULL, NULL),
+(12, 'Enrique', 'Laffont', NULL, 'no-user.jpg', 'erl@exa.unne.edu.ar ', '$2y$10$6O97Y/KXgg3PfEK4UZSEieML92b5tMKHXFXSf8gRv7pJ5rBU/iD1.', '2023-06-16 10:06:52', NULL, NULL),
+(13, 'Yanina', 'Medina', NULL, 'no-user.jpg', 'yanina@exa.unne.edu.ar', '$2y$10$6O97Y/KXgg3PfEK4UZSEieML92b5tMKHXFXSf8gRv7pJ5rBU/iD1.', '2023-06-16 10:09:50', NULL, NULL),
+(14, 'Jeremías Adrián', 'García Cabrera ', NULL, 'no-user.jpg', 'jeremiasgarcia@exa.unne.edu.ar', '$2y$10$6O97Y/KXgg3PfEK4UZSEieML92b5tMKHXFXSf8gRv7pJ5rBU/iD1.', '2023-06-16 10:15:38', NULL, NULL),
+(15, 'Viviana', 'Solis Neffa', NULL, 'no-user.jpg', 'sip.facena@comunidad.unne.edu.ar', '$2y$10$6O97Y/KXgg3PfEK4UZSEieML92b5tMKHXFXSf8gRv7pJ5rBU/iD1.', '2023-06-16 10:15:38', NULL, NULL),
+(16, 'Lucas', 'Oviedo', NULL, 'no-user.jpg', 'lucas.oviedo@exa.unne.edu.ar ', '$2y$10$6O97Y/KXgg3PfEK4UZSEieML92b5tMKHXFXSf8gRv7pJ5rBU/iD1.', '2023-06-16 10:18:24', NULL, NULL),
+(17, 'Natalia', 'Serrano', NULL, 'no-user.jpg', 'nserrano@exa.unne.edu.ar ', '$2y$10$6O97Y/KXgg3PfEK4UZSEieML92b5tMKHXFXSf8gRv7pJ5rBU/iD1.', '2023-06-16 10:18:24', NULL, NULL),
+(18, 'Paula', 'Baez', NULL, 'no-user.jpg', 'pbaez@exa.unne.edu.ar', '$2y$10$6O97Y/KXgg3PfEK4UZSEieML92b5tMKHXFXSf8gRv7pJ5rBU/iD1.', '2023-06-16 10:22:06', NULL, NULL),
+(19, 'Lucrecia', 'Monzon', NULL, 'no-user.jpg', 'lucrecia.monzon@exa.unne.edu.ar', '$2y$10$6O97Y/KXgg3PfEK4UZSEieML92b5tMKHXFXSf8gRv7pJ5rBU/iD1.', '2023-06-16 10:23:56', NULL, NULL),
+(20, 'Nancy', 'Lugo', NULL, 'no-user.jpg', 'nanlugo@exa.unne.edu.ar', '$2y$10$6O97Y/KXgg3PfEK4UZSEieML92b5tMKHXFXSf8gRv7pJ5rBU/iD1.', '2023-06-16 10:25:50', NULL, NULL),
+(21, 'Miguel', 'Romero', NULL, 'no-user.jpg', 'miguelrom@exa.unne.edu.ar', '$2y$10$6O97Y/KXgg3PfEK4UZSEieML92b5tMKHXFXSf8gRv7pJ5rBU/iD1.', '2023-06-16 10:25:50', NULL, NULL),
+(22, 'Raquel', 'Melgarejo', NULL, 'no-user.jpg', 'raquel@exa.unne.edu.ar', '$2y$10$6O97Y/KXgg3PfEK4UZSEieML92b5tMKHXFXSf8gRv7pJ5rBU/iD1.', '2023-06-16 10:28:48', NULL, NULL),
+(23, 'Angel Eduardo', 'Barrios Ruiz', NULL, 'no-user.jpg', 'a.barrios@exa.unne.edu.ar', '$2y$10$6O97Y/KXgg3PfEK4UZSEieML92b5tMKHXFXSf8gRv7pJ5rBU/iD1.', '2023-06-16 10:30:06', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -345,6 +477,7 @@ CREATE TABLE `usuarios_permisos` (
   `usuario_id` int(11) NOT NULL,
   `usuario_tipo_id` int(11) NOT NULL,
   `unidad_academica_id` int(11) DEFAULT NULL,
+  `secretaria_id` int(11) DEFAULT NULL,
   `area_auditada_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
@@ -355,12 +488,30 @@ CREATE TABLE `usuarios_permisos` (
 -- Volcado de datos para la tabla `usuarios_permisos`
 --
 
-INSERT INTO `usuarios_permisos` (`id_permiso`, `usuario_id`, `usuario_tipo_id`, `unidad_academica_id`, `area_auditada_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, NULL, NULL, '2023-05-05 19:41:31', NULL, NULL),
-(2, 2, 2, NULL, NULL, '2023-05-05 21:39:09', NULL, NULL),
-(3, 3, 3, NULL, NULL, '2023-05-05 21:40:22', NULL, NULL),
-(4, 4, 4, 4, NULL, '2023-05-07 00:45:17', NULL, NULL),
-(5, 5, 5, 10, NULL, '2023-05-17 19:37:42', NULL, NULL);
+INSERT INTO `usuarios_permisos` (`id_permiso`, `usuario_id`, `usuario_tipo_id`, `unidad_academica_id`, `secretaria_id`, `area_auditada_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 1, NULL, NULL, NULL, '2023-05-11 03:57:13', '2023-05-11 03:57:02', NULL),
+(2, 2, 2, 2, NULL, NULL, '2023-05-11 03:57:27', '2023-05-11 03:57:15', NULL),
+(3, 3, 3, 3, NULL, NULL, '2023-05-11 03:57:35', '2023-05-11 03:57:29', NULL),
+(4, 4, 5, 21, NULL, NULL, '2023-05-11 03:57:46', '2023-05-11 03:57:42', NULL),
+(5, 5, 4, 21, NULL, 38, '2023-05-18 02:18:47', '2023-05-18 02:18:33', NULL),
+(6, 6, 4, 21, NULL, 38, '2023-05-22 22:38:17', '2023-05-22 22:37:55', NULL),
+(7, 7, 4, 21, NULL, 38, '2023-05-22 22:38:17', '2023-05-22 22:37:55', NULL),
+(8, 8, 4, 21, NULL, 37, '2023-05-22 22:42:32', '2023-05-22 22:42:07', NULL),
+(9, 9, 4, 21, NULL, 37, '2023-05-22 22:42:32', '2023-05-22 22:42:07', NULL),
+(10, 10, 4, 25, NULL, 41, '2023-05-24 11:05:30', '2023-05-24 11:05:03', NULL),
+(11, 11, 5, 22, NULL, NULL, '2023-06-16 10:07:52', NULL, NULL),
+(12, 12, 5, 10, NULL, NULL, '2023-06-16 10:07:52', NULL, NULL),
+(13, 13, 5, 10, NULL, NULL, '2023-06-16 10:10:15', NULL, NULL),
+(14, 14, 5, 10, NULL, NULL, '2023-06-16 10:16:03', NULL, NULL),
+(15, 15, 5, 10, NULL, NULL, '2023-06-16 10:16:03', NULL, NULL),
+(16, 16, 5, 10, NULL, NULL, '2023-06-16 10:18:59', NULL, NULL),
+(17, 17, 5, 10, NULL, NULL, '2023-06-16 10:18:59', NULL, NULL),
+(18, 18, 4, 10, NULL, 14, '2023-06-16 10:23:03', NULL, NULL),
+(19, 19, 4, 10, NULL, 13, '2023-06-16 10:24:18', NULL, NULL),
+(20, 20, 4, 10, NULL, 16, '2023-06-16 10:27:37', NULL, NULL),
+(21, 21, 4, 10, NULL, 16, '2023-06-16 10:27:37', NULL, NULL),
+(22, 22, 4, 10, NULL, 15, '2023-06-16 10:29:13', NULL, NULL),
+(23, 23, 4, 10, NULL, 32, '2023-06-16 10:30:31', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -381,8 +532,9 @@ INSERT INTO `usuarios_tipo` (`id_tipo_usuario`, `tipo_usuario`) VALUES
 (3, 'OPERADOR'),
 (1, 'SUPERADMIN'),
 (2, 'SUPERVISOR'),
-(4, 'UA_GENERAL'),
-(5, 'UA_SUPERADMIN');
+(5, 'UA_DECANO'),
+(4, 'UA_OPERADOR'),
+(6, 'UA_SECRETARIO');
 
 --
 -- Índices para tablas volcadas
@@ -393,7 +545,7 @@ INSERT INTO `usuarios_tipo` (`id_tipo_usuario`, `tipo_usuario`) VALUES
 --
 ALTER TABLE `areas_auditadas`
   ADD PRIMARY KEY (`id_area_auditada`),
-  ADD KEY `ua_id` (`ua_id`);
+  ADD KEY `ua_id` (`secretaria_id`);
 
 --
 -- Indices de la tabla `intervenciones`
@@ -436,6 +588,20 @@ ALTER TABLE `observacion_planes`
   ADD PRIMARY KEY (`id_plan`);
 
 --
+-- Indices de la tabla `permisos_det`
+--
+ALTER TABLE `permisos_det`
+  ADD PRIMARY KEY (`id_detalle`),
+  ADD KEY `permiso_id` (`permiso_id`);
+
+--
+-- Indices de la tabla `secretarias`
+--
+ALTER TABLE `secretarias`
+  ADD PRIMARY KEY (`id_secretaria`),
+  ADD KEY `ua_id` (`ua_id`);
+
+--
 -- Indices de la tabla `unidades_academicas`
 --
 ALTER TABLE `unidades_academicas`
@@ -469,7 +635,7 @@ ALTER TABLE `usuarios_tipo`
 -- AUTO_INCREMENT de la tabla `areas_auditadas`
 --
 ALTER TABLE `areas_auditadas`
-  MODIFY `id_area_auditada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_area_auditada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de la tabla `intervenciones`
@@ -481,13 +647,13 @@ ALTER TABLE `intervenciones`
 -- AUTO_INCREMENT de la tabla `observaciones`
 --
 ALTER TABLE `observaciones`
-  MODIFY `id_observacion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_observacion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `observacion_acciones`
 --
 ALTER TABLE `observacion_acciones`
-  MODIFY `id_accion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_accion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `observacion_estados`
@@ -508,28 +674,40 @@ ALTER TABLE `observacion_planes`
   MODIFY `id_plan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
+-- AUTO_INCREMENT de la tabla `permisos_det`
+--
+ALTER TABLE `permisos_det`
+  MODIFY `id_detalle` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `secretarias`
+--
+ALTER TABLE `secretarias`
+  MODIFY `id_secretaria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT de la tabla `unidades_academicas`
 --
 ALTER TABLE `unidades_academicas`
-  MODIFY `id_ua` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_ua` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios_permisos`
 --
 ALTER TABLE `usuarios_permisos`
-  MODIFY `id_permiso` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_permiso` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios_tipo`
 --
 ALTER TABLE `usuarios_tipo`
-  MODIFY `id_tipo_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_tipo_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
@@ -539,7 +717,7 @@ ALTER TABLE `usuarios_tipo`
 -- Filtros para la tabla `areas_auditadas`
 --
 ALTER TABLE `areas_auditadas`
-  ADD CONSTRAINT `areas_auditadas_ibfk_1` FOREIGN KEY (`ua_id`) REFERENCES `unidades_academicas` (`id_ua`);
+  ADD CONSTRAINT `areas_auditadas_ibfk_1` FOREIGN KEY (`secretaria_id`) REFERENCES `secretarias` (`id_secretaria`);
 
 --
 -- Filtros para la tabla `observaciones`
@@ -549,6 +727,18 @@ ALTER TABLE `observaciones`
   ADD CONSTRAINT `observaciones_ibfk_2` FOREIGN KEY (`impacto_id`) REFERENCES `observacion_impactos` (`id_impacto`),
   ADD CONSTRAINT `observaciones_ibfk_3` FOREIGN KEY (`estado_id`) REFERENCES `observacion_estados` (`id_estado`),
   ADD CONSTRAINT `observaciones_ibfk_4` FOREIGN KEY (`plan_id`) REFERENCES `observacion_planes` (`id_plan`);
+
+--
+-- Filtros para la tabla `permisos_det`
+--
+ALTER TABLE `permisos_det`
+  ADD CONSTRAINT `permisos_det_ibfk_1` FOREIGN KEY (`permiso_id`) REFERENCES `usuarios_permisos` (`id_permiso`);
+
+--
+-- Filtros para la tabla `secretarias`
+--
+ALTER TABLE `secretarias`
+  ADD CONSTRAINT `secretarias_ibfk_1` FOREIGN KEY (`ua_id`) REFERENCES `unidades_academicas` (`id_ua`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

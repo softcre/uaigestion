@@ -85,10 +85,13 @@ $route[OBSERVACIONES_PATH . '/frmCambiarEstado/(:num)']  = 'admin/Observaciones_
 $route['api/acciones/crear']  = 'api/Acciones/crear';
 $route['api/acciones/load']  = 'api/Acciones/loadAcciones';
 
-$route['api/areas-auditadas/getByUnidadAcademica'] = 'api/AreasAuditadas/getByUnidadAcademica';
+// $route['api/areas-auditadas/getByUnidadAcademica'] = 'api/AreasAuditadas/getByUnidadAcademica';
+$route['api/areas-auditadas/getBySecretaria'] = 'api/AreasAuditadas/getBySecretaria';
 
 $route['api/observaciones/getByAreaAuditada']  = 'api/Observaciones/getByAreaAuditada';
 $route['api/observaciones/load']  = 'api/Observaciones/loadObservaciones';
 $route['api/observaciones/crear']  = 'api/Observaciones/crear';
 $route['api/observaciones/actualizar']  = 'api/Observaciones/actualizar';
 $route['api/observaciones/actualizar-estado']  = 'api/Observaciones/actualizarEstado';
+
+$route['api/secretarias/getByUnidadAcademica'] = 'api/Secretarias/getByUnidadAcademica';

@@ -5,7 +5,7 @@
       <thead>
         <tr class="text-center">
           <th data-field="id_observacion" class="th-link"> <i class="fas fa-sort"></i> N° Orden</th>
-          <?php if (permisoSuperadminSupervisorOperador()) : ?>
+          <?php if (permiso_all_UAI()) : ?>
             <th data-field="nombre_ua" class="th-link"> <i class="fas fa-sort"></i> Unidad académica/Instituto</th>
           <?php endif; ?>
           <th data-field="proyecto" class="th-link"><i class="fas fa-sort"></i> Proyecto/Actividad</th>
@@ -21,7 +21,7 @@
         <?php foreach ($observaciones as $obs) : ?>
           <tr id="row-id-<?= $obs->id_observacion; ?>">
             <td><?= $obs->id_observacion; ?></td>
-            <?php if (permisoSuperadminSupervisorOperador()) : ?>
+            <?php if (permiso_all_UAI()) : ?>
               <td><?= $obs->nombre_ua; ?></td>
             <?php endif; ?>
             <td><?= $obs->proyecto; ?></td>
@@ -49,12 +49,12 @@
               </div>
             </td>
             <td class="text-center ">
-              <?php if ($obs->leido == 1 && permisoUA_general()) : // 1=>sin leer; 2=>leido; 
+              <?php if ($obs->leido == 1 && permisoUAOperador()) : // 1=>sin leer; 2=>leido; 
               ?>
                 <i id="leido-obs-<?= $obs->id_observacion; ?>" class="fas fa-dot-circle fa-xs text-info">
                 <?php endif; ?>
 
-                <?php if ($obs->acciones_no_leidas > 0 && permisoOperadorUA_general()) : ?>
+                <?php if ($obs->acciones_no_leidas > 0 && permisoOperador_UAOperador()) : ?>
                   <i id="leido-acc-<?= $obs->id_observacion; ?>" class="fas fa-dot-circle fa-xs text-purple">
                   <?php endif; ?>
             </td>
@@ -72,9 +72,9 @@
       </tbody>
     </table>
 
-    <?php if (permisoOperadorUA_general()) : ?>
+    <?php if (permisoOperador_UAOperador()) : ?>
       <div class="mt-3 text-center small">
-        <?php if (permisoUA_general()) : ?>
+        <?php if (permisoUAOperador()) : ?>
           <span class="mr-2">
             <i class="fas fa-dot-circle text-info"></i> Observaciones sin leer
           </span>
