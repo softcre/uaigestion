@@ -100,6 +100,7 @@ function getSecretariasList() {
 	let areaAuditada = $("#aa_busq");
 
 	paramPage.ua_id = unidadAcademica_id;
+	paramPage.secre_id = secretaria.val();
 
 	if (unidadAcademica_id != '' && document.getElementById('ua_busq').type != 'hidden') {
 		initSelect(secretaria);
